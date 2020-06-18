@@ -3,6 +3,9 @@
     <BannerSlider></BannerSlider>
     <BundlePack></BundlePack>
     <ExamShowcase></ExamShowcase>
+    <div class="tow">
+      <p>Editted from two</p>
+    </div>
   </div>
 </template>
 
