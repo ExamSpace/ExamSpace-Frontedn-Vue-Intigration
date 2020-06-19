@@ -3,14 +3,15 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-import { BootstrapVue } from "bootstrap-vue";
+import { BootstrapVue, BootstrapVueIcons } from "bootstrap-vue";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import "bootstrap/dist/js/bootstrap";
+// import "bootstrap/dist/js/bootstrap";
 
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons);
 
 new Vue({
   router,

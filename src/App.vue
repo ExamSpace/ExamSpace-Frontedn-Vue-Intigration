@@ -1,27 +1,37 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Homepage</router-link>|
-      <router-link to="/login">Login</router-link>
-    </div>
+    <NavBar v-if="showNav"></NavBar>
     <router-view />
   </div>
 </template>
 
+<script>
+import NavBar from "@/components/NavBar.vue";
+export default {
+  components: {
+    NavBar
+  },
+  computed: {
+    showNav() {
+      if (this.$route.path == "/login") {
+        return false;
+      }
+      return true;
+    }
+  }
+};
+</script>
+
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  // font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: white;
 }
 
 #nav {
-  padding: 30px;
-
   a {
-    font-weight: bold;
-    color: #2c3e50;
-
     &.router-link-exact-active {
       color: #42b983;
     }

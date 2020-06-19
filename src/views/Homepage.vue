@@ -3,6 +3,11 @@
     <BannerSlider></BannerSlider>
     <BundlePack></BundlePack>
     <ExamShowcase></ExamShowcase>
+
+    <QuestionBank></QuestionBank>
+    <CustomCard></CustomCard>
+    <FAQ></FAQ>
+    <HomeFooter></HomeFooter>
   </div>
 </template>
 
@@ -10,12 +15,20 @@
 import BannerSlider from "@/components/BannerSlider.vue";
 import BundlePack from "@/components/BundlePack.vue";
 import ExamShowcase from "@/components/ExamShowcase.vue";
+import QuestionBank from "@/components/QuestionBank.vue";
+import CustomCard from "@/components/CustomCard.vue";
+import FAQ from "@/components/FAQ.vue";
+import HomeFooter from "@/components/HomeFooter.vue";
 export default {
   name: "Homepage",
   components: {
     BannerSlider,
     BundlePack,
-    ExamShowcase
+    ExamShowcase,
+    QuestionBank,
+    CustomCard,
+    FAQ,
+    HomeFooter
   }
 };
 </script>

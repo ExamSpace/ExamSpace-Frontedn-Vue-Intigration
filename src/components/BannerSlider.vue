@@ -1,67 +1,31 @@
 <template>
   <div id="banner_slider">
-    <div
-      id="carouselExampleIndicators"
-      class="carousel slide"
-      data-ride="carousel"
+    <b-carousel
+      id="carousel-1"
+      :interval="4000"
+      controls
+      indicators
+      background="#ababab"
+      style="text-shadow: 1px 1px 2px #333;"
     >
-      <ol class="carousel-indicators">
-        <li
-          data-target="#carouselExampleIndicators"
-          data-slide-to="0"
-          class="active"
-        ></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img
-            class="d-block w-100"
-            src="../assets/BannerSlider/img/img1.png"
-            alt="First slide"
-          />
-        </div>
-        <div class="carousel-item">
-          <img
-            class="d-block w-100"
-            src="../assets/BannerSlider/img/img1.png"
-            alt="Second slide"
-          />
-        </div>
-        <div class="carousel-item">
-          <img
-            class="d-block w-100"
-            src="../assets/BannerSlider/img/img1.png"
-            alt="Third slide"
-          />
-        </div>
-      </div>
-      <a
-        class="carousel-control-prev"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a
-        class="carousel-control-next"
-        href="#carouselExampleIndicators"
-        role="button"
-        data-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
+      <!-- Text slides with image -->
+      <b-carousel-slide>
+        <template v-slot:img>
+          <img class="d-block img-fluid w-100" src="../assets/BannerSlider/img/img1.png" alt />
+        </template>
+      </b-carousel-slide>
+      <b-carousel-slide>
+        <template v-slot:img>
+          <img class="d-block img-fluid w-100" src="../assets/BannerSlider/img/img1.png" alt />
+        </template>
+      </b-carousel-slide>
+    </b-carousel>
   </div>
 </template>
 
 <script>
 export default {
-  name: "Banner",
+  name: "Banner"
 };
 </script>
 
