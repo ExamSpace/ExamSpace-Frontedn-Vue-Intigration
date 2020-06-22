@@ -13,7 +13,7 @@
       <a href>
         <img src="../assets/NavBar/img/twitter.png" width="30px" alt="insta" />
       </a>
-      <b-button size="sm" class="nav-btn" variant="secondary" href="/login">Log In</b-button>
+      <b-button size="sm" class="nav-btn" variant="secondary" to="/login">Log In</b-button>
       <b-button size="sm" class="nav-btn" variant="primary">SignUp</b-button>
     </div>
     <b-navbar toggleable="lg" type="light" variant="light">
