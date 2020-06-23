@@ -6,16 +6,19 @@
           <div class="card border-0">
             <div class="card-body">
               <h5 class="card-title">Declaration</h5>
-              <p
-                class="card-text"
-              >The following questionnaire has been prepared by EduHive Originals. All rights regarding question quality, answer, corrections and related contents are reserved by EduHive Originals.</p>
+              <p class="card-text">
+                The following questionnaire has been prepared by EduHive
+                Originals. All rights regarding question quality, answer,
+                corrections and related contents are reserved by EduHive
+                Originals.
+              </p>
               <div class="border-bottom border-danger"></div>
               <h5 class="card-title mt-3">Rules</h5>
               <p class="card-text">
-                <span class="rounded-circle bg-primary p-1 span-2">1</span> Don't refresh or close the browser.
-                <span
-                  class="rounded-circle bg-primary p-1 span-2"
-                >2</span> You can take this exam for one time only.
+                <span class="rounded-circle bg-primary p-1 span-2">1</span>
+                Don't refresh or close the browser.
+                <span class="rounded-circle bg-primary p-1 span-2">2</span> You
+                can take this exam for one time only.
               </p>
               <p class="card-text border-top border-danger">
                 <span class="span">Subject(s):</span> Combined
@@ -35,13 +38,15 @@
                   squared
                   variant="primary"
                   @click="$emit('startExamPressed')"
-                >I Understand, Start Exam</b-button>
+                  >I Understand, Start Exam</b-button
+                >
                 <b-button
                   squared
                   variant="danger"
                   style="margin-left: 1rem;"
                   @click="$emit('cancel')"
-                >Cancel</b-button>
+                  >Cancel</b-button
+                >
               </div>
             </div>
           </div>
@@ -63,8 +68,8 @@
 
 <script>
 export default {
-  name: "ExamTermsAndCondition"
-};
+  name: 'ExamTermsAndCondition'
+}
 </script>
 
 <style lang="scss" scoped>

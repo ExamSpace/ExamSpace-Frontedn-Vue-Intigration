@@ -4,7 +4,15 @@
       <h4>Upcoming and Popular Exams</h4>
       <div class="upcoming_exam_wrapper">
         <div class="row">
-          <b-col cols="3" sm="3" md="3" lg="3" xl="3" v-for="index in 4" :key="index">
+          <b-col
+            cols="3"
+            sm="3"
+            md="3"
+            lg="3"
+            xl="3"
+            v-for="index in 4"
+            :key="index"
+          >
             <div class="content-card">
               <img src="../assets/HomeFooter/img/upcoming_exam.png" alt />
               <p>RRB NTPC</p>
@@ -13,14 +21,28 @@
           </b-col>
         </div>
         <div class="row">
-          <b-col cols="6" sm="6" md="4" lg="2" xl="2" v-for="index in 6" :key="index">
+          <b-col
+            cols="6"
+            sm="6"
+            md="4"
+            lg="2"
+            xl="2"
+            v-for="index in 6"
+            :key="index"
+          >
             <div class="card">
               <div class="card-head">
-                <img src="../assets/HomeFooter/img/Group.png" class="card-img-top pt-1" alt />
+                <img
+                  src="../assets/HomeFooter/img/Group.png"
+                  class="card-img-top pt-1"
+                  alt
+                />
               </div>
               <div class="card-body">
                 <h5 class="card-title mb-1">Agrani Bank Limited</h5>
-                <router-link to="/exam" class="btn btn-primary">Click me!</router-link>
+                <router-link to="/exam" class="btn btn-primary"
+                  >Click me!</router-link
+                >
                 <p class="card-text mt-4">Agrani Bank Limited</p>
                 <p class="card-text">Recruitment Test</p>
                 <p class="card-text">Exams: 1 Version: Bangla & English</p>
@@ -43,7 +65,10 @@
           <div class="info-header">
             <h6>NEWSLETTER</h6>
           </div>
-          <p>MasterClass offers online classes created for students of all skill levels. Our instructions are best in the world.</p>
+          <p>
+            MasterClass offers online classes created for students of all skill
+            levels. Our instructions are best in the world.
+          </p>
         </div>
         <div class="col-md-3 padding-0">
           <div class="info-header">
@@ -90,19 +115,35 @@
             <h6>SOCIAL CONNECTION</h6>
           </div>
           <div class="inline-elements">
-            <i class="fa fa-facebook-official" aria-hidden="true" style="color: rgb(26, 26, 138)"></i>
+            <i
+              class="fa fa-facebook-official"
+              aria-hidden="true"
+              style="color: rgb(26, 26, 138)"
+            ></i>
             <p>Facebook</p>
           </div>
           <div class="inline-elements">
-            <i class="fa fa-whatsapp" aria-hidden="true" style="color: green;"></i>
+            <i
+              class="fa fa-whatsapp"
+              aria-hidden="true"
+              style="color: green;"
+            ></i>
             <p>WhatsApp</p>
           </div>
           <div class="inline-elements">
-            <i class="fa fa-twitter" aria-hidden="true" style="color: rgba(1, 86, 156, 0.904);"></i>
+            <i
+              class="fa fa-twitter"
+              aria-hidden="true"
+              style="color: rgba(1, 86, 156, 0.904);"
+            ></i>
             <p>Twitter</p>
           </div>
           <div class="inline-elements">
-            <i class="fa fa-instagram" aria-hidden="true" style="color: red;"></i>
+            <i
+              class="fa fa-instagram"
+              aria-hidden="true"
+              style="color: red;"
+            ></i>
             <p>Instagram</p>
           </div>
         </div>
@@ -131,8 +172,8 @@
 
 <script>
 export default {
-  name: "HomeFooter"
-};
+  name: 'HomeFooter'
+}
 </script>
 
 <style lang="scss" scoped>

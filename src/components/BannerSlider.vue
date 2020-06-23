@@ -11,12 +11,20 @@
       <!-- Text slides with image -->
       <b-carousel-slide>
         <template v-slot:img>
-          <img class="d-block img-fluid w-100" src="../assets/BannerSlider/img/img1.png" alt />
+          <img
+            class="d-block img-fluid w-100"
+            src="../assets/BannerSlider/img/img1.png"
+            alt
+          />
         </template>
       </b-carousel-slide>
       <b-carousel-slide>
         <template v-slot:img>
-          <img class="d-block img-fluid w-100" src="../assets/BannerSlider/img/img1.png" alt />
+          <img
+            class="d-block img-fluid w-100"
+            src="../assets/BannerSlider/img/img1.png"
+            alt
+          />
         </template>
       </b-carousel-slide>
     </b-carousel>
@@ -25,8 +33,8 @@
 
 <script>
 export default {
-  name: "Banner"
-};
+  name: 'Banner'
+}
 </script>
 
 <style lang="scss" scoped>

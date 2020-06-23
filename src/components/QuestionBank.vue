@@ -309,8 +309,8 @@
 
 <script>
 export default {
-  name: "QuestionBank"
-};
+  name: 'QuestionBank'
+}
 </script>
 
 <style lang="scss">

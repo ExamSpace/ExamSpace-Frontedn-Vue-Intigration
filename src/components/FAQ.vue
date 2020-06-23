@@ -4,7 +4,11 @@
       <div class="container">
         <div class="row heading heading-icon">
           <h2>Everything You Need For Your Exam Preparation</h2>
-          <p>Online Courses, Practice Question Bank, Mock Test Series, Study Notes, Strattegy & Preparation Planes, Guidence & Mantoring and more...</p>
+          <p>
+            Online Courses, Practice Question Bank, Mock Test Series, Study
+            Notes, Strattegy & Preparation Planes, Guidence & Mantoring and
+            more...
+          </p>
         </div>
         <!--          heading end-->
         <!--          card starts-->
@@ -12,7 +16,11 @@
           <li class="col-12 col-md-6 col-lg-4">
             <div class="cnt-block equal-hight" style="height: 349px;">
               <figure>
-                <img src="../assets/FAQ/img/select_pass.png" class="img-responsive" alt />
+                <img
+                  src="../assets/FAQ/img/select_pass.png"
+                  class="img-responsive"
+                  alt
+                />
               </figure>
               <h3>
                 <a href="#">SELECT PASS</a>
@@ -23,7 +31,11 @@
           <li class="col-12 col-md-6 col-lg-4">
             <div class="cnt-block equal-hight" style="height: 349px;">
               <figure>
-                <img src="../assets/FAQ/img/choose_pass_validity.png" class="img-responsive" alt />
+                <img
+                  src="../assets/FAQ/img/choose_pass_validity.png"
+                  class="img-responsive"
+                  alt
+                />
               </figure>
               <h3>
                 <a href="#">CHOOSE PASS VALIDITY</a>
@@ -34,12 +46,19 @@
           <li class="col-12 col-md-6 col-lg-4">
             <div class="cnt-block equal-hight" style="height: 349px;">
               <figure>
-                <img src="../assets/FAQ/img/unlick_test.png" class="img-responsive" alt />
+                <img
+                  src="../assets/FAQ/img/unlick_test.png"
+                  class="img-responsive"
+                  alt
+                />
               </figure>
               <h3>
                 <a href="#">UNLOCK TESTS</a>
               </h3>
-              <p>After payment, you can access all the Tests covered under Test Pass</p>
+              <p>
+                After payment, you can access all the Tests covered under Test
+                Pass
+              </p>
             </div>
           </li>
         </ul>
@@ -52,7 +71,10 @@
 
               <p>What is Testbook Pass?</p>
 
-              <p>Testbook Pass is a special membership that unlocks Test Series available on Testbook.</p>
+              <p>
+                Testbook Pass is a special membership that unlocks Test Series
+                available on Testbook.
+              </p>
 
               <a href="#">
                 <h5>Explore All Exams</h5>
@@ -68,8 +90,8 @@
 
 <script>
 export default {
-  name: "FAQ"
-};
+  name: 'FAQ'
+}
 </script>
 
 <style scoped>
@@ -113,7 +135,7 @@ ul {
 /*-----------card----------------*/
 .examsection {
   background: #ebf6f1;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 .examsection .cnt-block {
   float: left;

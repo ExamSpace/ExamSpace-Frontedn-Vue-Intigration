@@ -5,23 +5,38 @@
         <b-col sm="12" md="8" lg="8" xl="8">
           <b-card no-body style="border: none">
             <b-tabs pills card>
-              <b-tab v-for="(subject, subjectIdx) in subjects" :key="subjectIdx">
-                <template
-                  v-slot:title
-                >{{subject.title}} ({{subject.currentIdx+1}}/{{subject.questions.length}})</template>
+              <b-tab
+                v-for="(subject, subjectIdx) in subjects"
+                :key="subjectIdx"
+              >
+                <template v-slot:title
+                  >{{ subject.title }} ({{ subject.currentIdx + 1 }}/{{
+                    subject.questions.length
+                  }})</template
+                >
                 <div>
                   <div class="question">
-                    <h4>{{ subject.questions[subject.currentIdx].question }}</h4>
+                    <h4>
+                      {{ subject.questions[subject.currentIdx].question }}
+                    </h4>
                   </div>
                   <div
                     class="question-option"
-                    :class="{'selected': subject.questions[subject.currentIdx].selectedOptionIdx === optIdx}"
-                    v-for="(option, optIdx) in subject.questions[subject.currentIdx].options"
+                    :class="{
+                      selected:
+                        subject.questions[subject.currentIdx]
+                          .selectedOptionIdx === optIdx
+                    }"
+                    v-for="(option, optIdx) in subject.questions[
+                      subject.currentIdx
+                    ].options"
                     :key="optIdx"
-                    @click="optionChoosed(subjectIdx, subject.currentIdx, optIdx)"
+                    @click="
+                      optionChoosed(subjectIdx, subject.currentIdx, optIdx)
+                    "
                   >
-                    <span>{{option.slug}}.</span>
-                    {{option.body}}
+                    <span>{{ option.slug }}.</span>
+                    {{ option.body }}
                   </div>
                   <div class="question-nevigation">
                     <b-button
@@ -29,18 +44,23 @@
                       @click="previousQuestion(subjectIdx)"
                       style="background-color: rgb(0, 22, 121); border-color: rgb(0, 22, 121);"
                       :disabled="subject.currentIdx === 0"
-                    >Previous</b-button>
+                      >Previous</b-button
+                    >
                     <b-button
                       variant="success"
                       @click="nextQuestion(subjectIdx)"
                       style="margin-left: 1rem"
-                      :disabled="subject.currentIdx === subject.questions.length - 1"
-                    >Next</b-button>
+                      :disabled="
+                        subject.currentIdx === subject.questions.length - 1
+                      "
+                      >Next</b-button
+                    >
                     <b-button
                       variant="danger"
                       style="margin-left: 1rem"
                       @click="$emit('cancel')"
-                    >Cancel</b-button>
+                      >Cancel</b-button
+                    >
                   </div>
                 </div>
               </b-tab>
@@ -54,7 +74,9 @@
               <p>Time Remaining</p>
               <p>00:52:13</p>
             </div>
-            <b-button variant="warning" block @click="$emit('endExam')">End Exam</b-button>
+            <b-button variant="warning" block @click="$emit('endExam')"
+              >End Exam</b-button
+            >
           </div>
         </b-col>
       </b-row>
@@ -64,112 +86,112 @@
 
 <script>
 export default {
-  name: "Quiz",
+  name: 'Quiz',
   data: function() {
     return {
       subjects: [
         {
-          title: "Bangla",
+          title: 'Bangla',
           currentIdx: 0,
           questions: [
             {
-              question: "What is the capital of Australia",
+              question: 'What is the capital of Australia',
               selectedOptionIdx: -1,
               options: [
                 {
-                  slug: "A",
-                  body: "Canbera"
+                  slug: 'A',
+                  body: 'Canbera'
                 },
                 {
-                  slug: "B",
-                  body: "Sidny"
+                  slug: 'B',
+                  body: 'Sidny'
                 },
                 {
-                  slug: "C",
-                  body: "Malborbe"
+                  slug: 'C',
+                  body: 'Malborbe'
                 },
                 {
-                  slug: "D",
-                  body: "Dhaka"
+                  slug: 'D',
+                  body: 'Dhaka'
                 }
               ]
             },
             {
-              question: "What is the capital of Bangladesh",
+              question: 'What is the capital of Bangladesh',
               selectedOptionIdx: -1,
               options: [
                 {
-                  slug: "A",
-                  body: "Dhaka"
+                  slug: 'A',
+                  body: 'Dhaka'
                 },
                 {
-                  slug: "B",
-                  body: "Chittagong"
+                  slug: 'B',
+                  body: 'Chittagong'
                 },
                 {
-                  slug: "C",
-                  body: "Sylhet"
+                  slug: 'C',
+                  body: 'Sylhet'
                 },
                 {
-                  slug: "D",
-                  body: "Saidpur"
+                  slug: 'D',
+                  body: 'Saidpur'
                 }
               ]
             }
           ]
         },
         {
-          title: "English",
+          title: 'English',
           currentIdx: 0,
           questions: [
             {
-              question: "What is the capital of America",
+              question: 'What is the capital of America',
               selectedOptionIdx: -1,
               options: [
                 {
-                  slug: "A",
-                  body: "Canbera"
+                  slug: 'A',
+                  body: 'Canbera'
                 },
                 {
-                  slug: "B",
-                  body: "Sidny"
+                  slug: 'B',
+                  body: 'Sidny'
                 },
                 {
-                  slug: "C",
-                  body: "Malborbe"
+                  slug: 'C',
+                  body: 'Malborbe'
                 },
                 {
-                  slug: "D",
-                  body: "Dhaka"
+                  slug: 'D',
+                  body: 'Dhaka'
                 }
               ]
             },
             {
-              question: "What is the capital of Nepal",
+              question: 'What is the capital of Nepal',
               selectedOptionIdx: -1,
               options: [
                 {
-                  slug: "A",
-                  body: "Dhaka"
+                  slug: 'A',
+                  body: 'Dhaka'
                 },
                 {
-                  slug: "B",
-                  body: "Chittagong"
+                  slug: 'B',
+                  body: 'Chittagong'
                 },
                 {
-                  slug: "C",
-                  body: "Sylhet"
+                  slug: 'C',
+                  body: 'Sylhet'
                 },
                 {
-                  slug: "D",
-                  body: "Saidpur"
+                  slug: 'D',
+                  body: 'Saidpur'
                 }
               ]
             }
           ]
         }
       ]
-    };
+    }
   },
   computed: {},
   methods: {
@@ -178,12 +200,12 @@ export default {
         this.subjects[subjectIdx].currentIdx + 1 <
         this.subjects[subjectIdx].questions.length
       ) {
-        this.subjects[subjectIdx].currentIdx += 1;
+        this.subjects[subjectIdx].currentIdx += 1
       }
     },
     previousQuestion: function(subjectIdx) {
       if (this.subjects[subjectIdx].currentIdx >= 1) {
-        this.subjects[subjectIdx].currentIdx -= 1;
+        this.subjects[subjectIdx].currentIdx -= 1
       }
     },
     optionChoosed: function(subjectIdx, questoinIdx, optIdx) {
@@ -191,18 +213,18 @@ export default {
         this.subjects[subjectIdx].questions[questoinIdx].selectedOptionIdx ===
         optIdx
       ) {
-        this.subjects[subjectIdx].questions[questoinIdx].selectedOptionIdx = -1;
+        this.subjects[subjectIdx].questions[questoinIdx].selectedOptionIdx = -1
       } else {
         this.subjects[subjectIdx].questions[
           questoinIdx
-        ].selectedOptionIdx = optIdx;
+        ].selectedOptionIdx = optIdx
       }
     }
   }
-};
+}
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 $primary_color: rgb(0, 22, 121);
 #quiz {
   margin-bottom: 5rem;

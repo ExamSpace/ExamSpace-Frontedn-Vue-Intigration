@@ -4,8 +4,7 @@
       <p class="exam-title">Agrani Bank Limited | Recruitment Test</p>
       <p>
         Total Exams:
-        <span>1</span> Exam Taken:
-        <span>0</span> Version:
+        <span>1</span> Exam Taken: <span>0</span> Version:
         <span>Bandla & English</span>
       </p>
       <p>Job Entrance > Bank Jobs > Preliminary</p>
@@ -16,7 +15,10 @@
     </div>
     <div class="details-heading">
       <p>
-        <i>Exam routine is managed by EduHive Originals. They reserve all rights to update the routine or syllebus from time to time.</i>
+        <i
+          >Exam routine is managed by EduHive Originals. They reserve all rights
+          to update the routine or syllebus from time to time.</i
+        >
       </p>
     </div>
     <div class="details-body">
@@ -24,9 +26,7 @@
       <div class="details-body-card">
         <p>Agrani Bank | Senior Officer | 2018 | Open</p>
       </div>
-      <p>
-        <strong>Subject(s):</strong> Combined
-      </p>
+      <p><strong>Subject(s):</strong> Combined</p>
       <p>Syllebus: Bank Preliminary Standard</p>
       <p>
         Question:
@@ -42,20 +42,21 @@
         variant="primary"
         style="margin-top: 1rem;"
         @click="onTakeExamPressed"
-      >Take Exam</b-button>
+        >Take Exam</b-button
+      >
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "ExamDetails",
+  name: 'ExamDetails',
   methods: {
     onTakeExamPressed: function() {
-      this.$emit("takeExamPressed");
+      this.$emit('takeExamPressed')
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

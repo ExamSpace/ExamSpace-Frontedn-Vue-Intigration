@@ -53,8 +53,8 @@
 
 <script>
 export default {
-  name: "BundlePack"
-};
+  name: 'BundlePack'
+}
 </script>
 
 <style scoped>
@@ -116,7 +116,7 @@ export default {
 }
 
 .cell:before {
-  content: "";
+  content: '';
   width: 0;
   height: 0;
   border-style: solid;

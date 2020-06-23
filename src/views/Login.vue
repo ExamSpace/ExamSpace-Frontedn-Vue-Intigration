@@ -90,27 +90,27 @@
 
 <script>
 export default {
-  name: "Login",
+  name: 'Login',
   data: () => {
     return {
-      username: "",
-      password: ""
-    };
+      username: '',
+      password: ''
+    }
   },
   methods: {
     checkForm: function(e) {
-      e.preventDefault();
+      e.preventDefault()
 
-      this.$store.commit("login", this.username);
-      this.$router.push("/");
+      this.$store.commit('login', this.username)
+      this.$router.push('/')
     }
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>
 .login {
-  background: url("../assets/Login/img/background.png") no-repeat center center
+  background: url('../assets/Login/img/background.png') no-repeat center center
     fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -119,6 +119,6 @@ export default {
   font-family: Arial Regular, sans-serif;
   height: 100vh;
 }
-@import "../assets/Login/style/style.css";
-@import "../assets/Login/style/util.css";
+@import '../assets/Login/style/style.css';
+@import '../assets/Login/style/util.css';
 </style>

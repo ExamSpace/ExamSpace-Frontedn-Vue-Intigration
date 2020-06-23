@@ -6,7 +6,12 @@
           <b-card
             title="Practice"
             class="custom-card"
-            :style="{'background-image': 'url(' + require('../assets/Common/img/practice_card_background.png') + ')'}"
+            :style="{
+              'background-image':
+                'url(' +
+                require('../assets/Common/img/practice_card_background.png') +
+                ')'
+            }"
           >
             <b-card-text>Practice best questions for free.</b-card-text>
             <b-card-text>
@@ -20,7 +25,12 @@
           <b-card
             title="Exam"
             class="custom-card"
-            :style="{'background-image': 'url(' + require('../assets/Common/img/exam_card_background.png') + ')'}"
+            :style="{
+              'background-image':
+                'url(' +
+                require('../assets/Common/img/exam_card_background.png') +
+                ')'
+            }"
           >
             <b-card-text>
               Explore and start
@@ -38,8 +48,8 @@
 
 <script>
 export default {
-  name: "CustomCard"
-};
+  name: 'CustomCard'
+}
 </script>
 
 <style lang="scss" scoped>

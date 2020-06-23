@@ -53,7 +53,9 @@
           <p>Height Marks : 45.98</p>
           <p>Total Students : 8</p>
         </div>
-        <b-button block variant="primary">View All Questions and Answers</b-button>
+        <b-button block variant="primary"
+          >View All Questions and Answers</b-button
+        >
       </div>
     </div>
   </div>
@@ -61,8 +63,8 @@
 
 <script>
 export default {
-  name: "ScoreCard"
-};
+  name: 'ScoreCard'
+}
 </script>
 
 <style lang="scss" scoped>
