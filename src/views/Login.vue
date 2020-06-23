@@ -94,17 +94,17 @@ export default {
   data: () => {
     return {
       username: "",
-      password: "",
+      password: ""
     };
   },
   methods: {
     checkForm: function(e) {
-      if (this.username == "admin" && this.password == "admin") {
-        console.log("logged in");
-      }
       e.preventDefault();
-    },
-  },
+
+      this.$store.commit("login", this.username);
+      this.$router.push("/");
+    }
+  }
 };
 </script>
 

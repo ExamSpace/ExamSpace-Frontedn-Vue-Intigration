@@ -6,20 +6,23 @@
 </template>
 
 <script>
-import NavBar from "@/components/NavBar.vue";
+import NavBar from '@/components/NavBar.vue'
 export default {
   components: {
     NavBar
   },
   computed: {
     showNav() {
-      if (this.$route.path == "/login") {
-        return false;
+      if (this.$route.path == '/login') {
+        return false
       }
-      return true;
+      return true
+    },
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn
     }
   }
-};
+}
 </script>
 
 <style lang="scss">

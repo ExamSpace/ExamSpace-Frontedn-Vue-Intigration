@@ -1,32 +1,77 @@
 <template>
   <div id="nav">
     <div class="top-nav">
-      <a href>
-        <img src="../assets/NavBar/img/insta.png" width="30px" alt="insta" />
-      </a>
-      <a href>
-        <img src="../assets/NavBar/img/fb.png" width="30px" alt="insta" />
-      </a>
-      <a href>
-        <img src="../assets/NavBar/img/whatsapp.png" width="30px" alt="insta" />
-      </a>
-      <a href>
-        <img src="../assets/NavBar/img/twitter.png" width="30px" alt="insta" />
-      </a>
-      <b-button size="sm" class="nav-btn" variant="secondary" to="/login">Log In</b-button>
-      <b-button size="sm" class="nav-btn" variant="primary">SignUp</b-button>
+      <template v-if="!isLoggedIn">
+        <a href>
+          <img src="../assets/NavBar/img/insta.png" width="30px" alt="insta" />
+        </a>
+        <a href>
+          <img src="../assets/NavBar/img/fb.png" width="30px" alt="insta" />
+        </a>
+        <a href>
+          <img
+            src="../assets/NavBar/img/whatsapp.png"
+            width="30px"
+            alt="insta"
+          />
+        </a>
+        <a href>
+          <img
+            src="../assets/NavBar/img/twitter.png"
+            width="30px"
+            alt="insta"
+          />
+        </a>
+        <b-button size="sm" class="nav-btn" variant="secondary" to="/login"
+          >Log In</b-button
+        >
+        <b-button size="sm" class="nav-btn" variant="primary">SignUp</b-button>
+      </template>
+      <template v-else>
+        <p>Hello! {{ loggedInUserName }}</p>
+        <b-dropdown
+          size="sm"
+          variant="link"
+          toggle-class="text-decoration-none"
+          dropleft
+          no-caret
+        >
+          <template v-slot:button-content>
+            <img
+              class="profile-img"
+              src="../assets/NavBar/img/profile.jpg"
+              alt="profile"
+            />
+          </template>
+          <b-dropdown-item href="#">Action</b-dropdown-item>
+          <b-dropdown-item href="#">Another action</b-dropdown-item>
+          <b-dropdown-item href="#">Something else here...</b-dropdown-item>
+        </b-dropdown>
+      </template>
     </div>
     <b-navbar toggleable="lg" type="light" variant="light">
       <div class="navbar-brand">
         <router-link to="/">
-          <img src="../assets/NavBar/img/logo.png" height="60px" alt="ExamSpace" />
+          <img
+            src="../assets/NavBar/img/logo.png"
+            height="60px"
+            alt="ExamSpace"
+          />
         </router-link>
       </div>
       <div></div>
       <b-navbar-toggle target="nav-collapse">
         <template v-slot:default="{ expanded }">
-          <b-icon v-if="expanded" icon="chevron-bar-up" style="color: rgb(0, 37, 107);"></b-icon>
-          <b-icon v-else icon="chevron-bar-down" style="color: rgb(0, 37, 107);"></b-icon>
+          <b-icon
+            v-if="expanded"
+            icon="chevron-bar-up"
+            style="color: rgb(0, 37, 107);"
+          ></b-icon>
+          <b-icon
+            v-else
+            icon="chevron-bar-down"
+            style="color: rgb(0, 37, 107);"
+          ></b-icon>
         </template>
       </b-navbar-toggle>
 
@@ -46,7 +91,11 @@
           <b-nav-item href>Practice</b-nav-item>
           <b-nav-item href>Pass</b-nav-item>
           <b-nav-form>
-            <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>
+            <b-form-input
+              size="sm"
+              class="mr-sm-2"
+              placeholder="Search"
+            ></b-form-input>
           </b-nav-form>
 
           <b-nav-item-dropdown text="English" right>
@@ -57,8 +106,16 @@
           </b-nav-item-dropdown>
 
           <b-nav-form>
-            <b-button size="sm" class="my-2 my-sm-0 nav-btn" variant="secondary" to="/login">Login</b-button>
-            <b-button size="sm" class="my-2 my-sm-0 nav-btn" variant="primary">SignUp</b-button>
+            <b-button
+              size="sm"
+              class="my-2 my-sm-0 nav-btn"
+              variant="secondary"
+              to="/login"
+              >Login</b-button
+            >
+            <b-button size="sm" class="my-2 my-sm-0 nav-btn" variant="primary"
+              >SignUp</b-button
+            >
           </b-nav-form>
         </b-navbar-nav>
       </b-collapse>
@@ -68,8 +125,18 @@
 
 <script>
 export default {
-  name: "NavBar"
-};
+  name: 'NavBar',
+  computed: {
+    isLoggedIn() {
+      return this.$store.state.isLoggedIn
+    },
+    loggedInUserName() {
+      console.log(this.$store.state.userName)
+
+      return this.$store.state.userName
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -113,9 +180,25 @@ export default {
     background-color: rgb(0, 37, 107);
     border-color: rgb(0, 37, 107);
   }
-
+  .profile-img {
+    border-radius: 2px;
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+  }
+  .profile-img {
+    border-radius: 2px;
+    width: 30px;
+    height: 30px;
+  }
   img {
     margin: 0 2px;
+  }
+  p {
+    margin-top: 0.25rem;
+    margin-right: 1rem;
+    font-size: 1em;
+    bottom: 0;
   }
 }
 
