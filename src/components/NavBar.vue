@@ -57,7 +57,7 @@
           </b-nav-item-dropdown>
 
           <b-nav-form>
-            <b-button size="sm" class="my-2 my-sm-0 nav-btn" variant="secondary" href="/login">Login</b-button>
+            <b-button size="sm" class="my-2 my-sm-0 nav-btn" variant="secondary" to="/login">Login</b-button>
             <b-button size="sm" class="my-2 my-sm-0 nav-btn" variant="primary">SignUp</b-button>
           </b-nav-form>
         </b-navbar-nav>

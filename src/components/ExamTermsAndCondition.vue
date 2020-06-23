@@ -30,9 +30,18 @@
                 <span class="span">0</span>, Multiple Answers Allowed:
                 <span class="span">No</span>
               </p>
-              <div class="border-top border-danger">
-                <a href="#" class="btn btn-md bg-primary text-white mt-3">I Understand, Start Exam</a>
-                <a href="#" class="btn btn-md bg-danger text-white ml-3 mt-3">Cancel</a>
+              <div class="border-top border-danger btn-holder">
+                <b-button
+                  squared
+                  variant="primary"
+                  @click="$emit('startExamPressed')"
+                >I Understand, Start Exam</b-button>
+                <b-button
+                  squared
+                  variant="danger"
+                  style="margin-left: 1rem;"
+                  @click="$emit('cancel')"
+                >Cancel</b-button>
               </div>
             </div>
           </div>
@@ -76,5 +85,8 @@ export default {
 .card-2 {
   width: 300px;
   margin: 0 auto;
+}
+.btn-holder {
+  padding: 1rem 0;
 }
 </style>
