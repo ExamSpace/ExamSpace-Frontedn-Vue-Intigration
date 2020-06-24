@@ -16,7 +16,7 @@
             <div class="d-flex">
               <img
                 class
-                src="../assets/card1.png"
+                src="../assets/Homepage3/img/card1.png"
                 alt="Card image cap"
                 style="width: 47px;"
               />
@@ -52,7 +52,7 @@
             <div class="d-flex">
               <img
                 class
-                src="../assets/card2.png"
+                src="../assets/Homepage3/img/card2.png"
                 alt="Card image cap"
                 style="width: 47px;"
               />
@@ -88,7 +88,7 @@
             <div class="d-flex">
               <img
                 class
-                src="../assets/card3.png"
+                src="../assets/Homepage3/img/card3.png"
                 alt="Card image cap"
                 style="width: 47px;"
               />

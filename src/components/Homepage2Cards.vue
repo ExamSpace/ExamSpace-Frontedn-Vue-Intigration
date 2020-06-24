@@ -8,7 +8,7 @@
               <div class="card">
                 <div class="card-head">
                   <img
-                    src="../assets/Group.png"
+                    src="../assets/Homepage2/img/Group.png"
                     class="card-img-top pt-1"
                     alt
                   />
@@ -32,7 +32,7 @@
               <div class="card">
                 <div class="card-head">
                   <img
-                    src="../assets/Group.png"
+                    src="../assets/Homepage2/img/Group.png"
                     class="card-img-top pt-1"
                     alt
                   />
@@ -56,7 +56,7 @@
               <div class="card">
                 <div class="card-head">
                   <img
-                    src="../assets/Group.png"
+                    src="../assets/Homepage2/img/Group.png"
                     class="card-img-top pt-1"
                     alt
                   />
@@ -84,7 +84,7 @@
               <div class="card">
                 <img
                   class="card-img-top imgb"
-                  src="../assets/groupb.png"
+                  src="../assets/Homepage2/img/groupb.png"
                   alt="Card image cap"
                 />
                 <div class="card-body">
@@ -101,7 +101,7 @@
               <div class="card">
                 <img
                   class="card-img-top imgb"
-                  src="../assets/groupb.png"
+                  src="../assets/Homepage2/img/groupb.png"
                   alt="Card image cap"
                 />
                 <div class="card-body">
@@ -118,7 +118,7 @@
               <div class="card">
                 <img
                   class="card-img-top imgb"
-                  src="../assets/groupb.png"
+                  src="../assets/Homepage2/img/groupb.png"
                   alt="Card image cap"
                 />
                 <div class="card-body">

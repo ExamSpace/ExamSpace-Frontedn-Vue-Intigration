@@ -9,7 +9,7 @@
                 <h5 class="card-title mt-3 ml-1">School</h5>
                 <img
                   class="col"
-                  src="../assets/school.png"
+                  src="../assets/Leaderboard/img/school.png"
                   alt="Card image cap"
                   style="width: 40%;"
                 />
@@ -23,7 +23,7 @@
                 <h5 class="card-title mt-3 ml-1">College</h5>
                 <img
                   class="col"
-                  src="../assets/college.png"
+                  src="../assets/Leaderboard/img/college.png"
                   alt="Card image cap"
                   style="width: 60%;"
                 />
@@ -37,7 +37,7 @@
                 <h5 class="card-title mt-3 ml-1">University</h5>
                 <img
                   class="col"
-                  src="../assets/uni.png"
+                  src="../assets/Leaderboard/img/uni.png"
                   alt="Card image cap"
                   style="width: 35%;"
                 />
@@ -59,7 +59,7 @@
                 <h5 class="card-title mt-3 ml-1">Student Information</h5>
                 <img
                   class="col"
-                  src="../assets/student.png"
+                  src="../assets/Leaderboard/img/student.png"
                   alt="Card image cap"
                 />
               </div>
@@ -72,7 +72,7 @@
                 <h5 class="card-title mt-3 ml-1">Student Information</h5>
                 <img
                   class="col"
-                  src="../assets/student.png"
+                  src="../assets/Leaderboard/img/student.png"
                   alt="Card image cap"
                 />
               </div>
@@ -85,7 +85,7 @@
                 <h5 class="card-title mt-3 ml-1">Student Information</h5>
                 <img
                   class="col"
-                  src="../assets/student.png"
+                  src="../assets/Leaderboard/img/student.png"
                   alt="Card image cap"
                 />
               </div>
@@ -104,7 +104,7 @@
                 <h5 class="card-title mt-3 ml-1">Student Information</h5>
                 <img
                   class="col"
-                  src="../assets/student.png"
+                  src="../assets/Leaderboard/img/student.png"
                   alt="Card image cap"
                 />
               </div>
