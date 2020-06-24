@@ -6,7 +6,7 @@
       <div class="col-md-4 col-lg-3">
         <div class="card">
           <div class="card-header bg-white">
-            <img src="..\assets\TextBook\img\Group-4.png" alt />
+            <img src="../assets/TextBook/img/Group-4.png" alt />
             <h4>Experienced Teachers</h4>
           </div>
           <div class="card-body">
@@ -25,7 +25,7 @@
       <div class="col-md-4 col-lg-3">
         <div class="card">
           <div class="card-header bg-white">
-            <img src="..\assets\TextBook\img\Group-2.png" alt />
+            <img src="../assets/TextBook/img/Group-2.png" alt />
             <h4>Top Quality Questions</h4>
           </div>
           <div class="card-body">
@@ -44,7 +44,7 @@
       <div class="col-md-4 col-lg-3">
         <div class="card">
           <div class="card-header bg-white">
-            <img src="..\assets\TextBook\img\Compound_Path.png" alt />
+            <img src="../assets/TextBook/img/Compound_Path.png" alt />
             <h4>Personalized, detailed Analysis</h4>
           </div>
           <div class="card-body">
@@ -65,7 +65,7 @@
       <div class="col-md-4 col-lg-3">
         <div class="card">
           <div class="card-header bg-white">
-            <img src="..\assets\TextBook\img\Group-3.png" alt />
+            <img src="../assets/TextBook/img/Group-3.png" alt />
             <h4>Live Tests for Real Exam Experience</h4>
           </div>
           <div class="card-body">
@@ -84,7 +84,7 @@
       <div class="col-md-4 col-lg-3">
         <div class="card">
           <div class="card-header bg-white">
-            <img src="..\assets\TextBook\img\Group-1.png" alt />
+            <img src="../assets/TextBook/img/Group-1.png" alt />
             <h4>Community for learning</h4>
           </div>
           <div class="card-body">
@@ -103,7 +103,7 @@
       <div class="col-md-4 col-lg-3">
         <div class="card">
           <div class="card-header bg-white">
-            <img src="..\assets\TextBook\img\Group.png" alt />
+            <img src="../assets/TextBook/img/Group.png" alt />
             <h4>Bilingual: Hindi and English</h4>
           </div>
           <div class="card-body">
