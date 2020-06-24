@@ -140,14 +140,11 @@
 
 <script>
 export default {
-  name: "Homepage2Cards"
-};
+  name: 'Homepage2Cards'
+}
 </script>
 
 <style scoped>
-#homepage2cards {
-}
-
 .custom-container {
   padding: 1rem 1rem;
 }
@@ -214,5 +211,6 @@ a {
 
 .inner {
   display: inline-block;
+  margin: 0 0.25rem;
 }
 </style>

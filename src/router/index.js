@@ -18,6 +18,11 @@ const routes = [
     path: '/exam',
     name: 'Exam',
     component: () => import('../views/Exam.vue')
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../components/Leaderboard-Zunaid.vue')
   }
 ]
 

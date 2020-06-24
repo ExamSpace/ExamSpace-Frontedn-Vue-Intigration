@@ -118,14 +118,11 @@
 
 <script>
 export default {
-  name: "LeaderboardCards"
-};
+  name: 'LeaderboardCards'
+}
 </script>
 
 <style scoped>
-#leaderboard_cards {
-}
-
 body {
   margin: 0;
   padding: 0;

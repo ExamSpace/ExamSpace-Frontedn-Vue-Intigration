@@ -126,14 +126,11 @@
 
 <script>
 export default {
-  name: "Homepage3Cards"
-};
+  name: 'Homepage3Cards'
+}
 </script>
 
 <style scoped>
-#homepage3cards {
-}
-
 body {
   margin: 0;
   padding: 0;
