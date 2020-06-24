@@ -6,26 +6,28 @@ export default {
     return {
       datacollection: {
         labels: [
-          'January',
-          'February',
-          'March',
-          'April',
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
           'May',
-          'June',
-          'July',
-          'August',
-          'September',
-          'October',
-          'November',
-          'December'
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
         ],
         datasets: [
           {
             label: 'Data One',
-            backgroundColor: '#f87979',
-            pointBackgroundColor: 'white',
+            backgroundColor: 'transparent',
             borderWidth: 1,
-            pointBorderColor: '#249EBF',
+            borderWidth: 2,
+            borderColor: '#689bed',
+            pointBackgroundColor: '#689bed',
+            lineTension: 0.8,
             data: [60, 40, 20, 50, 90, 10, 20, 40, 50, 70, 90, 100]
           }
         ]

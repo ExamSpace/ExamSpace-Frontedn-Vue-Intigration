@@ -23,7 +23,8 @@ import QuestionBank from '@/components/QuestionBank.vue'
 import CustomCard from '@/components/CustomCard.vue'
 import FAQ from '@/components/FAQ.vue'
 import HomeFooter from '@/components/HomeFooter.vue'
-import UserStatistics from '@/components/UserStatistics.vue'
+import UserStatistics from '@/components/UserStatistics/UserStatistics.vue'
+
 export default {
   name: 'Homepage',
   components: {
@@ -38,7 +39,7 @@ export default {
   },
   computed: {
     isLoggedIn() {
-      return this.$store.state.isLoggedIn
+      return !this.$store.state.isLoggedIn
     }
   }
 }
