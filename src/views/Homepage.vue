@@ -7,11 +7,14 @@
       <QuestionBank></QuestionBank>
       <CustomCard></CustomCard>
       <FAQ></FAQ>
-      <HomeFooter></HomeFooter>
+      <UpcomingExam></UpcomingExam>
     </template>
     <template v-else>
       <UserStatistics></UserStatistics>
+      <CircularIconLink></CircularIconLink>
+      <HomePageCard></HomePageCard>
     </template>
+    <HomeFooter></HomeFooter>
   </div>
 </template>
 
@@ -24,7 +27,9 @@ import CustomCard from '@/components/CustomCard.vue'
 import FAQ from '@/components/FAQ.vue'
 import HomeFooter from '@/components/HomeFooter.vue'
 import UserStatistics from '@/components/UserStatistics/UserStatistics.vue'
-
+import CircularIconLink from '@/components/CircularIconLink.vue'
+import HomePageCard from '@/components/Homepage2Cards.vue'
+import UpcomingExam from '@/components/UpcomingExam.vue'
 export default {
   name: 'Homepage',
   components: {
@@ -35,11 +40,14 @@ export default {
     CustomCard,
     FAQ,
     HomeFooter,
-    UserStatistics
+    UserStatistics,
+    CircularIconLink,
+    HomePageCard,
+    UpcomingExam
   },
   computed: {
     isLoggedIn() {
-      return !this.$store.state.isLoggedIn
+      return this.$store.state.isLoggedIn
     }
   }
 }

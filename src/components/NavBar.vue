@@ -105,7 +105,7 @@
             <b-dropdown-item href="#">FA</b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <b-nav-form>
+          <b-nav-form v-if="!isLoggedIn">
             <b-button
               size="sm"
               class="my-2 my-sm-0 nav-btn"
