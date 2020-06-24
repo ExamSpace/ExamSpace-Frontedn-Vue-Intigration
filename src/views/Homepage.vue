@@ -9,6 +9,9 @@
       <FAQ></FAQ>
       <HomeFooter></HomeFooter>
     </template>
+    <template v-else>
+      <UserStatistics></UserStatistics>
+    </template>
   </div>
 </template>
 
@@ -20,6 +23,7 @@ import QuestionBank from '@/components/QuestionBank.vue'
 import CustomCard from '@/components/CustomCard.vue'
 import FAQ from '@/components/FAQ.vue'
 import HomeFooter from '@/components/HomeFooter.vue'
+import UserStatistics from '@/components/UserStatistics.vue'
 export default {
   name: 'Homepage',
   components: {
@@ -29,7 +33,8 @@ export default {
     QuestionBank,
     CustomCard,
     FAQ,
-    HomeFooter
+    HomeFooter,
+    UserStatistics
   },
   computed: {
     isLoggedIn() {
