@@ -57,6 +57,80 @@
           </div>
         </div>
       </b-col>
+      <b-col md="9">
+        <div class="test-wrapper">
+          <p class="title">Suggested Free Tests</p>
+          <div class="test">
+            <b-row>
+              <b-col cols="9" md="10">
+                <div class="test-content">
+                  <p>SBI PO 1st June 2020 Shifty</p>
+                  <p class="footer-text">
+                    <span>
+                      <b-icon-question-circle></b-icon-question-circle
+                    ></span>
+                    100 Questions
+                    <span><b-icon-list></b-icon-list></span> 100 Marks
+                    <span><b-icon-clock-fill></b-icon-clock-fill></span> 60
+                    Minutes
+                  </p>
+                </div>
+              </b-col>
+              <b-col cols="3" md="2">
+                <div class="btn-holder">
+                  <b-button size="sm" variant="primary">Start Now</b-button>
+                </div>
+              </b-col>
+            </b-row>
+          </div>
+          <div class="test">
+            <b-row>
+              <b-col cols="9" md="10">
+                <div class="test-content">
+                  <p>SBI PO 1st June 2020 Shifty</p>
+                  <p class="footer-text">
+                    <span>
+                      <b-icon-question-circle></b-icon-question-circle
+                    ></span>
+                    100 Questions
+                    <span><b-icon-list></b-icon-list></span> 100 Marks
+                    <span><b-icon-clock-fill></b-icon-clock-fill></span> 60
+                    Minutes
+                  </p>
+                </div>
+              </b-col>
+              <b-col cols="3" md="2">
+                <div class="btn-holder">
+                  <b-button size="sm" variant="primary">Start Now</b-button>
+                </div>
+              </b-col>
+            </b-row>
+          </div>
+          <div class="test">
+            <b-row>
+              <b-col cols="9" md="10">
+                <div class="test-content">
+                  <p>SBI PO 1st June 2020 Shifty</p>
+                  <p class="footer-text">
+                    <span>
+                      <b-icon-question-circle></b-icon-question-circle
+                    ></span>
+                    100 Questions
+                    <span><b-icon-list></b-icon-list></span> 100 Marks
+                    <span><b-icon-clock-fill></b-icon-clock-fill></span> 60
+                    Minutes
+                  </p>
+                </div>
+              </b-col>
+              <b-col cols="3" md="2">
+                <div class="btn-holder">
+                  <b-button size="sm" variant="primary">Start Now</b-button>
+                </div>
+              </b-col>
+            </b-row>
+          </div>
+        </div>
+      </b-col>
     </b-row>
   </div>
 </template>
@@ -83,6 +157,40 @@ export default {
 <style lang="scss" scoped>
 #user_statistics {
   padding: 1rem 1rem;
+}
+
+.test-wrapper {
+  background-color: rgba(74, 187, 108, 0.2);
+  padding: 1rem 1rem;
+
+  .title {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+
+  .test {
+    background-color: white;
+    border-radius: 8px;
+    margin-bottom: 0.25rem;
+    .test-content {
+      padding: 0.25rem 1rem;
+      p {
+        margin: 0;
+      }
+      .footer-text {
+        margin: 0;
+        font-size: 0.7em;
+        color: rgba(0, 0, 0, 0.4);
+      }
+    }
+    .btn-holder {
+      background-color: green;
+      position: absolute;
+      top: 50%;
+
+      transform: translateY(-50%);
+    }
+  }
 }
 
 .chart-holder-outer {
