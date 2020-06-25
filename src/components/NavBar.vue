@@ -43,9 +43,7 @@
               alt="profile"
             />
           </template>
-          <b-dropdown-item href="#">Action</b-dropdown-item>
-          <b-dropdown-item href="#">Another action</b-dropdown-item>
-          <b-dropdown-item href="#">Something else here...</b-dropdown-item>
+          <b-dropdown-item to="/profile">Profile</b-dropdown-item>
         </b-dropdown>
       </template>
     </div>
@@ -83,13 +81,14 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown text="Exam" right>
+          <b-nav-item-dropdown text="Exam" right disabled>
             <b-dropdown-item href="#">EN</b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item href>Courses</b-nav-item>
-          <b-nav-item href>Test Series</b-nav-item>
-          <b-nav-item href>Practice</b-nav-item>
-          <b-nav-item href>Pass</b-nav-item>
+          <b-nav-item href disabled="">Courses</b-nav-item>
+          <b-nav-item href disabled="">Test Series</b-nav-item>
+          <b-nav-item href disabled="">Practice</b-nav-item>
+          <b-nav-item href disabled="">Pass</b-nav-item>
+          <b-nav-item to="/leaderboard">Leaderboard</b-nav-item>
           <b-nav-form>
             <b-form-input
               size="sm"
@@ -98,14 +97,14 @@
             ></b-form-input>
           </b-nav-form>
 
-          <b-nav-item-dropdown text="English" right>
+          <b-nav-item-dropdown text="English" right disabled="">
             <b-dropdown-item href="#">EN</b-dropdown-item>
             <b-dropdown-item href="#">ES</b-dropdown-item>
             <b-dropdown-item href="#">RU</b-dropdown-item>
             <b-dropdown-item href="#">FA</b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <b-nav-form>
+          <b-nav-form v-if="!isLoggedIn">
             <b-button
               size="sm"
               class="my-2 my-sm-0 nav-btn"

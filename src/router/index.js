@@ -23,6 +23,16 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: () => import('../views/Profile.vue')
+  },
+  {
+    path: '/leaderboard',
+    name: 'Leaderboard',
+    component: () => import('../views/LeaderBoard.vue')
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../components/StudentInfo.vue')
   }
 ]
 

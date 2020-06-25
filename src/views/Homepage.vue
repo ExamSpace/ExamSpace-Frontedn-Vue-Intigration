@@ -4,11 +4,19 @@
     <template v-if="!isLoggedIn">
       <BundlePack></BundlePack>
       <ExamShowcase></ExamShowcase>
+      <LatetstArticles></LatetstArticles>
       <QuestionBank></QuestionBank>
       <CustomCard></CustomCard>
       <FAQ></FAQ>
-      <HomeFooter></HomeFooter>
+      <UpcomingExam></UpcomingExam>
     </template>
+    <template v-else>
+      <UserStatistics></UserStatistics>
+      <CircularIconLink></CircularIconLink>
+      <LatetstArticles></LatetstArticles>
+      <HomePageCard></HomePageCard>
+    </template>
+    <HomeFooter></HomeFooter>
   </div>
 </template>
 
@@ -20,6 +28,11 @@ import QuestionBank from '@/components/QuestionBank.vue'
 import CustomCard from '@/components/CustomCard.vue'
 import FAQ from '@/components/FAQ.vue'
 import HomeFooter from '@/components/HomeFooter.vue'
+import UserStatistics from '@/components/UserStatistics.vue'
+import CircularIconLink from '@/components/CircularIconLink.vue'
+import HomePageCard from '@/components/Homepage2Cards.vue'
+import UpcomingExam from '@/components/UpcomingExam.vue'
+import LatetstArticles from '@/components/Homepage3Cards.vue'
 export default {
   name: 'Homepage',
   components: {
@@ -29,7 +42,12 @@ export default {
     QuestionBank,
     CustomCard,
     FAQ,
-    HomeFooter
+    HomeFooter,
+    UserStatistics,
+    CircularIconLink,
+    HomePageCard,
+    UpcomingExam,
+    LatetstArticles
   },
   computed: {
     isLoggedIn() {
