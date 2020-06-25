@@ -1,0 +1,13 @@
+name: Building Action
+
+on:
+  push:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Installing Project dependency
+    - run: npm ci
+    - run: npm run build
