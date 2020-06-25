@@ -4,6 +4,7 @@
     <template v-if="!isLoggedIn">
       <BundlePack></BundlePack>
       <ExamShowcase></ExamShowcase>
+      <LatetstArticles></LatetstArticles>
       <QuestionBank></QuestionBank>
       <CustomCard></CustomCard>
       <FAQ></FAQ>
@@ -12,6 +13,7 @@
     <template v-else>
       <UserStatistics></UserStatistics>
       <CircularIconLink></CircularIconLink>
+      <LatetstArticles></LatetstArticles>
       <HomePageCard></HomePageCard>
     </template>
     <HomeFooter></HomeFooter>
@@ -30,6 +32,7 @@ import UserStatistics from '@/components/UserStatistics.vue'
 import CircularIconLink from '@/components/CircularIconLink.vue'
 import HomePageCard from '@/components/Homepage2Cards.vue'
 import UpcomingExam from '@/components/UpcomingExam.vue'
+import LatetstArticles from '@/components/Homepage3Cards.vue'
 export default {
   name: 'Homepage',
   components: {
@@ -43,7 +46,8 @@ export default {
     UserStatistics,
     CircularIconLink,
     HomePageCard,
-    UpcomingExam
+    UpcomingExam,
+    LatetstArticles
   },
   computed: {
     isLoggedIn() {

@@ -20,6 +20,7 @@
       </b-col>
     </b-row>
 
+    <map-component></map-component>
     <student-info></student-info>
   </div>
 </template>
@@ -32,6 +33,7 @@ import PolarChart from '@/components/PolarChart.vue'
 import BarChart from '@/components/BarChart.vue'
 
 import StudentInfo from '@/components/StudentInfo.vue'
+import MapComponent from '@/components/MapComponent.vue'
 export default {
   name: 'LeaderBoard',
   components: {
@@ -40,7 +42,8 @@ export default {
     MultilineChart,
     PolarChart,
     BarChart,
-    StudentInfo
+    StudentInfo,
+    MapComponent
   }
 }
 </script>

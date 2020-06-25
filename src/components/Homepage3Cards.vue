@@ -1,5 +1,5 @@
 <template>
-  <div class="homepage3cards">
+  <div id="homepage3cards" class="homepage3cards">
     <div class="container">
       <div class="heading-div" style="text-align: center;">
         <h1 class="showcase-top mb-0" style="color: #020266;">
@@ -131,10 +131,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  margin: 0;
-  padding: 0;
-}
 #top1 {
   padding-bottom: 15px;
   margin: 0px 10px 10px 5px;
