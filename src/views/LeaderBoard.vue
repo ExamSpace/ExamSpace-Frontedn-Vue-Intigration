@@ -22,6 +22,7 @@
 
     <map-component></map-component>
     <student-info></student-info>
+    <LeaderBoardContacts class="mt-5"></LeaderBoardContacts>
   </div>
 </template>
 
@@ -34,6 +35,7 @@ import BarChart from '@/components/BarChart.vue'
 
 import StudentInfo from '@/components/StudentInfo.vue'
 import MapComponent from '@/components/MapComponent.vue'
+import LeaderBoardContacts from '@/components/LeaderBoardContacts.vue'
 export default {
   name: 'LeaderBoard',
   components: {
@@ -43,7 +45,8 @@ export default {
     PolarChart,
     BarChart,
     StudentInfo,
-    MapComponent
+    MapComponent,
+    LeaderBoardContacts
   }
 }
 </script>
