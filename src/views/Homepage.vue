@@ -13,8 +13,8 @@
     <template v-else>
       <UserStatistics></UserStatistics>
       <CircularIconLink></CircularIconLink>
-      <LatetstArticles></LatetstArticles>
       <HomePageCard></HomePageCard>
+      <LatetstArticles></LatetstArticles>
     </template>
     <HomeFooter></HomeFooter>
   </div>

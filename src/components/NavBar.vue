@@ -25,7 +25,9 @@
         <b-button size="sm" class="nav-btn" variant="secondary" to="/login"
           >Log In</b-button
         >
-        <b-button size="sm" class="nav-btn" variant="primary">SignUp</b-button>
+        <b-button size="sm" class="nav-btn" variant="primary" to="/register"
+          >SignUp</b-button
+        >
       </template>
       <template v-else>
         <p>Hello! {{ loggedInUserName }}</p>
@@ -112,7 +114,11 @@
               to="/login"
               >Login</b-button
             >
-            <b-button size="sm" class="my-2 my-sm-0 nav-btn" variant="primary"
+            <b-button
+              size="sm"
+              class="my-2 my-sm-0 nav-btn"
+              variant="primary"
+              to="/register"
               >SignUp</b-button
             >
           </b-nav-form>
