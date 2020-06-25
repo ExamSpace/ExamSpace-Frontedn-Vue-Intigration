@@ -25,9 +25,14 @@ const routes = [
     component: () => import('../views/Profile.vue')
   },
   {
+    path: '/leaderboard',
+    name: 'Leaderboard',
+    component: () => import('../views/LeaderBoard.vue')
+  },
+  {
     path: '/test',
     name: 'test',
-    component: () => import('../components/Leaderboard-Zunaid.vue')
+    component: () => import('../components/StudentInfo.vue')
   }
 ]
 
