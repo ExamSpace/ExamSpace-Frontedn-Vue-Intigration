@@ -7,7 +7,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Installing Project dependency
-    - uses: actions/checkout@v2
-    - run: npm ci
-    - run: npm run build
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install dependency
+      run: npm ci
+    - name: Build
+      run: npm run build
