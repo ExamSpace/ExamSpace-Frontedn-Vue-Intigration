@@ -3,7 +3,12 @@
     <h4>JAHIRUL ISLAM</h4>
     <form action="#">
       <label for="fname">Full Name</label>
-      <input type="text" id="fname" name="firstname" placeholder="Jahirul Islam" />
+      <input
+        type="text"
+        id="fname"
+        name="firstname"
+        placeholder="Jahirul Islam"
+      />
 
       <label for="fname">Gender</label>
       <div id="radioGroup">
@@ -25,7 +30,12 @@
       <input type="text" id="mob" name="mobile" placeholder="+8801XXXXXXXXX" />
 
       <label for="email">Email</label>
-      <input type="text" id="email" name="lastname" placeholder="info@examsspace.com" />
+      <input
+        type="text"
+        id="email"
+        name="lastname"
+        placeholder="info@examsspace.com"
+      />
       <p class="alerts">SMS Alert Activation.</p>
       <input type="submit" value="Update" />
     </form>

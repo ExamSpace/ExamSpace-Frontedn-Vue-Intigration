@@ -25,7 +25,9 @@
         <div class="pay-list">
           <ul>
             <li>
-              <button class="bbtns" style="background-color: #ff0000;">Block Account</button>
+              <button class="bbtns" style="background-color: #ff0000;">
+                Block Account
+              </button>
             </li>
             <li>
               <button class="bbtns">Unblock Account</button>
@@ -60,7 +62,9 @@
               <button class="lbtns">Bill Paid</button>
             </li>
             <li>
-              <button class="lbtns" style="background-color:#ff0000;">Not Paid</button>
+              <button class="lbtns" style="background-color:#ff0000;">
+                Not Paid
+              </button>
             </li>
             <li>
               <button class="lbtns">Bill Paid</button>
