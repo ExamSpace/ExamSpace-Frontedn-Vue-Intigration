@@ -20,12 +20,12 @@
 
 <script>
 export default {
-  name: "footer"
-};
+  name: 'footer'
+}
 </script>
 <style scoped>
 .bg-no-overlay {
-  background: url("../assets/Homepage3/img/bg1.png");
+  background: url('../assets/Homepage3/img/bg1.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
