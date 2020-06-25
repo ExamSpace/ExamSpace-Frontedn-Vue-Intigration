@@ -1,4 +1,4 @@
-# exam-space
+# exam-space ![Build](https://github.com/ExamSpace/ExamSpace-Frontedn-Vue-Intigration/workflows/Build/badge.svg)
 
 ## Project setup
 
