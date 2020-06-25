@@ -91,6 +91,7 @@
           <b-nav-item href disabled="">Practice</b-nav-item>
           <b-nav-item href disabled="">Pass</b-nav-item>
           <b-nav-item to="/leaderboard">Leaderboard</b-nav-item>
+          <b-nav-item to="/extra">Extras</b-nav-item>
           <b-nav-form>
             <b-form-input
               size="sm"

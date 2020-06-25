@@ -35,6 +35,11 @@ const routes = [
     component: () => import('../views/LeaderBoard.vue')
   },
   {
+    path: '/extra',
+    name: 'Extra',
+    component: () => import('../views/Extra.vue')
+  },
+  {
     path: '/test',
     name: 'test',
     component: () => import('../components/StudentInfo.vue')

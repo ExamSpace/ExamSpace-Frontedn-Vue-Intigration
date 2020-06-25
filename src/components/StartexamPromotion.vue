@@ -1,5 +1,5 @@
 <template>
-  <div class="footer">
+  <div class="startexam_promotion">
     <div class="container bg-no-overlay">
       <div class="row left-align">
         <h1 class="text1">Start Your Exam Preparation Now!</h1>
@@ -20,10 +20,13 @@
 
 <script>
 export default {
-  name: 'footer'
+  name: 'StartexamPromotion'
 }
 </script>
 <style scoped>
+#startexam_promotion {
+  padding: 1rem 1rem;
+}
 .bg-no-overlay {
   background: url('../assets/Homepage3/img/bg1.png');
   background-repeat: no-repeat;

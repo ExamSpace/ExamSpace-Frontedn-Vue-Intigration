@@ -131,6 +131,9 @@ export default {
 
 <style lang="scss" scoped>
 #test {
+  padding: 2rem 3rem;
+}
+#test {
   .card-header {
     display: flex;
     img {

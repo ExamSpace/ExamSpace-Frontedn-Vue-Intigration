@@ -9,6 +9,7 @@
       <CustomCard></CustomCard>
       <FAQ></FAQ>
       <UpcomingExam></UpcomingExam>
+      <StartexamPromotion></StartexamPromotion>
     </template>
     <template v-else>
       <UserStatistics></UserStatistics>
@@ -33,6 +34,7 @@ import CircularIconLink from '@/components/CircularIconLink.vue'
 import HomePageCard from '@/components/Homepage2Cards.vue'
 import UpcomingExam from '@/components/UpcomingExam.vue'
 import LatetstArticles from '@/components/Homepage3Cards.vue'
+import StartexamPromotion from '@/components/StartexamPromotion.vue'
 export default {
   name: 'Homepage',
   components: {
@@ -47,7 +49,8 @@ export default {
     CircularIconLink,
     HomePageCard,
     UpcomingExam,
-    LatetstArticles
+    LatetstArticles,
+    StartexamPromotion
   },
   computed: {
     isLoggedIn() {
