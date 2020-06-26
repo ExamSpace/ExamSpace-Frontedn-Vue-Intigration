@@ -96,7 +96,9 @@
                 <div class="card-body card-body-2">
                   <h3 class="mr-3">$1670</h3>
                   <hr class="bg-white" />
-                  <p class="text-dark mr-3">Order Value</p>
+                  <p class="text-dark mr-3" style="font-size: .9em">
+                    Order Value
+                  </p>
                 </div>
               </div>
             </div>
@@ -393,7 +395,7 @@
             <div class="card-body card-body-2">
               <h3 class="mr-3">$1670</h3>
               <hr class="bg-white" />
-              <p class="text-dark mr-3">Order Value</p>
+              <p class="text-dark mr-3" style="font-size: .9em">Order Value</p>
             </div>
           </div>
         </div>
