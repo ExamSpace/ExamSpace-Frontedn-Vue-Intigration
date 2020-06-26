@@ -1,77 +1,194 @@
 <template>
   <div class="d-flex main-container">
     <div class="container-fluid left-container">
-      <div class="cards d-flex flex-lg-row flex-column justify-content-between">
-        <div class="card" style="width: 18rem;">
-          <div class="text-center">
-            <img
-              src="../assets/Leaderboard/img/girl.png"
-              class="card-img-top mt-1"
-            />
+      <div class="d-flex">
+        <div
+          class="cards d-flex flex-wrap flex-lg-row flex-column justify-content-between"
+        >
+          <div class="card">
+            <div class="text-center">
+              <img
+                src="../assets/Leaderboard/img/girl.png"
+                class="card-img-top mt-1"
+              />
+            </div>
+            <h4 class="text-center">Asma Akter</h4>
+            <h5 class="text-center mb-5">Assistant</h5>
+            <div class="d-flex justify-content-around card-upper">
+              <img
+                src="../assets/Leaderboard/img/graph-dot.png"
+                class="graph"
+              />
+              <p class="text-center card-upper-text">
+                <span class="upper-number">122</span> <br />
+                cccccc
+              </p>
+            </div>
+            <div class="d-flex justify-content-around card-lower">
+              <p class="text-center mt-3 mr-3">AAAAAA</p>
+              <div class="between"></div>
+              <p class="text-center mt-3 ml-3">BBBBBB</p>
+            </div>
           </div>
-          <h4 class="text-center">Asma Akter</h4>
-          <h5 class="text-center mb-5">Assistant</h5>
-          <div class="d-flex justify-content-around card-upper">
-            <img src="../assets/Leaderboard/img/graph-dot.png" class="graph" />
-            <p class="text-center card-upper-text">
-              <span class="upper-number">122</span> <br />
-              cccccc
-            </p>
+          <div class="card">
+            <div class="text-center">
+              <img
+                src="../assets/Leaderboard/img/boyShirt.png"
+                class="card-img-top mt-1"
+              />
+            </div>
+            <h4 class="text-center">Abul Kalam</h4>
+            <h5 class="text-center mb-5">Assistant</h5>
+            <div class="d-flex justify-content-around card-upper">
+              <img
+                src="../assets/Leaderboard/img/graph-arrow-down.png"
+                class="graph"
+              />
+              <p class="text-center card-upper-text">
+                <span class="upper-number">108+</span> <br />
+                cccccc
+              </p>
+            </div>
+            <div class="d-flex justify-content-around card-lower">
+              <p class="text-center mt-3 mr-3">AAAAAA</p>
+              <div class="between"></div>
+              <p class="text-center mt-3 ml-3">BBBBBB</p>
+            </div>
           </div>
-          <div class="d-flex justify-content-around card-lower">
-            <p class="text-center mt-3 mr-3">AAAAAA</p>
-            <div class="between"></div>
-            <p class="text-center mt-3 ml-3">BBBBBB</p>
+          <div class="card">
+            <div class="text-center">
+              <img
+                src="../assets/Leaderboard/img/boyTshirt.png"
+                class="card-img-top mt-1"
+              />
+            </div>
+            <h4 class="text-center">Mostafiz Rahman</h4>
+            <h5 class="text-center mb-5">Assistant</h5>
+            <div class="d-flex justify-content-around card-upper">
+              <img
+                src="../assets/Leaderboard/img/graph-arrow-up.png"
+                class="graph"
+              />
+              <p class="text-center card-upper-text">
+                <span class="upper-number">99</span> <br />
+                cccccc
+              </p>
+            </div>
+            <div class="d-flex justify-content-around card-lower">
+              <p class="text-center mt-3 mr-3">AAAAAA</p>
+              <div class="between"></div>
+              <p class="text-center mt-3 ml-3">BBBBBB</p>
+            </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <div class="text-center">
-            <img
-              src="../assets/Leaderboard/img/boyShirt.png"
-              class="card-img-top mt-1"
-            />
-          </div>
-          <h4 class="text-center">Abul Kalam</h4>
-          <h5 class="text-center mb-5">Assistant</h5>
-          <div class="d-flex justify-content-around card-upper">
-            <img
-              src="../assets/Leaderboard/img/graph-arrow-down.png"
-              class="graph"
-            />
-            <p class="text-center card-upper-text">
-              <span class="upper-number">108+</span> <br />
-              cccccc
-            </p>
-          </div>
-          <div class="d-flex justify-content-around card-lower">
-            <p class="text-center mt-3 mr-3">AAAAAA</p>
-            <div class="between"></div>
-            <p class="text-center mt-3 ml-3">BBBBBB</p>
-          </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-          <div class="text-center">
-            <img
-              src="../assets/Leaderboard/img/boyTshirt.png"
-              class="card-img-top mt-1"
-            />
-          </div>
-          <h4 class="text-center">Mostafiz Rahman</h4>
-          <h5 class="text-center mb-5">Assistant</h5>
-          <div class="d-flex justify-content-around card-upper">
-            <img
-              src="../assets/Leaderboard/img/graph-arrow-up.png"
-              class="graph"
-            />
-            <p class="text-center card-upper-text">
-              <span class="upper-number">99</span> <br />
-              cccccc
-            </p>
-          </div>
-          <div class="d-flex justify-content-around card-lower">
-            <p class="text-center mt-3 mr-3">AAAAAA</p>
-            <div class="between"></div>
-            <p class="text-center mt-3 ml-3">BBBBBB</p>
+        <div class="right-container-2 container-fluid">
+          <div class="col">
+            <div class="row mb-5">
+              <div class="card card-1 p-2 mr-4">
+                <div
+                  class="d-block text-center rounded-circle border border-white card-1-border"
+                >
+                  <h3>365</h3>
+                  <p>Deals</p>
+                </div>
+              </div>
+              <div class="card card-2 text-center">
+                <div class="card-body card-body-2">
+                  <h3 class="mr-3">$1670</h3>
+                  <hr class="bg-white" />
+                  <p class="text-dark mr-3">Order Value</p>
+                </div>
+              </div>
+            </div>
+            <!-- end of card -->
+            <div class="row mb-5">
+              <img src="../assets/Leaderboard/img/progressbar.png" alt="" />
+            </div>
+            <!-- image placeholder will be replaced later -->
+            <div class="mb-3 ml-3">
+              <a href="#" class="btn btn-sm bg-primary text-white">NEWS</a>
+              <a href="#" class="btn btn-sm bg-primary text-white ml-3"
+                >SHOW ALL</a
+              >
+            </div>
+            <!-- end of links -->
+            <div class="col-lg-10 col-xl-10 col_1">
+              <a href="#" class="d-flex anchor">
+                <div class="anchor-img">
+                  <img src="../assets/Leaderboard/img/girl.png" alt="" />
+                </div>
+                <div class="anchor-text mt-2">
+                  <p class="name-text">Asma Akter</p>
+                  <p class="small-text">Assistant</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-10 col-xl-10 col_1">
+              <a href="#" class=" d-flex anchor">
+                <div class="anchor-img">
+                  <img src="../assets/Leaderboard/img/boyShirt.png" alt="" />
+                </div>
+                <div class="anchor-text mt-2">
+                  <p class="name-text">Abdul Kalam</p>
+                  <p class="small-text">Assistant</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-10 col-xl-10 col_1">
+              <a href="#" class=" d-flex anchor">
+                <div class="anchor-img">
+                  <img src="../assets/Leaderboard/img/boyTshirt.png" alt="" />
+                </div>
+                <div class="anchor-text mt-2">
+                  <p class="name-text">Mostafiz Rahman</p>
+                  <p class="small-text">Assistant</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-10 col-xl-10 col_1">
+              <a href="#" class=" d-flex anchor">
+                <div class="anchor-img">
+                  <img src="../assets/Leaderboard/img/girl.png" alt="" />
+                </div>
+                <div class="anchor-text mt-2">
+                  <p class="name-text">Asma Akter</p>
+                  <p class="small-text">Assistant</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-10 col-xl-10 col_1">
+              <a href="#" class=" d-flex anchor">
+                <div class="anchor-img">
+                  <img src="../assets/Leaderboard/img/girl.png" alt="" />
+                </div>
+                <div class="anchor-text mt-2">
+                  <p class="name-text">Asma Akter</p>
+                  <p class="small-text">Assistant</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-10 col-xl-10 col_1">
+              <a href="#" class=" d-flex anchor">
+                <div class="anchor-img">
+                  <img src="../assets/Leaderboard/img/girl.png" alt="" />
+                </div>
+                <div class="anchor-text mt-2">
+                  <p class="name-text">Asma Akter</p>
+                  <p class="small-text">Assistant</p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-10 col-xl-10 col_1">
+              <a href="#" class=" d-flex anchor">
+                <div class="anchor-img">
+                  <img src="../assets/Leaderboard/img/girl.png" alt="" />
+                </div>
+                <div class="anchor-text mt-2">
+                  <p class="name-text">Asma Akter</p>
+                  <p class="small-text">Assistant</p>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -282,7 +399,7 @@
         </div>
         <!-- end of card -->
         <div class="row mb-5">
-          <img src="img/progressbar.png" alt="" />
+          <img src="../assets/Leaderboard/img/progressbar.png" alt="" />
         </div>
         <!-- image placeholder will be replaced later -->
         <div class="mb-3 ml-3">
@@ -379,11 +496,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.cards {
+  width: 100%;
+  .card {
+    padding: 20px;
+  }
+}
 .card {
   background-color: #f8f8f8;
   border-radius: 10%;
   border: none;
-  margin: 20px;
+  margin-bottom: 10px;
 }
 
 .card h4 {
@@ -469,24 +592,32 @@ h6 {
   }
 }
 
-.left-container {
-  width: 75%;
-}
-
 .right-container {
   border-left: 5px solid #999;
   width: 25%;
+}
+.right-container-2 {
+  border-left: 3px solid #999;
+  @media only screen and (max-width: 586px) {
+    display: none;
+  }
+  @media only screen and (min-width: 992px) {
+    display: none;
+  }
 }
 
 @media only screen and (max-width: 992px) {
   .right-container {
     display: none;
   }
-  .left-container {
-    width: 100%;
-  }
   .cards {
     align-items: center;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .left-container {
+    width: 75%;
   }
 }
 
