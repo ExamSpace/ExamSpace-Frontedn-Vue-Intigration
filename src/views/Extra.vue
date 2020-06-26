@@ -77,15 +77,18 @@
       </div>
     </div>
     <TextBook></TextBook>
+    <StudentQuotes></StudentQuotes>
   </div>
 </template>
 
 <script>
 import TextBook from '@/components/TextBook.vue'
+import StudentQuotes from '@/components/StudentQuotes.vue'
 export default {
   name: 'Extra',
   components: {
-    TextBook
+    TextBook,
+    StudentQuotes
   }
 }
 </script>
