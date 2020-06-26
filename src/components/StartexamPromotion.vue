@@ -1,6 +1,6 @@
 <template>
   <div class="startexam_promotion">
-    <div class="container bg-no-overlay">
+    <div class="container-fluid bg-no-overlay">
       <div class="row left-align">
         <h1 class="text1">Start Your Exam Preparation Now!</h1>
       </div>
@@ -23,7 +23,7 @@ export default {
   name: 'StartexamPromotion'
 }
 </script>
-<style scoped>
+<style lang="scss" scoped>
 #startexam_promotion {
   padding: 1rem 1rem;
 }
@@ -34,8 +34,10 @@ export default {
   background-size: contain;
   color: #000000;
   height: 500px;
-
   max-width: 100%;
+  @media only screen and (min-width: 1600px) {
+    background-size: cover;
+  }
 }
 
 .text1 {
