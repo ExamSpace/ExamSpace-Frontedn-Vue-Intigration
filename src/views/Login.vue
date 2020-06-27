@@ -75,8 +75,10 @@
                     <span class="txt1">Or</span>
                   </div>
 
-                  <div class="container-login-form-btn m-t-32">
-                    <button class="login-form-btn1">Signup</button>
+                  <div class="container-login-form-btn m-t-8">
+                    <router-link class="login-form-btn1" to="/register"
+                      >Signup</router-link
+                    >
                   </div>
                 </form>
               </div>
@@ -118,6 +120,9 @@ export default {
   background-size: cover;
   font-family: Arial Regular, sans-serif;
   height: 100vh;
+}
+.login-form-btn1 {
+  color: white;
 }
 @import '../assets/Login/style/style.css';
 @import '../assets/Login/style/util.css';
