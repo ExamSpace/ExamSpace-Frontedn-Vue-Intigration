@@ -78,7 +78,9 @@
               </b-col>
               <b-col cols="3" md="2">
                 <div class="btn-holder">
-                  <b-button size="sm" variant="primary">Start Now</b-button>
+                  <b-button size="sm" to="/exam" variant="primary"
+                    >Start Now</b-button
+                  >
                 </div>
               </b-col>
             </b-row>
@@ -101,7 +103,9 @@
               </b-col>
               <b-col cols="3" md="2">
                 <div class="btn-holder">
-                  <b-button size="sm" variant="primary">Start Now</b-button>
+                  <b-button size="sm" to="/exam" variant="primary"
+                    >Start Now</b-button
+                  >
                 </div>
               </b-col>
             </b-row>
@@ -124,7 +128,9 @@
               </b-col>
               <b-col cols="3" md="2">
                 <div class="btn-holder">
-                  <b-button size="sm" variant="primary">Start Now</b-button>
+                  <b-button size="sm" to="/exam" variant="primary"
+                    >Start Now</b-button
+                  >
                 </div>
               </b-col>
             </b-row>

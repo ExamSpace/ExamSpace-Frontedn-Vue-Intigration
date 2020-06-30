@@ -49,6 +49,7 @@
         </b-dropdown>
       </template>
     </div>
+
     <b-navbar toggleable="lg" type="light" variant="light">
       <div class="navbar-brand">
         <router-link to="/">
@@ -126,12 +127,17 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
+    <PromoBanner v-if="!isLoggedIn"></PromoBanner>
   </div>
 </template>
 
 <script>
+import PromoBanner from '@/components/PromoBanner.vue'
 export default {
   name: 'NavBar',
+  components: {
+    PromoBanner
+  },
   computed: {
     isLoggedIn() {
       return this.$store.state.isLoggedIn
@@ -146,6 +152,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#nav {
+  background-color: #f8f9fa;
+}
 .navbar {
   background-color: white important;
   .nav-btn {

@@ -23,21 +23,27 @@
               <h5 class="card-title mt-3 ml-1">Latest Articles</h5>
             </div>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <hr />
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <hr />
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <a href="#" class="anchor-text">
               <small class="text-danger" style="font-weight: bold;"
@@ -59,21 +65,27 @@
               <h5 class="card-title mt-3 ml-1">Trending Articles</h5>
             </div>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <hr />
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <hr />
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <a href="#" class="anchor-text">
               <small class="text-danger" style="font-weight: bold;"
@@ -95,21 +107,27 @@
               <h5 class="card-title mt-3 ml-1">Daily GK & CA</h5>
             </div>
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <hr />
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
             <hr />
             <p class="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
+              <b-link to="/blog"
+                >This is a wider card with supporting text below as a natural
+                lead-in to additional content. This card has even longer content
+                than the first to show that equal height action</b-link
+              >
             </p>
 
             <a href="#" class="anchor-text">
@@ -130,7 +148,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #top1 {
   padding-bottom: 15px;
   margin: 0px 10px 10px 5px;
@@ -175,5 +193,15 @@ export default {
 .card-title {
   margin-bottom: 0px;
   font-weight: 400;
+}
+.card-text {
+  a {
+    color: #666666;
+    text-decoration: none;
+
+    &:hover {
+      color: #3a3a3a;
+    }
+  }
 }
 </style>

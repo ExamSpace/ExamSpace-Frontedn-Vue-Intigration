@@ -40,9 +40,9 @@ const routes = [
     component: () => import('../views/Extra.vue')
   },
   {
-    path: '/test',
-    name: 'test',
-    component: () => import('../components/StudentInfo.vue')
+    path: '/blog',
+    name: 'blog',
+    component: () => import('../views/Blog.vue')
   }
 ]
 
