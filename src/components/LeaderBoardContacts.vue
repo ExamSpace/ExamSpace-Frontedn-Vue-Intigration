@@ -85,16 +85,14 @@
           <div class="col">
             <div class="row mb-5">
               <div class="card card-1 p-2 mr-4">
-                <div
-                  class="d-block text-center rounded-circle border border-white card-1-border"
-                >
-                  <h3>365</h3>
-                  <p>Deals</p>
+                <div class=" text-center card-1-border">
+                  <h3 class="medium-text">720 / 100</h3>
+                  <p>Hours</p>
                 </div>
               </div>
               <div class="card card-2 text-center">
                 <div class="card-body card-body-2">
-                  <h3 class="mr-3">$1670</h3>
+                  <h3 class="mr-3" style="font-size: .9em">1670/1000</h3>
                   <hr class="bg-white" />
                   <p class="text-dark mr-3" style="font-size: .9em">
                     Order Value
@@ -384,18 +382,18 @@
       <div class="col">
         <div class="row mb-5">
           <div class="card card-1 p-2 mr-4">
-            <div
-              class="d-block text-center rounded-circle border border-white card-1-border"
-            >
-              <h3>365</h3>
-              <p>Deals</p>
+            <div class="text-center   card-1-border">
+              <h3 class="medium-text">720/100</h3>
+              <p>Hours</p>
             </div>
           </div>
           <div class="card card-2 text-center">
             <div class="card-body card-body-2">
-              <h3 class="mr-3">$1670</h3>
+              <h3 class="mr-3" style="font-size: .9em">1670/1000</h3>
               <hr class="bg-white" />
-              <p class="text-dark mr-3" style="font-size: .9em">Order Value</p>
+              <p class="text-dark mr-3" style="font-size: .9em">
+                Total Question
+              </p>
             </div>
           </div>
         </div>
@@ -682,5 +680,8 @@ hr {
       font-size: 0.7rem;
     }
   }
+}
+.medium-text {
+  font-size: 1.2em;
 }
 </style>
