@@ -1,57 +1,61 @@
 <template>
   <div id="exam">
     <ExamDetails
+      :examIdx="this.$route.params.idx"
+      v-if="dataLoaded && !takeExamSelected"
       v-on:takeExamPressed="onTakeExamPressed"
-      v-if="!takeExamSelected"
     ></ExamDetails>
-    <ExamTermsAndCondition
-      v-on:startExamPressed="onStartExamPressed"
-      v-on:cancel="onCancelPressed"
-      v-else-if="!termsAccepted"
-    ></ExamTermsAndCondition>
-    <Quiz
+    <QuestionSet
       v-else-if="!examFinished"
-      v-on:cancel="onCancelPressed"
+      :examIdx="this.$route.params.idx"
       v-on:endExam="onEndExam"
-    ></Quiz>
-    <ScoreCard v-else></ScoreCard>
+    ></QuestionSet>
+    <ScoreCard
+      v-else
+      :examIdx="$route.params.idx"
+      :remainingTime="remainingTime"
+    ></ScoreCard>
   </div>
 </template>
 
 <script>
 import ExamDetails from '@/components/ExamDetails.vue'
-import ExamTermsAndCondition from '@/components/ExamTermsAndCondition.vue'
-import Quiz from '@/components/Quiz.vue'
+import QuestionSet from '@/components/QuestionSet.vue'
 import ScoreCard from '@/components/ScoreCard.vue'
 export default {
   name: 'Exam',
   components: {
     ExamDetails,
-    ExamTermsAndCondition,
-    Quiz,
+    QuestionSet,
     ScoreCard
   },
   data: function() {
     return {
       takeExamSelected: false,
-      termsAccepted: false,
-      examFinished: false
+      examFinished: false,
+      remainingTime: 0
+    }
+  },
+
+  mounted() {
+    if (
+      typeof this.$store.state.exams[this.$route.params.idx] === 'undefined'
+    ) {
+      this.$router.push({ name: 'notfound' })
+    }
+  },
+  computed: {
+    dataLoaded() {
+      return this.$store.state.exams != 0
     }
   },
   methods: {
     onTakeExamPressed: function() {
       this.takeExamSelected = true
     },
-    onStartExamPressed: function() {
-      this.termsAccepted = true
-    },
-    onEndExam: function() {
+    onEndExam: function(data) {
+      this.remainingTime = data.rem
       this.examFinished = true
-    },
-    onCancelPressed: function() {
-      this.termsAccepted = false
-      this.takeExamSelected = false
-      this.examFinished = false
     }
   }
 }

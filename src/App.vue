@@ -21,6 +21,9 @@ export default {
     isLoggedIn() {
       return this.$store.state.isLoggedIn
     }
+  },
+  mounted() {
+    this.$store.dispatch('load')
   }
 }
 </script>

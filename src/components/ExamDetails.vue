@@ -1,11 +1,12 @@
 <template>
   <div id="exam_details">
     <div class="details-heading">
-      <p class="exam-title">Agrani Bank Limited | Recruitment Test</p>
+      <p class="exam-title">{{ this.$store.state.exams[examIdx].exam }}</p>
       <p>
-        Total Exams:
-        <span>1</span> Exam Taken: <span>0</span> Version:
-        <span>Bandla & English</span>
+        Total Subjects:
+        <span>{{ this.$store.state.exams[examIdx].subjects.length }}</span>
+        Total Question : <span>{{ totalQuestions }}</span> Version:
+        <span>{{ this.$store.state.exams[examIdx].version }}</span>
       </p>
       <p>Job Entrance > Bank Jobs > Preliminary</p>
       <p>
@@ -24,25 +25,26 @@
     <div class="details-body">
       <p class="title">Exam Details</p>
       <div class="details-body-card">
-        <p>Agrani Bank | Senior Officer | 2018 | Open</p>
+        <p>{{ this.$store.state.exams[examIdx].exam }}</p>
       </div>
-      <p><strong>Subject(s):</strong> Combined</p>
+      <p><strong>Subject(s):</strong> {{ subjectList }}</p>
       <p>Syllebus: Bank Preliminary Standard</p>
       <p>
         Question:
-        <strong>100</strong> Marks:
-        <strong>100</strong>
+        <strong>{{ totalQuestions }}</strong> Marks:
+        <strong>{{ totalQuestions }}</strong>
       </p>
       <p>
         Time:
-        <strong>60</strong> Minutes
+        <strong>{{ this.$store.state.exams[examIdx].duration }}</strong>
+        Minutes
       </p>
       <b-button
         squared
         variant="primary"
         style="margin-top: 1rem;"
         @click="onTakeExamPressed"
-        >Take Exam</b-button
+        >Start Exam</b-button
       >
     </div>
   </div>
@@ -51,9 +53,26 @@
 <script>
 export default {
   name: 'ExamDetails',
+  props: ['examIdx'],
   methods: {
     onTakeExamPressed: function() {
       this.$emit('takeExamPressed')
+    }
+  },
+  computed: {
+    totalQuestions() {
+      var qs = 0
+      this.$store.state.exams[this.examIdx].subjects.forEach(subject => {
+        qs += subject.questions.length
+      })
+      return qs
+    },
+    subjectList() {
+      var subs = ''
+      this.$store.state.exams[this.examIdx].subjects.forEach(subject => {
+        subs += subject.subject + ' | '
+      })
+      return subs
     }
   }
 }
