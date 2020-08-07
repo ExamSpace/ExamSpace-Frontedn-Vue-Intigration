@@ -11,33 +11,15 @@
     </div>
     <br />
     <div class="nav">
-      <div id="activeTab">Bank & Insurance</div>
+      <div id="activeTab">Admission Tests</div>
       <div>SSC & Railways</div>
-      <div>Engineering</div>
+      <div>Teacher Hiring</div>
       <div>Teaching</div>
-      <div>Defence & Police</div>
+      <div>Administrative Tests</div>
       <div>Civil Service</div>
     </div>
     <br />
     <div class="grid">
-      <div class="row">
-        <div class="col-sm" v-for="index in 4" :key="index">
-          <div class="cell">
-            <img src="../assets/BundlePack/img/bird.png" />
-            <p>PO Sectional Pack</p>
-            <p class="sub">30 Tests</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm" v-for="index in 4" :key="index">
-          <div class="cell">
-            <img src="../assets/BundlePack/img/bird.png" />
-            <p>PO Sectional Pack</p>
-            <p class="sub">30 Tests</p>
-          </div>
-        </div>
-      </div>
       <div class="row">
         <div class="col-sm" v-for="index in 4" :key="index">
           <div class="cell">
