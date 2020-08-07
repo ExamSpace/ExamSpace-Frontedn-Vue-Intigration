@@ -1,109 +1,133 @@
 <template>
-  <div id="score_card">
-    <div class="score-card">
-      <h5>Your Mark Sheet</h5>
-      <div class="summary-title">Total Marks: 100 Total Obtained: 0 (0%)</div>
-      <b-container>
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Subject</th>
-              <th scope="col">Total Questions</th>
-              <th scope="col">Correct</th>
-              <th scope="col">Wrong</th>
-              <th scope="col">Mark Obtained</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Bangla</th>
-              <td>25</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <th scope="row">English</th>
-              <td>25</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <th scope="row">Mathematics</th>
-              <td>25</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <th scope="row">Total</th>
-              <td>75</td>
-              <td>0</td>
-              <td>0</td>
-              <td>0(0%)</td>
-            </tr>
-          </tbody>
-        </table>
-      </b-container>
-      <div class="summary">
-        <div class="summary-body">
-          <p>Position : 4</p>
-          <p>Marks Obtained : 0</p>
-          <p>Height Marks : 45.98</p>
-          <p>Total Students : 8</p>
-        </div>
-        <b-button block variant="primary"
-          >View All Questions and Answers</b-button
-        >
-      </div>
+  <div class="text-center">
+    <h1 class="display-4">Results</h1>
+    <p class="lead">
+      Congrats on your results! If you don't like your results down below, feel
+      free to take the quiz again!
+    </p>
+
+    <h1 class="Quiz">{{ examTitle }}</h1>
+    <h2 class="Name">Anonymous</h2>
+
+    <div class="table">
+      <b-table :items="items"></b-table>
+    </div>
+
+    <div class="result">
+      <p>
+        Correct:
+        <strong>{{ totalCorrect }}</strong>
+      </p>
+    </div>
+
+    <div class="result">
+      <p>
+        Marks Deducted:
+        <strong>{{ totalWrong }}</strong>
+      </p>
+    </div>
+
+    <div class="result">
+      <p>
+        Total:
+        <strong>{{ totalMarks }}/{{ TotalQuestions }}</strong>
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'ScoreCard'
+  props: ['examIdx'],
+  name: 'student_marks',
+  data() {
+    return {
+      items: [],
+      totalCorrect: 0,
+      totalWrong: 0,
+      totalMarks: 0,
+      TotalQuestions: 0
+    }
+  },
+  mounted() {
+    var examid = this.examIdx
+    var exam = this.$store.state.exams[examid]
+
+    exam.subjects.forEach(subject => {
+      var item = {
+        SubjectName: '',
+        TotalQuestions: 0,
+        Untouched: 0,
+        Wrong: 0,
+        Correct: 0,
+        MarksLost: 0,
+        Total: 0,
+        Percentage: 0,
+        HighestMarks: 0,
+        Status: ''
+      }
+      item.SubjectName = subject.subject
+      item.TotalQuestions = subject.questions.length
+
+      // calc untouched
+      subject.questions.forEach(ques => {
+        if (ques.selectedOptionIdx === -1) {
+          item.Untouched++
+        } else if (ques.selectedOptionIdx != ques.answer) {
+          item.Wrong++
+        } else {
+          item.Correct++
+        }
+      })
+
+      item.MarksLost = item.Wrong * 0.25
+      item.Total = item.Correct - item.MarksLost
+      item.Percentage = Math.round(
+        ((item.Correct - item.MarksLost) / item.TotalQuestions) * 100
+      )
+      item.HighestMarks = Math.max(
+        item.Total,
+        Math.floor(Math.random() * item.TotalQuestions)
+      )
+      if (item.Percentage < 70) {
+        item.Status = 'Need Improvement!'
+      } else {
+        item.Status = 'Perfect!'
+      }
+      this.items.push(item)
+    })
+    this.items.forEach(item => {
+      this.totalCorrect += item.Correct
+      this.totalWrong += item.MarksLost
+      this.totalMarks += item.Total
+      this.TotalQuestions += item.TotalQuestions
+    })
+  },
+  computed: {
+    examTitle() {
+      return this.$store.state.exams[this.examIdx].exam
+    }
+  }
 }
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss" scoped>
-$primary_color: rgb(0, 22, 121);
-
-.score-card {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  width: 100%;
-  h5 {
-    text-align: center;
+.result {
+  p {
+    font-size: 1.2em;
+    margin-left: 35%;
+    margin-bottom: 0;
+    padding: 0;
   }
-  .summary-title {
-    color: $primary_color;
-    text-align: center;
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-    padding: 0.25rem 1rem;
-    margin: 1rem 0;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    font-weight: 600;
-  }
-  .summary {
-    display: inline-block;
-    position: relative;
-    left: 50%;
-    transform: translate(-50%);
-
-    .summary-body {
-      background-color: rgba(201, 201, 201, 0.1);
-      padding: 1rem 1rem;
-      border-radius: 8px;
-      p {
-        margin: 0;
-      }
-    }
+}
+.table {
+  width: 70%;
+  /* margin-left: 15%; */
+  margin: 0 auto;
+  overflow: scroll;
+  @media (max-width: 550px) {
+    width: 95%;
   }
 }
 </style>

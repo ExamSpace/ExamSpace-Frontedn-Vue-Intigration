@@ -114,15 +114,9 @@
                   </div>
 
                   <div class="container-login-form-btn m-t-32">
-                    <button class="login-form-btn" type="submit">Login</button>
-                  </div>
-
-                  <div class="text-center w-full p-t-42 p-b-22">
-                    <span class="txt1">Or</span>
-                  </div>
-
-                  <div class="container-login-form-btn m-t-32">
-                    <button class="login-form-btn1">Signup</button>
+                    <button class="login-form-btn1" type="submit">
+                      Signup
+                    </button>
                   </div>
                 </form>
               </div>

@@ -21,8 +21,18 @@ const routes = [
   },
   {
     path: '/exam',
-    name: 'Exam',
+    name: 'examlist',
+    component: () => import('../views/ExamList.vue')
+  },
+  {
+    path: '/exam/:idx',
+    name: 'exam',
     component: () => import('../views/Exam.vue')
+  },
+  {
+    path: '/404',
+    name: 'notfound',
+    component: () => import('../views/NotFound.vue')
   },
   {
     path: '/profile',
@@ -40,9 +50,9 @@ const routes = [
     component: () => import('../views/Extra.vue')
   },
   {
-    path: '/test',
-    name: 'test',
-    component: () => import('../components/StudentInfo.vue')
+    path: '/blog',
+    name: 'blog',
+    component: () => import('../views/Blog.vue')
   }
 ]
 

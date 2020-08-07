@@ -52,19 +52,19 @@
         </b-row>
       </b-col>
       <b-col md="4">
-        <img
-          style="width: inherit"
-          src="../assets/MapComponent/img/map.png"
-          alt="map"
-        />
+        <GoogleMap></GoogleMap>
       </b-col>
     </b-row>
   </div>
 </template>
 
 <script>
+import GoogleMap from '@/components/GoogleMap.vue'
 export default {
-  name: 'MapComponent'
+  name: 'MapComponent',
+  components: {
+    GoogleMap
+  }
 }
 </script>
 

@@ -40,7 +40,7 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title mb-1">Agrani Bank Limited</h5>
-                <router-link to="/exam" class="btn btn-primary"
+                <router-link to="" class="btn btn-primary"
                   >Click me!</router-link
                 >
                 <p class="card-text mt-4">Agrani Bank Limited</p>
