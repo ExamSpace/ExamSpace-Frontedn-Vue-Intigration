@@ -114,6 +114,7 @@ export default {
   font-size: small;
   color: #d8d8d8;
   line-height: 0px;
+  margin-top: -4px;
 }
 
 .cell img {
