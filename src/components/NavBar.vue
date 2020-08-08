@@ -84,10 +84,10 @@
 
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
-          <b-nav-item-dropdown text="Exam" right disabled>
+          <b-nav-item-dropdown text="Exam" right>
             <b-dropdown-item href="#">EN</b-dropdown-item>
           </b-nav-item-dropdown>
-          <b-nav-item href disabled="">Courses</b-nav-item>
+          <b-nav-item href>Courses</b-nav-item>
           <b-nav-item href disabled="">Test Series</b-nav-item>
           <b-nav-item href disabled="">Practice</b-nav-item>
           <b-nav-item href disabled="">Pass</b-nav-item>
