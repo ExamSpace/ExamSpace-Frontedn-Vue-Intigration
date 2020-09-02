@@ -13,7 +13,7 @@
           <div class="limiter">
             <div class="container-login">
               <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form validate-form" @submit="checkForm">
+                <form class="login-form validate-form">
                   <span class="login-form-title p-b-55">Welcome</span>
                   <div
                     class="wrap-input validate-input m-b-16"
@@ -68,7 +68,9 @@
                   </div>
 
                   <div class="container-login-form-btn m-t-32">
-                    <button class="login-form-btn" type="submit">Login</button>
+                    <button class="login-form-btn" @click.prevent="login()">
+                      Login
+                    </button>
                   </div>
 
                   <div class="text-center w-full p-t-42 p-b-22">
@@ -93,18 +95,20 @@
 <script>
 export default {
   name: 'Login',
-  data: () => {
-    return {
-      username: '',
-      password: ''
-    }
-  },
+  data: () => ({
+    username: '',
+    password: ''
+  }),
   methods: {
-    checkForm: function(e) {
-      e.preventDefault()
-
-      this.$store.commit('login', this.username)
-      this.$router.push('/')
+    login() {
+      this.$store
+        .dispatch('LOGIN', {
+          username: this.username,
+          password: this.password
+        })
+        .then(success => {
+          this.$router.push('/')
+        })
     }
   }
 }
