@@ -1,72 +1,55 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import json from '../json/data.json'
-Vue.use(Vuex)
+import { getAPI } from '../axios-api'
 
+Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
-    userName: '',
-    isLoggedIn: false,
-    exams: 0
+    accessToken: null,
+    refreshToken: null,
+    APIData: ''
   },
   mutations: {
+    updateStorage(state, { access, refresh }) {
+      state.accessToken = access
+      state.refreshToken = refresh
+    },
     login(state, username) {
       state.userName = username
       state.isLoggedIn = true
     },
-    SET_QUESTIONS(state, jsonData) {
-      console.log(jsonData)
-      state.exams = jsonData
-    },
-    UPDATE_CHOICE(state, payload) {
-      if (
-        state.exams[payload.examidx].subjects[payload.subidx].questions[
-          payload.quesidx
-        ].selectedOptionIdx === payload.optidx
-      ) {
-        state.exams[payload.examidx].subjects[payload.subidx].questions[
-          payload.quesidx
-        ].selectedOptionIdx = -1
-        state.exams[payload.examidx].subjects[payload.subidx].answered -= 1
-      } else {
-        state.exams[payload.examidx].subjects[payload.subidx].questions[
-          payload.quesidx
-        ].selectedOptionIdx = payload.optidx
-        state.exams[payload.examidx].subjects[payload.subidx].answered += 1
-      }
-    },
-    PREVIOUS(state, payload) {
-      if (
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex != 0
-      ) {
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex--
-      }
-    },
-    NEXT(state, payload) {
-      if (
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex + 1 <
-        state.exams[payload.examidx].subjects[payload.subidx].questions.length
-      ) {
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex++
-      }
+    destroyToken(state) {
+      state.accessToken = null
+      state.refreshToken = null
+    }
+  },
+  getters: {
+    loggedIn(state) {
+      return state.accessToken != null
     }
   },
   actions: {
-    load({ commit }) {
-      commit(
-        'SET_QUESTIONS',
-        json.map(item => item)
-      )
+    userLogout(context) {
+      if (context.getters.loggedIn) {
+        context.commit('destroyToken')
+      }
     },
-    update_choice: ({ commit }, payload) => {
-      commit('UPDATE_CHOICE', payload)
-    },
-    previous: ({ commit }, payload) => {
-      commit('PREVIOUS', payload)
-    },
-    next: ({ commit }, payload) => {
-      commit('NEXT', payload)
+    userLogin(context, usercredentials) {
+      return new Promise((resolve, reject) => {
+        // getAPI.post('/api-token/', {
+        getAPI
+          .post('/api/auth/login', {
+            username: usercredentials.username,
+            password: usercredentials.password
+          })
+          .then(response => {
+            context.commit('updateStorage', { access: response.data.token })
+            resolve()
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
     }
-  },
-  modules: {}
+  }
 })
