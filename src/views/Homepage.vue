@@ -1,7 +1,7 @@
 <template>
   <div id="homepage">
     <BannerSlider></BannerSlider>
-    <template v-if="!isLoggedIn">
+    <template v-if="!loggedIn">
       <BundlePack></BundlePack>
       <ExamShowcase></ExamShowcase>
       <LatetstArticles></LatetstArticles>
@@ -53,8 +53,8 @@ export default {
     StartexamPromotion
   },
   computed: {
-    isLoggedIn() {
-      return this.$store.state.isLoggedIn
+    loggedIn() {
+      return this.$store.getters.loggedIn
     }
   }
 }

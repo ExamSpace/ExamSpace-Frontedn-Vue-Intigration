@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <div class="top-nav">
-      <template v-if="!isLoggedIn">
+      <template v-if="!loggedIn">
         <a href>
           <img src="../assets/NavBar/img/insta.png" width="30px" alt="insta" />
         </a>
@@ -46,6 +46,11 @@
             />
           </template>
           <b-dropdown-item to="/profile">Profile</b-dropdown-item>
+          <b-dropdown-item v-if="accessToken != null"
+            ><router-link :to="{ name: 'Logout' }"
+              >Logout</router-link
+            ></b-dropdown-item
+          >
         </b-dropdown>
       </template>
     </div>
@@ -108,7 +113,7 @@
             <b-dropdown-item href="#">FA</b-dropdown-item>
           </b-nav-item-dropdown>
 
-          <b-nav-form v-if="!isLoggedIn">
+          <b-nav-form v-if="!loggedIn">
             <b-button
               size="sm"
               class="my-2 my-sm-0 nav-btn"
@@ -127,26 +132,28 @@
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
-    <PromoBanner v-if="!isLoggedIn"></PromoBanner>
+    <PromoBanner v-if="!loggedIn"></PromoBanner>
   </div>
 </template>
 
 <script>
 import PromoBanner from '@/components/PromoBanner.vue'
+import { mapState } from 'vuex'
 export default {
   name: 'NavBar',
   components: {
     PromoBanner
   },
   computed: {
-    isLoggedIn() {
-      return this.$store.state.isLoggedIn
+    loggedIn() {
+      return this.$store.getters.loggedIn
     },
     loggedInUserName() {
-      console.log(this.$store.state.userName)
+      console.log(this.$store.state.username)
 
-      return this.$store.state.userName
-    }
+      return this.$store.state.username
+    },
+    ...mapState(['accessToken'])
   }
 }
 </script>

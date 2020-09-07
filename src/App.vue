@@ -18,12 +18,12 @@ export default {
       }
       return true
     },
-    isLoggedIn() {
-      return this.$store.state.isLoggedIn
+    loggedIn() {
+      return this.$store.getters.loggedIn
     }
   },
   mounted() {
-    this.$store.dispatch('load')
+    //this.$store.dispatch('load')
   }
 }
 </script>
