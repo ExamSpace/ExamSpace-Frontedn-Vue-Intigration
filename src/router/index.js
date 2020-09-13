@@ -33,6 +33,9 @@ const routes = [
     path: '/exam/:idx',
     name: 'exam',
     component: () => import('../views/Exam.vue')
+    // meta: {
+    //   requiresLogin: true
+    // }
   },
   {
     path: '/404',
