@@ -125,7 +125,7 @@
 <script>
 export default {
   name: 'Register',
-  data: () => {
+  data() {
     return {
       username: '',
       password: '',
@@ -143,7 +143,11 @@ export default {
           repeat: this.repeat
         })
         .then(() => {
-          this.$router.push({ name: 'Login' })
+          //this.$store.commit('login', this.username)
+          this.$router.push('/login')
+        })
+        .catch(err => {
+          console.log(err)
         })
     }
   }

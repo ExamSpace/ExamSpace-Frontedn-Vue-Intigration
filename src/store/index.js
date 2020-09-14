@@ -95,6 +95,13 @@ export default new Vuex.Store({
             repeat: usercredentials.repeat
           })
           .then(response => {
+            // localStorage.setItem('username', usercredentials.username)
+            // localStorage.setItem('email', usercredentials.email)
+            // localStorage.setItem('password', usercredentials.password)
+            // localStorage.setItem('repeat', usercredentials.repeat)
+            // context.commit('updateStorage', {
+            //   username: usercredentials.username
+            // })
             resolve(response)
           })
           .catch(error => {
