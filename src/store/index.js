@@ -64,7 +64,6 @@ export default new Vuex.Store({
     },
     userLogin(context, usercredentials) {
       return new Promise((resolve, reject) => {
-        // getAPI.post('/api-token/', {
         getAPI
           .post('/api/auth/token', {
             username: usercredentials.username,
@@ -83,6 +82,23 @@ export default new Vuex.Store({
           })
           .catch(err => {
             reject(err)
+          })
+      })
+    },
+    registerUser(context, usercredentials) {
+      return new Promise((resolve, reject) => {
+        getAPI
+          .post('/api/auth/register', {
+            username: usercredentials.username,
+            email: usercredentials.email,
+            password: usercredentials.password,
+            repeat: usercredentials.repeat
+          })
+          .then(response => {
+            resolve(response)
+          })
+          .catch(error => {
+            reject(error)
           })
       })
     }

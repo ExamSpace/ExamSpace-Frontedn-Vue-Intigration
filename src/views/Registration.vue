@@ -13,7 +13,10 @@
           <div class="limiter">
             <div class="container-login">
               <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                <form class="login-form validate-form" @submit="checkForm">
+                <form
+                  class="login-form validate-form"
+                  @submit.prevent="registerUser"
+                >
                   <span class="login-form-title p-b-55">Welcome</span>
                   <div
                     class="wrap-input validate-input m-b-16"
@@ -40,6 +43,7 @@
                       type="email"
                       name="user"
                       placeholder="Email"
+                      v-model="email"
                     />
                     <span class="focus-input"></span>
                     <span class="symbol-input">
@@ -73,6 +77,7 @@
                       type="password"
                       name="pass"
                       placeholder="Confirm Password"
+                      v-model="repeat"
                     />
                     <span class="focus-input"></span>
                     <span class="symbol-input">
@@ -82,18 +87,7 @@
                   <div
                     class="wrap-input validate-input m-b-16"
                     data-validate="Mobile Is Required"
-                  >
-                    <input
-                      class="input"
-                      type="number"
-                      name="pass"
-                      placeholder="Mobile"
-                    />
-                    <span class="focus-input"></span>
-                    <span class="symbol-input">
-                      <b-icon-person-bounding-box></b-icon-person-bounding-box>
-                    </span>
-                  </div>
+                  ></div>
                   <div class="container">
                     <div class="row">
                       <div class="col s5 offset-s1 right-align">
@@ -130,19 +124,27 @@
 
 <script>
 export default {
-  name: 'Registration',
+  name: 'Register',
   data: () => {
     return {
       username: '',
-      password: ''
+      password: '',
+      email: '',
+      repeat: ''
     }
   },
   methods: {
-    checkForm: function(e) {
-      e.preventDefault()
-
-      this.$store.commit('login', this.username)
-      this.$router.push('/')
+    registerUser() {
+      this.$store
+        .dispatch('registerUser', {
+          username: this.username,
+          password: this.password,
+          email: this.email,
+          repeat: this.repeat
+        })
+        .then(() => {
+          this.$router.push({ name: 'Login' })
+        })
     }
   }
 }
