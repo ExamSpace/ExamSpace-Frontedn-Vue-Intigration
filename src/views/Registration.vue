@@ -143,7 +143,6 @@ export default {
           repeat: this.repeat
         })
         .then(() => {
-          //this.$store.commit('login', this.username)
           this.$router.push('/login')
         })
         .catch(err => {

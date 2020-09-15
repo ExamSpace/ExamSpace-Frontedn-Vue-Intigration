@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import { getAPI } from '../axios-api'
-Vue.use(require('vue-cookies'))
 
 Vue.use(Vuex)
 export default new Vuex.Store({
@@ -13,18 +12,17 @@ export default new Vuex.Store({
   },
   mutations: {
     updateStorage(state, { access, refresh, username }) {
+      localStorage.setItem('access', access)
+      localStorage.setItem('refresh', refresh)
+      localStorage.setItem('username', username)
       state.accessToken = access
       state.refreshToken = refresh
       state.username = username
     },
-    // login(state) {
-    //   //state.username = localStorage.getItem('username')
-    //   state.loggedIn = true
-    // },
+    updateAccess(state, access) {
+      state.accessToken = access
+    },
     destroyToken(state) {
-      localStorage.removeItem('access')
-      localStorage.removeItem('refresh')
-      localStorage.removeItem('username')
       state.accessToken = null
       state.refreshToken = null
       state.username = null
@@ -36,48 +34,29 @@ export default new Vuex.Store({
     }
   },
   actions: {
-    // userLogout(context) {
-    //   if (context.getters.loggedIn) {
-    //     //   return new Promise((resolve, reject) => {
-    //     //     //getAPI.post('/api-token/', {
-    //     //     getAPI
-    //     //       .post('/api/auth/logout')
-    //     //       .then(response => {
-    //     // localStorage.removeItem('access_token')
-    //     // localStorage.removeItem('refresh_token')
-    //     // localStorage.removeItem('username')
-    //     // context.commit('destroyToken')
-    //     //         resolve(response)
-    //     //       })
-    //     //       .catch(err => {
-    //     //         localStorage.removeItem('access_token')
-    //     //         context.commit('destroyToken')
-    //     //         reject(err)
-    //     //       })
-    //     //   })
-    //   }
-    // },
     userLogout(context) {
       if (context.getters.loggedIn) {
+        localStorage.removeItem('access')
+        localStorage.removeItem('refresh')
+        localStorage.removeItem('username')
         context.commit('destroyToken')
       }
     },
-    userLogin(context, usercredentials) {
+    userLogin(context, credentials) {
       return new Promise((resolve, reject) => {
+        // send the username and password to the backend API:
         getAPI
           .post('/api/auth/token', {
-            username: usercredentials.username,
-            password: usercredentials.password
+            username: credentials.username,
+            password: credentials.password
           })
+          // if successful update local storage:
           .then(response => {
-            localStorage.setItem('access', response.data.access)
-            localStorage.setItem('refresh', response.data.refresh)
-            localStorage.setItem('username', usercredentials.username)
             context.commit('updateStorage', {
               access: response.data.access,
               refresh: response.data.refresh,
-              username: usercredentials.username
-            })
+              username: credentials.username
+            }) // store the access and refresh token in localstorage
             resolve()
           })
           .catch(err => {
@@ -95,17 +74,28 @@ export default new Vuex.Store({
             repeat: usercredentials.repeat
           })
           .then(response => {
-            // localStorage.setItem('username', usercredentials.username)
-            // localStorage.setItem('email', usercredentials.email)
-            // localStorage.setItem('password', usercredentials.password)
-            // localStorage.setItem('repeat', usercredentials.repeat)
-            // context.commit('updateStorage', {
-            //   username: usercredentials.username
-            // })
             resolve(response)
           })
           .catch(error => {
             reject(error)
+          })
+      })
+    },
+    refreshToken(context) {
+      return new Promise((resolve, reject) => {
+        getAPI
+          .post('/api/auth/token/refresh', {
+            refresh: context.state.refreshToken
+          }) // send the stored refresh token to the backend API
+          .then(response => {
+            // if API sends back new access and refresh token update the store
+            console.log('New access successfully generated')
+            context.commit('updateAccess', response.data.access)
+            resolve(response.data.access)
+          })
+          .catch(err => {
+            console.log('error in refreshToken Task')
+            reject(err) // error generating new access and refresh token because refresh token has expired
           })
       })
     }

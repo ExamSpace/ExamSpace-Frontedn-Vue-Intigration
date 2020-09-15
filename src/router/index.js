@@ -27,15 +27,15 @@ const routes = [
   {
     path: '/exam',
     name: 'examlist',
-    component: () => import('../views/ExamList.vue')
+    component: () => import('../views/ExamList.vue'),
+    meta: {
+      requiresLogin: true
+    }
   },
   {
     path: '/exam/:idx',
     name: 'exam',
     component: () => import('../views/Exam.vue')
-    // meta: {
-    //   requiresLogin: true
-    // }
   },
   {
     path: '/404',
