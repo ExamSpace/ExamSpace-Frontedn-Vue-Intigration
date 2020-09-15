@@ -16,6 +16,8 @@
                 <b-card-body>
                   {{ exams.name }}
                   <b-card-text>{{ exams.duration }} Minutes</b-card-text>
+                  <!-- <div>{{ retrieveSubjects(exams.id) }}</div> -->
+                  <b-card-text>{{ subjectlist.length }} Subjects</b-card-text>
                   <b-card-text>
                     by EduHive Originals
                   </b-card-text>
@@ -34,12 +36,14 @@
 
 <script>
 import DataService from '../services/DataService'
+import Subjectlist from '../services/Subjectlist'
 
 export default {
   name: 'exams-list',
   data() {
     return {
       examlist: [],
+      subjectlist: [],
       currentExamList: null,
       currentIndex: -1,
       title: ''
@@ -55,10 +59,21 @@ export default {
         .catch(e => {
           console.log(e)
         })
+    },
+    retrieveSubjects() {
+      Subjectlist.getAll()
+        .then(response => {
+          this.subjectlist = response.data
+          console.log(response.data)
+        })
+        .catch(e => {
+          console.log(e)
+        })
     }
   },
   mounted() {
     this.retrieveExams()
+    this.retrieveSubjects()
   }
 }
 </script>
