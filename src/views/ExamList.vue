@@ -1,65 +1,101 @@
 <template>
-  <div class="posts">
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row">
-          <div v-for="posts in APIData" :key="posts.id" class="col-md-4">
-            <div class="card mb-4 box-shadow">
-              <img
-                class="card-img-top"
-                src="https://via.placeholder.com/150x100"
-                alt="Card image cap"
-              />
-              <div class="card-body">
-                <h4 class="">
-                  <a class="text-secondary" href="">{{ posts.name }}</a>
-                </h4>
-                <p class="card-text">{{ posts.id }}</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a
-                      href=""
-                      class="btn btn-sm btn-outline-primary"
-                      role="button"
-                      aria-pressed="true"
-                      >View</a
-                    >
-                    <a
-                      href=""
-                      class="btn btn-sm btn-outline-secondary"
-                      role="button"
-                      aria-pressed="true"
-                      >Edit</a
-                    >
-                  </div>
-                  <small class="text-muted">9 mins</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div id="questions">
+    <b-container>
+      <b-row>
+        <b-col v-for="(exam, index) in exams" :key="index">
+          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
+            <b-row no-gutters>
+              <b-col md="6">
+                <b-card-img
+                  src="https://picsum.photos/400/400/?image=20"
+                  alt="Image"
+                  class="rounded-0"
+                ></b-card-img>
+              </b-col>
+              <b-col md="6">
+                <b-card-body>
+                  {{ exam.name }}
+                  <b-card-text>{{ exam.duration }} Minutes</b-card-text>
+                  <!-- <div>{{ retrieveSubjects(exams.id) }}</div> -->
+                  <b-card-text>{{ subjects.length }} Subjects</b-card-text>
+                  <b-card-text>
+                    by EduHive Originals
+                  </b-card-text>
+                  <b-button @click="takeExam(index)" variant="primary"
+                    >Participate Exam</b-button
+                  >
+                </b-card-body>
+              </b-col>
+            </b-row>
+          </b-card>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
 <script>
 import { getAPI } from '../axios-api'
-import { mapState } from 'vuex'
 export default {
-  name: 'Posts',
-  computed: mapState(['APIData']),
-  created() {
-    getAPI
-      .get('api/exam/2/subjectList', { headers: { Authorization: `Bearer ${this.$store.state.accessToken}` } })
-      .then(response => {
-        this.$store.state.APIData = response.data
-      })
-      .catch(err => {
-        console.log(err)
-      })
+  data: function() {
+    return {
+      exams: [],
+      subjects: [],
+      id: ''
+    }
+  },
+  methods: {
+    loadExams: function() {
+      getAPI
+        .get('api/exam/list', {
+          headers: { Authorization: `Bearer ${this.$store.state.accessToken}` }
+        })
+        .then(response => {
+          this.exams = response.data
+          console.log.exams
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    },
+    callSubjects: function() {
+      for (exam of this.exams) {
+        this.loadSubjects(2)
+      }
+    },
+    loadSubjects: function() {
+      for (exam in exams) {
+        getAPI
+          .get('api/exam/' + this.exam.id + '/subjectList', {
+            headers: {
+              Authorization: `Bearer ${this.$store.state.accessToken}`
+            }
+          })
+          .then(response => {
+            this.subjects = response.data
+            console.log.subjects
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
+    },
+    takeExam(idx) {
+      this.$router.push({ name: 'exam', params: { idx: idx } })
+    }
+  },
+  mounted() {
+    this.loadExams()
+    this.loadSubjects()
+    this.callSubjects()
   }
 }
 </script>
 
-<style></style>
+<style>
+.list {
+  text-align: left;
+  max-width: 750px;
+  margin: auto;
+}
+</style>

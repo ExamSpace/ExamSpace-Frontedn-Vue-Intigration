@@ -1,12 +1,12 @@
 <template>
   <div id="exam_details">
     <div class="details-heading">
-      <p class="exam-title">{{ this.$store.state.exams[examIdx].exam }}</p>
+      <!-- <p class="exam-title">{{ this.$store.state.exams[examIdx].exam }}</p> -->
       <p>
         Total Subjects:
-        <span>{{ this.$store.state.exams[examIdx].subjects.length }}</span>
+        <!-- <span>{{ this.$store.state.exams[examIdx].subjects.length }}</span>
         Total Question : <span>{{ totalQuestions }}</span> Version:
-        <span>{{ this.$store.state.exams[examIdx].version }}</span>
+        <span>{{ this.$store.state.exams[examIdx].version }}</span> -->
       </p>
       <p>Job Entrance > Bank Jobs > Preliminary</p>
       <p>
@@ -25,18 +25,18 @@
     <div class="details-body">
       <p class="title">Exam Details</p>
       <div class="details-body-card">
-        <p>{{ this.$store.state.exams[examIdx].exam }}</p>
+        <!-- <p>{{ this.$store.state.exams[examIdx].exam }}</p> -->
       </div>
-      <p><strong>Subject(s):</strong> {{ subjectList }}</p>
+      <!-- <p><strong>Subject(s):</strong> {{ subjectList }}</p> -->
       <p>Syllebus: Bank Preliminary Standard</p>
       <p>
         Question:
-        <strong>{{ totalQuestions }}</strong> Marks:
-        <strong>{{ totalQuestions }}</strong>
+        <!-- <strong>{{ totalQuestions }}</strong> Marks:
+        <strong>{{ totalQuestions }}</strong> -->
       </p>
       <p>
         Time:
-        <strong>{{ this.$store.state.exams[examIdx].duration }}</strong>
+        <!-- <strong>{{ this.$store.state.exams[examIdx].duration }}</strong> -->
         Minutes
       </p>
       <b-button
