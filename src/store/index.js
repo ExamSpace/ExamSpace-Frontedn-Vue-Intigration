@@ -8,8 +8,8 @@ export default new Vuex.Store({
   state: {
     accessToken: localStorage.getItem('access') || null,
     refreshToken: localStorage.getItem('refresh') || null,
-    username: localStorage.getItem('username') || null
-    //APIData: ''
+    username: localStorage.getItem('username') || null,
+    APIData: ''
   },
   mutations: {
     updateStorage(state, { access, refresh, username }) {

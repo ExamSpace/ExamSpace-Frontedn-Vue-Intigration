@@ -1,87 +1,65 @@
 <template>
-  <div id="questions">
-    <b-container>
-      <b-row>
-        <b-col v-for="(exams, index) in examlist" :key="index">
-          <b-card no-body class="overflow-hidden" style="max-width: 540px;">
-            <b-row no-gutters>
-              <b-col md="6">
-                <b-card-img
-                  src="https://picsum.photos/400/400/?image=20"
-                  alt="Image"
-                  class="rounded-0"
-                ></b-card-img>
-              </b-col>
-              <b-col md="6">
-                <b-card-body>
-                  {{ exams.name }}
-                  <b-card-text>{{ exams.duration }} Minutes</b-card-text>
-                  <!-- <div>{{ retrieveSubjects(exams.id) }}</div> -->
-                  <b-card-text>{{ subjectlist.length }} Subjects</b-card-text>
-                  <b-card-text>
-                    by EduHive Originals
-                  </b-card-text>
-                  <b-button @click="takeExam(index)" variant="primary"
-                    >Participate Exam</b-button
-                  >
-                </b-card-body>
-              </b-col>
-            </b-row>
-          </b-card>
-        </b-col>
-      </b-row>
-    </b-container>
+  <div class="posts">
+    <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div v-for="posts in APIData" :key="posts.id" class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <img
+                class="card-img-top"
+                src="https://via.placeholder.com/150x100"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h4 class="">
+                  <a class="text-secondary" href="">{{ posts.name }}</a>
+                </h4>
+                <p class="card-text">{{ posts.id }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <a
+                      href=""
+                      class="btn btn-sm btn-outline-primary"
+                      role="button"
+                      aria-pressed="true"
+                      >View</a
+                    >
+                    <a
+                      href=""
+                      class="btn btn-sm btn-outline-secondary"
+                      role="button"
+                      aria-pressed="true"
+                      >Edit</a
+                    >
+                  </div>
+                  <small class="text-muted">9 mins</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import DataService from '../services/DataService'
-import Subjectlist from '../services/Subjectlist'
-
+import { getAPI } from '../axios-api'
+import { mapState } from 'vuex'
 export default {
-  name: 'exams-list',
-  data() {
-    return {
-      examlist: [],
-      subjectlist: [],
-      currentExamList: null,
-      currentIndex: -1,
-      title: ''
-    }
-  },
-  methods: {
-    retrieveExams() {
-      DataService.getAll()
-        .then(response => {
-          this.examlist = response.data
-          console.log(response.data)
-        })
-        .catch(e => {
-          console.log(e)
-        })
-    },
-    retrieveSubjects() {
-      Subjectlist.getAll()
-        .then(response => {
-          this.subjectlist = response.data
-          console.log(response.data)
-        })
-        .catch(e => {
-          console.log(e)
-        })
-    }
-  },
-  mounted() {
-    this.retrieveExams()
-    this.retrieveSubjects()
+  name: 'Posts',
+  computed: mapState(['APIData']),
+  created() {
+    getAPI
+      .get('api/exam/2/subjectList', { headers: { Authorization: `Bearer ${this.$store.state.accessToken}` } })
+      .then(response => {
+        this.$store.state.APIData = response.data
+      })
+      .catch(err => {
+        console.log(err)
+      })
   }
 }
 </script>
 
-<style>
-.list {
-  text-align: left;
-  max-width: 750px;
-  margin: auto;
-}
-</style>
+<style></style>
