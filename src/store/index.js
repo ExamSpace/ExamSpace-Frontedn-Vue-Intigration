@@ -21,6 +21,9 @@ export default new Vuex.Store({
     //   //state.username = localStorage.getItem('username')
     //   state.loggedIn = true
     // },
+    updateAccess(state, access) {
+      state.accessToken = access
+    },
     destroyToken(state) {
       localStorage.removeItem('access')
       localStorage.removeItem('refresh')
@@ -119,6 +122,7 @@ export default new Vuex.Store({
             // if API sends back new access and refresh token update the store
             console.log('New access successfully generated')
             context.commit('updateAccess', response.data.access)
+            localStorage.setItem('access', response.data.access)           
             resolve(response.data.access)
           })
           .catch(err => {

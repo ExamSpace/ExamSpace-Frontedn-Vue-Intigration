@@ -36,6 +36,7 @@
 
 <script>
 import { getAPI } from '../axios-api'
+import store from '../store'
 export default {
   data: function() {
     return {
@@ -77,6 +78,7 @@ export default {
           })
           .catch(err => {
             console.log(err)
+
           })
       }
     },
