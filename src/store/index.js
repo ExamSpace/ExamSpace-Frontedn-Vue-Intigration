@@ -1,13 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import json from '../json/data.json'
+import { HTTP } from '../http-common'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 Vue.use(Vuex)
+Vue.use(VueAxios, axios);
+
+Vue.axios.defaults.baseURL = 'https://api.mocki.io/v1/'
 
 export default new Vuex.Store({
   state: {
     userName: '',
     isLoggedIn: false,
-    exams: 0
+    exams: []
   },
   mutations: {
     login(state, username) {
@@ -53,10 +59,14 @@ export default new Vuex.Store({
   },
   actions: {
     load({ commit }) {
-      commit(
-        'SET_QUESTIONS',
-        json.map(item => item)
-      )
+      Vue.axios
+        .get('605ef5f9')
+        .then(result => {
+          commit('SET_QUESTIONS', result.data)
+        })
+        .catch(error => {
+          throw new Error(`API ${error}`)
+        })
     },
     update_choice: ({ commit }, payload) => {
       commit('UPDATE_CHOICE', payload)
@@ -67,6 +77,5 @@ export default new Vuex.Store({
     next: ({ commit }, payload) => {
       commit('NEXT', payload)
     }
-  },
-  modules: {}
+  }
 })
