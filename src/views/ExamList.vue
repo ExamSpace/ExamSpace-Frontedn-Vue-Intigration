@@ -16,14 +16,12 @@
                 <b-card-body>
                   {{ exam.name }}
                   <b-card-text>{{ exam.duration }} Minutes</b-card-text>
-                  <!-- <div>{{ retrieveSubjects(exams.id) }}</div> -->
-                  <b-card-text>{{ subjects.length }} Subjects</b-card-text>
                   <b-card-text>
                     by EduHive Originals
                   </b-card-text>
                   <b-button @click="takeExam(index)" variant="primary"
-                    >Participate Exam</b-button
-                  >
+                    >Participate Exam
+                  </b-button>
                 </b-card-body>
               </b-col>
             </b-row>
@@ -41,7 +39,8 @@ export default {
     return {
       exams: [],
       subjects: [],
-      id: ''
+      id: '',
+      counter: 0
     }
   },
   methods: {
@@ -58,36 +57,28 @@ export default {
           console.log(err)
         })
     },
-    callSubjects: function() {
-      for (exam of this.exams) {
-        this.loadSubjects(2)
-      }
-    },
     loadSubjects: function() {
-      for (exam in exams) {
-        getAPI
-          .get('api/exam/' + this.exam.id + '/subjectList', {
-            headers: {
-              Authorization: `Bearer ${this.$store.state.accessToken}`
-            }
-          })
-          .then(response => {
-            this.subjects = response.data
-            console.log.subjects
-          })
-          .catch(err => {
-            console.log(err)
-          })
-      }
+      getAPI
+        .get('api/exam/subjectList', {
+          headers: { Authorization: `Bearer ${this.$store.state.accessToken}` }
+        })
+        .then(response => {
+          this.subjects = response.data
+          console.log.subjects
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      return this.subjects
     },
     takeExam(idx) {
-      this.$router.push({ name: 'exam', params: { idx: idx } })
+      var idy = idx + 1
+      this.$router.push({ name: 'exam', params: { idx: idy } })
     }
   },
   mounted() {
     this.loadExams()
     this.loadSubjects()
-    this.callSubjects()
   }
 }
 </script>

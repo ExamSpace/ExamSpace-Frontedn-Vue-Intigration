@@ -9,9 +9,11 @@
       </div>
       <div class="row left-align">
         <div class="btn1">
-          <router-link to="/register"><button type="btton" class="btn btn-primary btn-lg">
-            Get Started For Free
-          </button></router-link>
+          <router-link to="/register"
+            ><button type="btton" class="btn btn-primary btn-lg">
+              Get Started For Free
+            </button></router-link
+          >
         </div>
       </div>
     </div>

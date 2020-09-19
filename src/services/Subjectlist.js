@@ -5,7 +5,9 @@ class Subjectlist {
   //     return http.get('/' + id + '/subjectList')
   //   }
   getAll() {
-    return http.get('/2/subjectList', { headers: { Authorization: `Bearer {this.$store.$state.accessToken}` } })
+    return http.get('/2/subjectList', {
+      headers: { Authorization: `Bearer {this.$store.$state.accessToken}` }
+    })
   }
 }
 

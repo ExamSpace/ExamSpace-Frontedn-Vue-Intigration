@@ -19,9 +19,10 @@
             <div class="card-body">
               <h4 class="card-title">General Knowledge</h4>
               <p class="card-text">
-                You will find out all the "General Knowledge" exams that is available in our site.
-                It will always be updated from time to time. These exams are essential to prove
-                your IQ. Please try to attend them all. 
+                You will find out all the "General Knowledge" exams that is
+                available in our site. It will always be updated from time to
+                time. These exams are essential to prove your IQ. Please try to
+                attend them all.
               </p>
             </div>
           </div>
@@ -42,9 +43,10 @@
             <div class="card-body">
               <h4 class="card-title">BCS</h4>
               <p class="card-text">
-                Here, you will find all the exams releated to the past BSC and even the future 
-                BCS exams that might appear. It will cover up all the topics needed for you 
-                to pass your exams. So, make use of this opportunity and sit for the exam now.
+                Here, you will find all the exams releated to the past BSC and
+                even the future BCS exams that might appear. It will cover up
+                all the topics needed for you to pass your exams. So, make use
+                of this opportunity and sit for the exam now.
               </p>
             </div>
           </div>
@@ -68,10 +70,12 @@
             <div class="card-body">
               <h4 class="card-title">Admission Tests</h4>
               <p class="card-text">
-                So, when you need to admit for a specific School, College or University, then this is the right
-                place for you to give the exam and see your scores. You could check your capability 
-                if it is a perfect score to join in or not. You can try multiple times to get to perfection.
-                Admission Tests will help you build up your futre.  
+                So, when you need to admit for a specific School, College or
+                University, then this is the right place for you to give the
+                exam and see your scores. You could check your capability if it
+                is a perfect score to join in or not. You can try multiple times
+                to get to perfection. Admission Tests will help you build up
+                your futre.
               </p>
             </div>
           </div>
@@ -92,9 +96,10 @@
             <div class="card-body">
               <h4 class="card-title">Others</h4>
               <p class="card-text">
-                We also give you an opportunity to sit for exams that will allow you to measure 
-                your strength and weakness you consist of so how about if you need to test 
-                more of your brain's capability then check out these "Other" exams too.
+                We also give you an opportunity to sit for exams that will allow
+                you to measure your strength and weakness you consist of so how
+                about if you need to test more of your brain's capability then
+                check out these "Other" exams too.
               </p>
             </div>
           </div>

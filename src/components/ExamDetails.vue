@@ -1,12 +1,12 @@
 <template>
   <div id="exam_details">
     <div class="details-heading">
-      <!-- <p class="exam-title">{{ this.$store.state.exams[examIdx].exam }}</p> -->
+      <p class="exam-title">{{ this.exam.name }}</p>
       <p>
         Total Subjects:
-        <!-- <span>{{ this.$store.state.exams[examIdx].subjects.length }}</span>
-        Total Question : <span>{{ totalQuestions }}</span> Version:
-        <span>{{ this.$store.state.exams[examIdx].version }}</span> -->
+        <span>{{ subjects.length }}</span>
+        Total Question :
+        <span>{{ qs }}</span>
       </p>
       <p>Job Entrance > Bank Jobs > Preliminary</p>
       <p>
@@ -25,18 +25,18 @@
     <div class="details-body">
       <p class="title">Exam Details</p>
       <div class="details-body-card">
-        <!-- <p>{{ this.$store.state.exams[examIdx].exam }}</p> -->
+        <p>{{ exam.name }}</p>
       </div>
-      <!-- <p><strong>Subject(s):</strong> {{ subjectList }}</p> -->
+      <!-- <p><strong>Subject(s):</strong> {{ subjects }}</p> -->
       <p>Syllebus: Bank Preliminary Standard</p>
       <p>
         Question:
-        <!-- <strong>{{ totalQuestions }}</strong> Marks:
-        <strong>{{ totalQuestions }}</strong> -->
+        <strong>{{ qs }}</strong> Marks:
+        <strong>{{ qs }}</strong>
       </p>
       <p>
         Time:
-        <!-- <strong>{{ this.$store.state.exams[examIdx].duration }}</strong> -->
+        <strong>{{ exam.duration }}</strong>
         Minutes
       </p>
       <b-button
@@ -51,25 +51,19 @@
 </template>
 
 <script>
+import { getAPI } from '../axios-api'
 export default {
   name: 'ExamDetails',
-  props: ['examIdx'],
+  props: ['examIdx', 'subjects', 'exam', 'qs'],
   methods: {
     onTakeExamPressed: function() {
       this.$emit('takeExamPressed')
     }
   },
   computed: {
-    totalQuestions() {
-      var qs = 0
-      this.$store.state.exams[this.examIdx].subjects.forEach(subject => {
-        qs += subject.questions.length
-      })
-      return qs
-    },
     subjectList() {
       var subs = ''
-      this.$store.state.exams[this.examIdx].subjects.forEach(subject => {
+      subjects.forEach(subject => {
         subs += subject.subject + ' | '
       })
       return subs
