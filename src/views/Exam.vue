@@ -1,5 +1,6 @@
 <template>
   <div id="exam">
+    <!-- <p>{{ this.questions.length }}</p> -->
     <!-- <p>{{ this.subjects }}</p>
     <p>{{ this.exam }}</p> -->
     <ExamDetails
@@ -7,6 +8,7 @@
       :subjects="this.subjects"
       :exam="this.exam"
       :qs="this.qs"
+      :questions="this.questions"
       v-if="!takeExamSelected"
       v-on:takeExamPressed="onTakeExamPressed"
     ></ExamDetails>
@@ -51,6 +53,10 @@ export default {
       return this.exams != 0
     }
   },
+  created() {
+    // this.totalQuestions()
+    // this.loadSubjects()
+  },
   methods: {
     onTakeExamPressed: function() {
       this.takeExamSelected = true
@@ -85,36 +91,49 @@ export default {
           console.log(err)
         })
     },
+    // totalQuestions: function() {
+    //   this.subjects.map(subject => {
+    //     getAPI
+    //       .get(
+    //         'api/exam/' +
+    //           this.$route.params.idx +
+    //           '/subject/' +
+    //           subject.id +
+    //           '/questionList',
+    //         {
+    //           headers: {
+    //             Authorization: `Bearer ${this.$store.state.accessToken}`
+    //           }
+    //         }
+    //       )
+    //       .then(response => {
+    //         this.questions.push(response.data)
+    //         //this.questions = response.data
+    //         console.log.questions
+    //       })
+    //       .catch(err => {
+    //         console.log(err)
+    //       })
+    //   })
+    // }
     totalQuestions: function() {
-      this.subjects.forEach(subject => {
-        getAPI
-          .get(
-            'api/exam/' +
-              this.$route.params.idx +
-              '/subject/' +
-              subject.id +
-              '/questionList',
-            {
-              headers: {
-                Authorization: `Bearer ${this.$store.state.accessToken}`
-              }
-            }
-          )
-          .then(response => {
-            //this.qs += response.data.length
-            this.questions=response.data
-            //console.log.subjects
-          })
-          .catch(err => {
-            console.log(err)
-          })
-      })
+      getAPI
+        .get('api/exam/' + this.$route.params.idx + '/questionList', {
+          headers: { Authorization: `Bearer ${this.$store.state.accessToken}` }
+        })
+        .then(response => {
+          this.questions = response.data
+          console.log.questions
+        })
+        .catch(err => {
+          console.log(err)
+        })
     }
   },
   mounted() {
-    this.loadSubjects()
     this.loadExam()
     this.totalQuestions()
+    this.loadSubjects()
   }
 }
 </script>

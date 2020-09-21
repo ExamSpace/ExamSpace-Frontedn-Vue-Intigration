@@ -6,12 +6,12 @@
         Total Subjects:
         <span>{{ subjects.length }}</span>
         Total Question :
-        <span>{{ qs }}</span>
+        <span>{{ questions.length }}</span>
       </p>
       <p>Job Entrance > Bank Jobs > Preliminary</p>
       <p>
         Published By
-        <span>EduHive Originals</span>
+        <span>Examspace</span>
       </p>
     </div>
     <div class="details-heading">
@@ -31,8 +31,8 @@
       <p>Syllebus: Bank Preliminary Standard</p>
       <p>
         Question:
-        <strong>{{ qs }}</strong> Marks:
-        <strong>{{ qs }}</strong>
+        <strong>{{ questions.length }}</strong> Marks:
+        <strong>{{ questions.length }}</strong>
       </p>
       <p>
         Time:
@@ -54,7 +54,7 @@
 import { getAPI } from '../axios-api'
 export default {
   name: 'ExamDetails',
-  props: ['examIdx', 'subjects', 'exam', 'qs'],
+  props: ['examIdx', 'subjects', 'exam', 'qs', 'questions'],
   methods: {
     onTakeExamPressed: function() {
       this.$emit('takeExamPressed')
