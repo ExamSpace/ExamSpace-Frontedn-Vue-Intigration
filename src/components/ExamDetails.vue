@@ -16,10 +16,10 @@
     </div>
     <div class="details-heading">
       <p>
-        <i
-          >Exam routine is managed by EduHive Originals. They reserve all rights
-          to update the routine or syllebus from time to time.</i
-        >
+        <i>
+          Exam routine is managed by Examspace. They reserve all rights to
+          update the routine or syllebus from time to time.
+        </i>
       </p>
     </div>
     <div class="details-body">
@@ -27,8 +27,13 @@
       <div class="details-body-card">
         <p>{{ exam.name }}</p>
       </div>
-      <!-- <p><strong>Subject(s):</strong> {{ subjects }}</p> -->
-      <p>Syllebus: Bank Preliminary Standard</p>
+      <p>
+        Subject(s):
+        <span v-for="(subject, index) in subjects" :key="index">{{
+          subject.name + ' | '
+        }}</span>
+      </p>
+      <p>Syllabus: Bank Preliminary Standard</p>
       <p>
         Question:
         <strong>{{ questions.length }}</strong> Marks:
@@ -54,7 +59,7 @@
 import { getAPI } from '../axios-api'
 export default {
   name: 'ExamDetails',
-  props: ['examIdx', 'subjects', 'exam', 'qs', 'questions'],
+  props: ['examIdx', 'subjects', 'exam', 'questions'],
   methods: {
     onTakeExamPressed: function() {
       this.$emit('takeExamPressed')

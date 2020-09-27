@@ -17,7 +17,7 @@
                   {{ exam.name }}
                   <b-card-text>{{ exam.duration }} Minutes</b-card-text>
                   <b-card-text>
-                    by EduHive Originals
+                    by Examspace
                   </b-card-text>
                   <b-button @click="takeExam(index)" variant="primary"
                     >Participate Exam

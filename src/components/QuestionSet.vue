@@ -1,50 +1,46 @@
 <template>
   <div id="quiz">
-    <h2 style="text-align: center">{{ exam.exam }}</h2>
+    <h2 style="text-align: center">{{ exam.name }}</h2>
     <b-container>
       <b-row>
         <b-col sm="12" md="8" lg="8" xl="8">
           <b-card no-body style="border: none">
             <b-tabs pills card>
               <b-tab
-                v-for="(subject, subjectIdx) in exam.subjects"
+                v-for="(subject, subjectIdx) in subjects"
                 :key="subjectIdx"
               >
-                <template v-slot:title
-                  >{{ subject.subject }} ({{ subject.answered }} /
-                  {{ subject.questions.length }})</template
-                >
+                <template v-slot:title>
+                  {{ subject.name }} ({{ currentIndex }} /
+                  {{ subject.questions.length }})
+                </template>
                 <div>
                   <div class="question">
                     <h4>
-                      {{ subject.questions[subject.currentIndex].question }}
+                      {{ subject.questions[currentIndex].question }}
                     </h4>
                   </div>
                   <div
                     class="question-option"
-                    v-for="(option, optionIdx) in subject.questions[
-                      subject.currentIndex
-                    ].options"
+                    v-for="(option, optionIdx) in options"
                     :key="optionIdx"
                     :class="{
                       selected:
-                        exam.subjects[subjectIdx].questions[
-                          subject.currentIndex
-                        ].selectedOptionIdx === optionIdx
+                        selectedOptionIdx === optionIdx
                     }"
                     @click="
-                      optionSelectd(subjectIdx, subject.currentIndex, optionIdx)
+                      optionSelected(subjectIdx, currentIndex, optionIdx)
                     "
                   >
-                    <span>{{ option.slug }}.</span>
-                    {{ option.option }}
+                    <span>{{ slugs[optionIdx] }}.</span>
+                    {{ Object.values(subject.questions[currentIndex])[ optionIdx + 3]}}
                   </div>
-                  <div class="question-nevigation">
+                  <div class="question-navigation">
                     <b-button
                       variant="primary"
                       @click="previousQuestion(subjectIdx)"
                       style="background-color: rgb(0, 22, 121); border-color: rgb(0, 22, 121);"
-                      :disabled="subject.currentIndex === 0"
+                      :disabled="currentIndex === 0"
                       >Previous</b-button
                     >
                     <b-button
@@ -52,12 +48,12 @@
                       @click="nextQuestion(subjectIdx)"
                       style="margin-left: 1rem"
                       :disabled="
-                        subject.currentIndex === subject.questions.length - 1
+                        currentIndex === subject.questions.length - 1
                       "
                       >Next</b-button
                     >
                   </div>
-                </div>
+                </div> 
               </b-tab>
             </b-tabs>
           </b-card>
@@ -84,11 +80,16 @@
 <script>
 export default {
   name: 'QuestionSet',
-  props: ['examIdx'],
+  props: ['examIdx', 'subjects', 'exam'],
   data: function() {
     return {
+      slugs: ['A', 'B', 'C', 'D'],
+      options: ['option1', 'option2', 'option3', 'option4'],
       remainingTime: 0,
-      interval: ''
+      interval: '',
+      selectedOptionIdx: -1,
+      currentIndex: 0,
+      answered: 0,
     }
   },
   watch: {
@@ -101,19 +102,18 @@ export default {
     }
   },
   mounted() {
-    this.remainingTime = parseInt(
-      this.$store.state.exams[this.examIdx].duration
-    )
+    this.remainingTime = parseInt(this.exam.duration)
     this.remainingTime *= 60
-
     this.interval = setInterval(() => {
       this.remainingTime--
     }, 1000)
   },
+  filters: {
+    subjectQuestions: function (sid) {
+      return this.questions.filter(question => question.subject === sid)
+    }
+  },
   computed: {
-    exam() {
-      return this.$store.state.exams[this.examIdx]
-    },
     hour() {
       return Math.floor(this.remainingTime / (60 * 60))
     },
@@ -125,24 +125,26 @@ export default {
       var rem = this.remainingTime % (60 * 60)
       rem %= 60
       return rem
-    }
+    },
   },
   methods: {
     nextQuestion: function(subjectIdx) {
-      var payload = {
-        examidx: parseInt(this.examIdx),
-        subidx: subjectIdx
-      }
-      this.$store.dispatch('next', payload)
+      // var payload = {
+      //   examidx: parseInt(this.examIdx),
+      //   subidx: subjectIdx
+      // }
+      // this.$store.dispatch('next', payload)
+      this.currentIndex++
     },
     previousQuestion: function(subjectIdx) {
-      var payload = {
-        examidx: parseInt(this.examIdx),
-        subidx: subjectIdx
-      }
-      this.$store.dispatch('previous', payload)
+      // var payload = {
+      //   examidx: parseInt(this.examIdx),
+      //   subidx: subjectIdx
+      // }
+      // this.$store.dispatch('previous', payload)
+      this.currentIndex--
     },
-    optionSelectd: function(subidx, quesidx, optidx) {
+    optionSelected: function(subidx, quesidx, optidx) {
       var payload = {
         examidx: parseInt(this.examIdx),
         subidx: subidx,
@@ -228,7 +230,7 @@ $primary_color: rgb(0, 22, 121);
         margin: 0 1rem;
       }
     }
-    .question-nevigation {
+    .question-navigation {
       text-align: center;
     }
   }

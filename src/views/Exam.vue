@@ -7,7 +7,6 @@
       :examIdx="this.$route.params.idx"
       :subjects="this.subjects"
       :exam="this.exam"
-      :qs="this.qs"
       :questions="this.questions"
       v-if="!takeExamSelected"
       v-on:takeExamPressed="onTakeExamPressed"
@@ -15,6 +14,8 @@
     <QuestionSet
       v-else-if="!examFinished"
       :examIdx="this.$route.params.idx"
+      :subjects="this.subjects"
+      :exam="this.exam"
       v-on:endExam="onEndExam"
     ></QuestionSet>
     <ScoreCard
@@ -44,7 +45,6 @@ export default {
       remainingTime: 0,
       subjects: [],
       exam: [],
-      qs: 0,
       questions: []
     }
   },
@@ -91,31 +91,6 @@ export default {
           console.log(err)
         })
     },
-    // totalQuestions: function() {
-    //   this.subjects.map(subject => {
-    //     getAPI
-    //       .get(
-    //         'api/exam/' +
-    //           this.$route.params.idx +
-    //           '/subject/' +
-    //           subject.id +
-    //           '/questionList',
-    //         {
-    //           headers: {
-    //             Authorization: `Bearer ${this.$store.state.accessToken}`
-    //           }
-    //         }
-    //       )
-    //       .then(response => {
-    //         this.questions.push(response.data)
-    //         //this.questions = response.data
-    //         console.log.questions
-    //       })
-    //       .catch(err => {
-    //         console.log(err)
-    //       })
-    //   })
-    // }
     totalQuestions: function() {
       getAPI
         .get('api/exam/' + this.$route.params.idx + '/questionList', {
