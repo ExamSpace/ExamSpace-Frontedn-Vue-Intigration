@@ -49,22 +49,22 @@ export default new Vuex.Store({
         ].selectedOptionIdx = payload.optidx
         state.exams[payload.examidx].subjects[payload.subidx].answered += 1
       }
-    },
-    PREVIOUS(state, payload) {
-      if (
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex != 0
-      ) {
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex--
-      }
-    },
-    NEXT(state, payload) {
-      if (
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex + 1 <
-        state.exams[payload.examidx].subjects[payload.subidx].questions.length
-      ) {
-        state.exams[payload.examidx].subjects[payload.subidx].currentIndex++
-      }
     }
+    // PREVIOUS(state, payload) {
+    //   if (
+    //     state.exams[payload.examidx].subjects[payload.subidx].currentIndex != 0
+    //   ) {
+    //     state.exams[payload.examidx].subjects[payload.subidx].currentIndex--
+    //   }
+    // },
+    // NEXT(state, payload) {
+    //   if (
+    //     state.exams[payload.examidx].subjects[payload.subidx].currentIndex + 1 <
+    //     state.exams[payload.examidx].subjects[payload.subidx].questions.length
+    //   ) {
+    //     state.exams[payload.examidx].subjects[payload.subidx].currentIndex++
+    //   }
+    // }
   },
   getters: {
     loggedIn(state) {
