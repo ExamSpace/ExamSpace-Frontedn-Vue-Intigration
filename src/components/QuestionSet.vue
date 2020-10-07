@@ -175,6 +175,27 @@ export default {
       // this.$store.dispatch('previous', payload)
       this.currentIndex[subjectIdx]--
     },
+    updateChoice(payload) {
+      if (
+        // state.exams[payload.examidx].subjects[payload.subidx].questions[
+        //   payload.quesidx
+        // ].selectedOptionIdx === payload.optidx
+        this.selectedOptionIdx[payload.subidx][payload.quesidx] ===
+        payload.optidx
+      ) {
+        // state.exams[payload.examidx].subjects[payload.subidx].questions[
+        //   payload.quesidx
+        // ].selectedOptionIdx = -1
+        this.selectedOptionIdx[payload.subidx][payload.quesidx] = -1
+        this.answered[payload.subidx] -= 1
+      } else {
+        // state.exams[payload.examidx].subjects[payload.subidx].questions[
+        //   payload.quesidx
+        // ].selectedOptionIdx = payload.optidx
+        this.selectedOptionIdx[payload.subidx][payload.quesidx] = payload.optidx
+        this.answered[payload.subidx] += 1
+      }
+    },
     optionSelected: function(subidx, quesidx, optidx) {
       var payload = {
         examidx: parseInt(this.examIdx),
@@ -183,27 +204,8 @@ export default {
         optidx: optidx
       }
       // this.$store.dispatch('update_choice', payload)
-      UpdateChoice(payload)
-    },
-    UpdateChoice(payload) {
-      if (
-        // state.exams[payload.examidx].subjects[payload.subidx].questions[
-        //   payload.quesidx
-        // ].selectedOptionIdx === payload.optidx
-        selectedOptionIdx[payload.subidx][payload.quesidx] === payload.optidx
-      ) {
-        // state.exams[payload.examidx].subjects[payload.subidx].questions[
-        //   payload.quesidx
-        // ].selectedOptionIdx = -1
-        selectedOptionIdx[payload.subidx][payload.quesidx] = -1
-        answered[subjectIdx] -= 1
-      } else {
-        // state.exams[payload.examidx].subjects[payload.subidx].questions[
-        //   payload.quesidx
-        // ].selectedOptionIdx = payload.optidx
-        selectedOptionIdx[payload.subidx][payload.quesidx] = payload.optidx
-        answered[subjectIdx] += 1
-      }
+      console.log('Here')
+      this.updateChoice(payload)
     }
   }
 }
