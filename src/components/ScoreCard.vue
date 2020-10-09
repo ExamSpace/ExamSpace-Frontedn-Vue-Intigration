@@ -7,7 +7,7 @@
     </p>
 
     <h1 class="Quiz">{{ examTitle }}</h1>
-    <h2 class="Name">Anonymous</h2>
+    <h2 class="Name">{{ this.$store.state.username }}</h2>
 
     <div class="table">
       <b-table :items="items"></b-table>
