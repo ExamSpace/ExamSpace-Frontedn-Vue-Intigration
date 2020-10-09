@@ -20,7 +20,9 @@
     ></QuestionSet>
     <ScoreCard
       v-else
+      :exam="this.exam"
       :examIdx="$route.params.idx"
+      :subjects="this.subjects"
       :remainingTime="remainingTime"
     ></ScoreCard>
   </div>

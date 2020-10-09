@@ -38,7 +38,7 @@
 
 <script>
 export default {
-  props: ['examIdx'],
+  props: ['examIdx', 'exam', 'subjects', 'questions'],
   name: 'student_marks',
   data() {
     return {
@@ -49,11 +49,11 @@ export default {
       TotalQuestions: 0
     }
   },
-  mounted() {
+  beforeMount() {
     var examid = this.examIdx
-    var exam = this.$store.state.exams[examid]
-
-    exam.subjects.forEach(subject => {
+    var exam = this.exam
+    var subjects = this.subjects
+    subjects.forEach(subject => {
       var item = {
         SubjectName: '',
         TotalQuestions: 0,
@@ -66,7 +66,7 @@ export default {
         HighestMarks: 0,
         Status: ''
       }
-      item.SubjectName = subject.subject
+      item.SubjectName = subject.name
       item.TotalQuestions = subject.questions.length
 
       // calc untouched
@@ -105,7 +105,7 @@ export default {
   },
   computed: {
     examTitle() {
-      return this.$store.state.exams[this.examIdx].exam
+      return this.exam.name
     }
   }
 }

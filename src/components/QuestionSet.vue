@@ -11,13 +11,13 @@
                 :key="subjectIdx"
               >
                 <template v-slot:title>
-                  {{ subject.name }} ({{ currentIndex[subjectIdx] + 1 }} /
+                  {{ subject.name }} ({{ subject.currentIndex + 1 }} /
                   {{ subject.questions.length }})
                 </template>
                 <div>
                   <div class="question">
                     <h4>
-                      {{ subject.questions[currentIndex[subjectIdx]].question }}
+                      {{ subject.questions[subject.currentIndex].question }}
                     </h4>
                   </div>
                   <div
@@ -26,23 +26,22 @@
                     :key="optionIdx"
                     :class="{
                       selected:
-                        selectedOptionIdx[subjectIdx][
-                          currentIndex[subjectIdx]
-                        ] === optionIdx
+                        subject.questions[subject.currentIndex]
+                          .selectedOptionIdx === optionIdx
                     }"
                     @click="
                       optionSelected(
                         subjectIdx,
-                        currentIndex[subjectIdx],
+                        subject.currentIndex,
                         optionIdx
                       )
                     "
                   >
                     <span>{{ slugs[optionIdx] }}.</span>
                     {{
-                      Object.values(
-                        subject.questions[currentIndex[subjectIdx]]
-                      )[optionIdx + 3]
+                      Object.values(subject.questions[subject.currentIndex])[
+                        optionIdx + 3
+                      ]
                     }}
                   </div>
                   <div class="question-navigation">
@@ -50,7 +49,7 @@
                       variant="primary"
                       @click="previousQuestion(subjectIdx)"
                       style="background-color: rgb(0, 22, 121); border-color: rgb(0, 22, 121);"
-                      :disabled="currentIndex[subjectIdx] === 0"
+                      :disabled="subject.currentIndex === 0"
                       >Previous</b-button
                     >
                     <b-button
@@ -58,8 +57,7 @@
                       @click="nextQuestion(subjectIdx)"
                       style="margin-left: 1rem"
                       :disabled="
-                        currentIndex[subjectIdx] ===
-                          subject.questions.length - 1
+                        subject.currentIndex === subject.questions.length - 1
                       "
                       >Next</b-button
                     >
@@ -98,6 +96,7 @@ export default {
       options: ['option1', 'option2', 'option3', 'option4'],
       remainingTime: 0,
       interval: ''
+
       // selectedOptionIdx: -1
       // currentIndex: 0,
       // answered: 0
@@ -112,12 +111,18 @@ export default {
       }
     }
   },
+  beforeMount() {
+    this.subjects.map(e => (e.currentIndex = 0))
+    this.subjects.map(e => (e.answered = 0))
+    this.subjects.map(e => e.questions.map(i => (i.selectedOptionIdx = -1)))
+  },
   mounted() {
     this.remainingTime = parseInt(this.exam.duration)
     this.remainingTime *= 60
     this.interval = setInterval(() => {
       this.remainingTime--
     }, 1000)
+    console.log(this.examIdx)
   },
   filters: {
     subjectQuestions: function(sid) {
@@ -136,27 +141,27 @@ export default {
       var rem = this.remainingTime % (60 * 60)
       rem %= 60
       return rem
-    },
-    currentIndex() {
-      var current = []
-      this.subjects.map(e => current.push(0))
-      return current
-    },
-    answered() {
-      var answer = []
-      this.subjects.map(e => answer.push(0))
-      return answer
-    },
-    selectedOptionIdx() {
-      var selected = []
-      for (var i = 0; i < this.subjects.length; i++) {
-        selected.push([])
-        for (var j = 0; j < this.subjects[i].questions.length; j++) {
-          selected[i].push(-1)
-        }
-      }
-      return selected
     }
+    // currentIndex() {
+    //   var current = []
+    //   this.subjects.map(e => current.push(0))
+    //   return current
+    // },
+    // answered() {
+    //   var answer = []
+    //   this.subjects.map(e => answer.push(0))
+    //   return answer
+    // }
+    // selectedOptionIdx() {
+    //   var selected = []
+    //   for (var i = 0; i < this.subjects.length; i++) {
+    //     selected.push([])
+    //     for (var j = 0; j < this.subjects[i].questions.length; j++) {
+    //       selected[i].push(-1)
+    //     }
+    //   }
+    //   return selected
+    // }
   },
   methods: {
     nextQuestion: function(subjectIdx) {
@@ -165,7 +170,7 @@ export default {
       //   subidx: subjectIdx
       // }
       // this.$store.dispatch('next', payload)
-      this.currentIndex[subjectIdx]++
+      this.subjects[subjectIdx].currentIndex++
     },
     previousQuestion: function(subjectIdx) {
       // var payload = {
@@ -173,27 +178,31 @@ export default {
       //   subidx: subjectIdx
       // }
       // this.$store.dispatch('previous', payload)
-      this.currentIndex[subjectIdx]--
+      this.subjects[subjectIdx].currentIndex--
     },
     updateChoice(payload) {
       if (
         // state.exams[payload.examidx].subjects[payload.subidx].questions[
         //   payload.quesidx
         // ].selectedOptionIdx === payload.optidx
-        this.selectedOptionIdx[payload.subidx][payload.quesidx] ===
-        payload.optidx
+        this.subjects[payload.subidx].questions[payload.quesidx]
+          .selectedOptionIdx == payload.optidx
       ) {
         // state.exams[payload.examidx].subjects[payload.subidx].questions[
         //   payload.quesidx
         // ].selectedOptionIdx = -1
-        this.selectedOptionIdx[payload.subidx][payload.quesidx] = -1
-        this.answered[payload.subidx] -= 1
+        this.subjects[payload.subidx].questions[
+          payload.quesidx
+        ].selectedOptionIdx = -1
+        this.subjects[payload.subidx].answered -= 1
       } else {
         // state.exams[payload.examidx].subjects[payload.subidx].questions[
         //   payload.quesidx
         // ].selectedOptionIdx = payload.optidx
-        this.selectedOptionIdx[payload.subidx][payload.quesidx] = payload.optidx
-        this.answered[payload.subidx] += 1
+        this.subjects[payload.subidx].questions[
+          payload.quesidx
+        ].selectedOptionIdx = -1
+        this.subjects[payload.subidx].answered -= 1
       }
     },
     optionSelected: function(subidx, quesidx, optidx) {
@@ -205,7 +214,21 @@ export default {
       }
       // this.$store.dispatch('update_choice', payload)
       console.log('Here')
-      this.updateChoice(payload)
+      // this.updateChoice(payload)
+      if (
+        this.subjects[payload.subidx].questions[payload.quesidx]
+          .selectedOptionIdx === payload.optidx
+      ) {
+        this.subjects[payload.subidx].questions[
+          payload.quesidx
+        ].selectedOptionIdx = -1
+        this.subjects[payload.subidx].answered -= 1
+      } else {
+        this.subjects[payload.subidx].questions[
+          payload.quesidx
+        ].selectedOptionIdx = payload.optidx
+        this.subjects[payload.subidx].answered += 1
+      }
     }
   }
 }
