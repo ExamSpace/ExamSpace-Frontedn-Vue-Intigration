@@ -90,7 +90,7 @@
         <!-- Right aligned nav items -->
         <b-navbar-nav class="ml-auto">
           <b-nav-item-dropdown text="Exam" right>
-            <b-dropdown-item href="#">EN</b-dropdown-item>
+            <b-dropdown-item href="/exam">Test Exams</b-dropdown-item>
           </b-nav-item-dropdown>
           <b-nav-item href>Courses</b-nav-item>
           <b-nav-item href disabled="">Test Series</b-nav-item>
