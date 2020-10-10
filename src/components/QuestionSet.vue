@@ -111,18 +111,17 @@ export default {
       }
     }
   },
-  beforeMount() {
-    this.subjects.map(e => (e.currentIndex = 0))
-    this.subjects.map(e => (e.answered = 0))
-    this.subjects.map(e => e.questions.map(i => (i.selectedOptionIdx = -1)))
-  },
   mounted() {
     this.remainingTime = parseInt(this.exam.duration)
     this.remainingTime *= 60
     this.interval = setInterval(() => {
       this.remainingTime--
     }, 1000)
-    console.log(this.examIdx)
+    this.subjects.map(e => this.$set(e, 'currentIndex', 0))
+    this.subjects.map(e => this.$set(e, 'answered', 0))
+    this.subjects.map(e =>
+      e.questions.map(i => this.$set(i, 'selectedOptionIdx', -1))
+    )
   },
   filters: {
     subjectQuestions: function(sid) {
