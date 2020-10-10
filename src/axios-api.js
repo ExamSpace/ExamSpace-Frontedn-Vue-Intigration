@@ -9,10 +9,11 @@ const axiosBase = axios.create({
 const getAPI = axios.create({
   baseURL: APIUrl
 })
-getAPI.interceptors.response.use(undefined, function (err) {
+getAPI.interceptors.response.use(undefined, function(err) {
   // if error response status is 401, it means the request was invalid due to expired access token
   if (err.config && err.response && err.response.status === 401) {
-    store.dispatch('refreshToken') // attempt to obtain new access token by running 'refreshToken' action
+    store
+      .dispatch('refreshToken') // attempt to obtain new access token by running 'refreshToken' action
       .then(access => {})
       .catch(err => {
         return Promise.reject(err)

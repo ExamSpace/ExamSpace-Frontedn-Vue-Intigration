@@ -122,8 +122,9 @@ export default new Vuex.Store({
             // if API sends back new access and refresh token update the store
             console.log('New access successfully generated')
             context.commit('updateAccess', response.data.access)
-            localStorage.setItem('access', response.data.access)           
-            resolve(response.data.access)
+            localStorage.setItem('access', response.data.access)
+            window.location.reload()
+            resolve(response)
           })
           .catch(err => {
             console.log('error in refreshToken Task')
