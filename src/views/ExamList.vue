@@ -2,10 +2,10 @@
   <div id="questions">
     <b-container>
       <b-row>
-        <b-col v-for="(exam, index) in exams" :key="index">
+        <b-col md="6" class="mb-3" v-for="(exam, index) in exams" :key="index">
           <b-card no-body class="overflow-hidden" style="max-width: 540px;">
             <b-row no-gutters>
-              <b-col md="6">
+              <b-col md="5">
                 <b-card-img
                   src="https://picsum.photos/400/400/?image=20"
                   alt="Image"
