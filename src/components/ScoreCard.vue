@@ -23,7 +23,7 @@
     <div class="result">
       <p>
         Marks Deducted:
-        <strong>{{ totalWrong }}</strong>
+        <strong>{{ totalMarksLost }}</strong>
       </p>
     </div>
 
@@ -49,8 +49,13 @@ export default {
       items: [],
       totalCorrect: 0,
       totalWrong: 0,
+      totalMarksLost: 0,
       totalMarks: 0,
-      TotalQuestions: 0
+      TotalQuestions: 0,
+      StoreUntouched: 0,
+      StorePercentage: 0,
+      StoreHighestMarks: 0,
+      StoreStatus: ''
     }
   },
   beforeMount() {
@@ -102,9 +107,14 @@ export default {
     })
     this.items.forEach(item => {
       this.totalCorrect += item.Correct
-      this.totalWrong += item.MarksLost
+      this.totalWrong += item.Wrong
+      this.totalMarksLost += item.MarksLost
       this.totalMarks += item.Total
       this.TotalQuestions += item.TotalQuestions
+      this.StoreUntouched += item.Untouched
+      this.StorePercentage += item.Percentage
+      this.StoreHighestMarks += item.HighestMarks
+      this.StoreStatus += item.Status
     })
   },
   computed: {
@@ -114,23 +124,22 @@ export default {
   },
   methods: {
     putGrade() {
-      this.subjects.forEach((e, id) => {
+      this.subjects.forEach(e => {
         getAPI
           .post(
             'api/exam/' + this.$route.params.idx + '/mark/new',
             {
-              user: 1,
               exam: this.examIdx,
-              subject: 1,
-              total_questions: this.TotalQuestions,
-              untouched: this.Untouched,
-              wrong: this.Wrong,
-              correct: this.totalCorrect,
-              marks_lost: this.MarksLost,
-              total: this.totalMarks,
-              percentage: this.Percentage,
-              highest_marks: this.HighestMarks,
-              status: "Status"
+              subject: e.id,
+              total_questions: this.TotalQuestions, //works
+              untouched: this.StoreUntouched, //works
+              wrong: this.totalWrong, //works
+              correct: this.totalCorrect, //works
+              marks_lost: this.totalMarksLost, //works
+              total: this.totalMarks, //works
+              percentage: this.StorePercentage, //works
+              highest_marks: this.StoreHighestMarks, //works
+              status: this.StoreStatus //works
             },
             {
               headers: {

@@ -9,13 +9,15 @@ export default new Vuex.Store({
     accessToken: localStorage.getItem('access') || null,
     refreshToken: localStorage.getItem('refresh') || null,
     username: localStorage.getItem('username') || null,
+    uid: localStorage.getItem('uid'),
     APIData: ''
   },
   mutations: {
-    updateStorage(state, { access, refresh, username }) {
+    updateStorage(state, { access, refresh, username, uid }) {
       state.accessToken = access
       state.refreshToken = refresh
       state.username = username
+      state.uid = uid
     },
     // login(state) {
     //   //state.username = localStorage.getItem('username')
@@ -25,9 +27,11 @@ export default new Vuex.Store({
       localStorage.removeItem('access')
       localStorage.removeItem('refresh')
       localStorage.removeItem('username')
+      localStorage.removeItem('uid')
       state.accessToken = null
       state.refreshToken = null
       state.username = null
+      state.uid = null
     },
     SET_QUESTIONS(state, jsonData) {
       console.log(jsonData)
@@ -109,10 +113,12 @@ export default new Vuex.Store({
             localStorage.setItem('access', response.data.access)
             localStorage.setItem('refresh', response.data.refresh)
             localStorage.setItem('username', usercredentials.username)
+            localStorage.setItem('uid', usercredentials.id)
             context.commit('updateStorage', {
               access: response.data.access,
               refresh: response.data.refresh,
-              username: usercredentials.username
+              username: usercredentials.username,
+              uid: usercredentials.id
             })
             resolve()
           })
