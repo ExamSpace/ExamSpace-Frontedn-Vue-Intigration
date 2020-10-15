@@ -15,6 +15,11 @@ const routes = [
     component: () => import('../views/Login.vue')
   },
   {
+    path: '/staffLogin',
+    name: 'StaffLogin',
+    component: () => import('../views/staffLogin.vue')
+  },
+  {
     path: '/logout',
     name: 'Logout',
     component: () => import('../views/Logout.vue')
@@ -32,10 +37,10 @@ const routes = [
   {
     path: '/exam/:idx',
     name: 'exam',
-    component: () => import('../views/Exam.vue')
-    // meta: {
-    //   requiresLogin: true
-    // }
+    component: () => import('../views/Exam.vue'),
+    meta: {
+      requiresLogin: true
+    }
   },
   {
     path: '/404',

@@ -33,10 +33,14 @@
         <strong>{{ totalMarks }}/{{ TotalQuestions }}</strong>
       </p>
     </div>
+    <div>
+      <b-button @click="putGrade()">Save</b-button>
+    </div>
   </div>
 </template>
 
 <script>
+import { getAPI } from '../axios-api'
 export default {
   props: ['examIdx', 'exam', 'subjects', 'questions'],
   name: 'student_marks',
@@ -106,6 +110,41 @@ export default {
   computed: {
     examTitle() {
       return this.exam.name
+    }
+  },
+  methods: {
+    putGrade() {
+      this.subjects.forEach((e, id) => {
+        getAPI
+          .post(
+            'api/exam/' + this.$route.params.idx + '/mark/new',
+            {
+              user: 1,
+              exam: this.examIdx,
+              subject: 1,
+              total_questions: this.TotalQuestions,
+              untouched: this.Untouched,
+              wrong: this.Wrong,
+              correct: this.totalCorrect,
+              marks_lost: this.MarksLost,
+              total: this.totalMarks,
+              percentage: this.Percentage,
+              highest_marks: this.HighestMarks,
+              status: "Status"
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${this.$store.state.accessToken}`
+              }
+            }
+          )
+          .then(response => {
+            console.log(response)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      })
     }
   }
 }

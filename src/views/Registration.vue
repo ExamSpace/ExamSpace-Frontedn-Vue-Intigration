@@ -18,6 +18,9 @@
                   @submit.prevent="registerUser"
                 >
                   <span class="login-form-title p-b-55">Welcome</span>
+                  <p v-if="incorrectReg" class="text-danger">
+                    Signup Failed!
+                  </p>
                   <div
                     class="wrap-input validate-input m-b-16"
                     data-validate="Username is required"
@@ -88,26 +91,8 @@
                     class="wrap-input validate-input m-b-16"
                     data-validate="Mobile Is Required"
                   ></div>
-                  <div class="container">
-                    <div class="row">
-                      <div class="col s5 offset-s1 right-align">
-                        <input
-                          type="checkbox"
-                          class="input-checkbox"
-                          name
-                          id="ckb1"
-                        />
-                        <label class="label-checkbox" for="ckb1"
-                          >Remember me</label
-                        >
-                      </div>
-                      <div class="col s5 offset-s1 left-align">
-                        <a href=" ">Forgot Password?</a>
-                      </div>
-                    </div>
-                  </div>
 
-                  <div class="container-login-form-btn m-t-32">
+                  <div class="container-login-form-btn m-t-2">
                     <button class="login-form-btn1" type="submit">
                       Signup
                     </button>
@@ -130,7 +115,8 @@ export default {
       username: '',
       password: '',
       email: '',
-      repeat: ''
+      repeat: '',
+      incorrectReg: false
     }
   },
   methods: {
@@ -148,6 +134,7 @@ export default {
         })
         .catch(err => {
           console.log(err)
+          this.incorrectReg = true
         })
     }
   }

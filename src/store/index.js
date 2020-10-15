@@ -145,6 +145,34 @@ export default new Vuex.Store({
           })
       })
     },
+    UserGrade(grade) {
+      // return new Promise((resolve, reject) => {
+      //   getAPI
+      //     .post('api/exam/' + grade.exam + '/mark/new', {
+      //       headers: {
+      //         Authorization: `Bearer ${this.state.accessToken}`
+      //       },
+      //       user: grade.user,
+      //       exam: grade.exam,
+      //       subject: grade.subject,
+      //       total_questions: grade.total_questions,
+      //       untouched: grade.untouched,
+      //       wrong: grade.wrong,
+      //       correct: grade.correct,
+      //       marks_lost: grade.marks_lost,
+      //       total: grade.total,
+      //       percentage: grade.percentage,
+      //       highest_marks: grade.highest_marks,
+      //       status: grade.status
+      //     })
+      //     .then(response => {
+      //       resolve(response)
+      //     })
+      //     .catch(error => {
+      //       reject(error)
+      //     })
+      // })
+    },
     refreshToken(context) {
       return new Promise((resolve, reject) => {
         getAPI
@@ -163,6 +191,7 @@ export default new Vuex.Store({
           })
       })
     },
+
     load({ commit }) {
       commit(
         'SET_QUESTIONS',

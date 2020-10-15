@@ -13,7 +13,11 @@ export default {
   },
   computed: {
     showNav() {
-      if (this.$route.path == '/login' || this.$route.path == '/register') {
+      if (
+        this.$route.path == '/staffLogin' ||
+        this.$route.path == '/login' ||
+        this.$route.path == '/register'
+      ) {
         return false
       }
       return true

@@ -21,7 +21,7 @@
                 >
                   <span class="login-form-title p-b-55">Welcome</span>
                   <p v-if="incorrectAuth" class="text-danger">
-                    Incorrect username or password entered - please try again
+                    Incorrect username or password entered
                   </p>
                   <div
                     class="wrap-input validate-input m-b-16"
@@ -85,9 +85,15 @@
                     <span class="txt1">Or</span>
                   </div>
 
-                  <div class="container-login-form-btn m-t-8">
+                  <div class="container-login-form-btn">
                     <router-link class="login-form-btn1" to="/register"
                       >Signup</router-link
+                    >
+                  </div>
+
+                  <div class="text-center w-full p-t-42 p-b-22">
+                    <router-link to="/staffLogin" class="txt2"
+                      >Staff Only</router-link
                     >
                   </div>
                 </form>
@@ -143,6 +149,12 @@ export default {
 }
 .login-form-btn1 {
   color: white;
+}
+.txt2 {
+  font-style: italic;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: rgb(255, 81, 0);
 }
 @import '../assets/Login/style/style.css';
 @import '../assets/Login/style/util.css';
