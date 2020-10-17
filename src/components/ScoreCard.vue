@@ -33,8 +33,10 @@
         <strong>{{ totalMarks }}/{{ TotalQuestions }}</strong>
       </p>
     </div>
+    <b-button v-if="emptyMark" @click="saveMarks">Save</b-button>
+    <b-button v-else @click="updateMarks">Update Marks</b-button>
     <div>
-      <b-button><router-link to="/rank">Check Rank</router-link></b-button>
+      <b-button @click="showRank(examIdx)" class="mt-2">Check Rank</b-button>
     </div>
   </div>
 </template>
@@ -55,7 +57,9 @@ export default {
       StoreUntouched: 0,
       StorePercentage: 0,
       StoreHighestMarks: 0,
-      StoreStatus: ''
+      StoreStatus: '',
+      emptyMark: true,
+      marks: []
     }
   },
   beforeMount() {
@@ -117,14 +121,29 @@ export default {
       this.StoreStatus += item.Status
     })
   },
-
+  mounted() {
+    this.emptyMark = true
+    getAPI
+      .get('api/exam/' + this.$route.params.idx + '/marksPerUser', {
+        headers: { Authorization: `Bearer ${this.$store.state.accessToken}` }
+      })
+      .then(response => {
+        this.marks = response.data
+        if (this.marks.length > 0) {
+          this.emptyMark = false
+        }
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  },
   computed: {
     examTitle() {
       return this.exam.name
     }
   },
   methods: {
-    putGrade() {
+    saveMarks() {
       this.subjects.forEach(e => {
         getAPI
           .post(
@@ -155,11 +174,40 @@ export default {
             console.log(err)
           })
       })
+      this.emptyMark = false
+    },
+    updateMarks() {
+      this.marks.forEach(e => {
+        getAPI
+          .patch(
+            'api/exam/' + this.$route.params.idx + '/mark/' + e.id,
+            {
+              untouched: this.StoreUntouched, //works
+              wrong: this.totalWrong, //works
+              correct: this.totalCorrect, //works
+              marks_lost: this.totalMarksLost, //works
+              total: this.totalMarks, //works
+              percentage: this.StorePercentage, //works
+              highest_marks: this.StoreHighestMarks, //works
+              status: this.StoreStatus //works
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${this.$store.state.accessToken}`
+              }
+            }
+          )
+          .then(response => {
+            console.log(response)
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      })
+    },
+    showRank(idx) {
+      this.$router.push({ name: 'Rank', params: { idx: idx } })
     }
-  },
-
-  mounted() {
-    this.putGrade()
   }
 }
 </script>

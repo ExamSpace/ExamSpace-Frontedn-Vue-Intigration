@@ -6,7 +6,7 @@
         Total Subjects:
         <span>{{ subjects.length }}</span>
         Total Question :
-        <span>{{ questions.length }}</span>
+        <span>{{ questionsLength }}</span>
       </p>
       <p>Job Entrance > Bank Jobs > Preliminary</p>
       <p>
@@ -36,8 +36,8 @@
       <p>Syllabus: Bank Preliminary Standard</p>
       <p>
         Question:
-        <strong>{{ questions.length }}</strong> Marks:
-        <strong>{{ questions.length }}</strong>
+        <strong>{{ questionsLength }}</strong> Marks:
+        <strong>{{ questionsLength }}</strong>
       </p>
       <p>
         Time:
@@ -72,6 +72,13 @@ export default {
         subs += subject.subject + ' | '
       })
       return subs
+    },
+    questionsLength() {
+      var total = 0
+      this.subjects.forEach(subject => {
+        total += subject.questions.length
+      })
+      return total
     },
     totalQuestions() {
       var total = ''

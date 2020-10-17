@@ -22,6 +22,9 @@
                   <b-button @click="takeExam(index)" variant="primary"
                     >Participate Exam
                   </b-button>
+                  <b-button @click="showRank(index)" variant="primary" class="mt-2"
+                    >Show Rankings
+                  </b-button>
                 </b-card-body>
               </b-col>
             </b-row>
@@ -72,8 +75,12 @@ export default {
       return this.subjects
     },
     takeExam(idx) {
-      var idy = idx + 1
+      var idy = this.exams[idx].id
       this.$router.push({ name: 'exam', params: { idx: idy } })
+    },
+    showRank(idx) {
+      var idy = this.exams[idx].id
+      this.$router.push({ name: 'Rank', params: { idx: idy } })
     }
   },
   mounted() {

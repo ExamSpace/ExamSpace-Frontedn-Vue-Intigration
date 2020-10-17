@@ -111,22 +111,24 @@ export default {
       }
     }
   },
-  mounted() {
-    this.remainingTime = parseInt(this.exam.duration)
-    this.remainingTime *= 60
-    this.interval = setInterval(() => {
-      this.remainingTime--
-    }, 1000)
+  beforeMount() {
     this.subjects.map(e => this.$set(e, 'currentIndex', 0))
     this.subjects.map(e => this.$set(e, 'answered', 0))
     this.subjects.map(e =>
       e.questions.map(i => this.$set(i, 'selectedOptionIdx', -1))
     )
   },
+  mounted() {
+    this.remainingTime = parseInt(this.exam.duration)
+    this.remainingTime *= 60
+    this.interval = setInterval(() => {
+      this.remainingTime--
+    }, 1000)
+  },
   filters: {
-    subjectQuestions: function(sid) {
-      return this.questions.filter(question => question.subject === sid)
-    }
+    // subjectQuestions: function(sid) {
+    //   return this.questions.filter(question => question.subject === sid)
+    // }
   },
   computed: {
     hour() {
