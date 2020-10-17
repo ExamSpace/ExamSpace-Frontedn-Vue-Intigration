@@ -117,7 +117,7 @@ export default {
     this.interval = setInterval(() => {
       this.remainingTime--
     }, 1000)
-    this.subjects.map(e => this.$set(e, 'currentIndex', 0))
+    this.subjects.map(e => this.$set(e, 'currentIndex', 1))
     this.subjects.map(e => this.$set(e, 'answered', 0))
     this.subjects.map(e =>
       e.questions.map(i => this.$set(i, 'selectedOptionIdx', -1))

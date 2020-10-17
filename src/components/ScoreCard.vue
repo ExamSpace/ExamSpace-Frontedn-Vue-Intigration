@@ -33,9 +33,6 @@
         <strong>{{ totalMarks }}/{{ TotalQuestions }}</strong>
       </p>
     </div>
-    <div>
-      <b-button @click="putGrade()">Save</b-button>
-    </div>
   </div>
 </template>
 
@@ -117,6 +114,7 @@ export default {
       this.StoreStatus += item.Status
     })
   },
+
   computed: {
     examTitle() {
       return this.exam.name
@@ -155,6 +153,10 @@ export default {
           })
       })
     }
+  },
+
+  mounted() {
+    this.putGrade()
   }
 }
 </script>
