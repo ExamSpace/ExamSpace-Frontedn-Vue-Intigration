@@ -72,6 +72,13 @@ export default {
         subs += subject.subject + ' | '
       })
       return subs
+    },
+    totalQuestions() {
+      var total = ''
+      subjects.forEach(subject => {
+        total += subject.questions.length
+      })
+      return total
     }
   }
 }

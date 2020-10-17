@@ -33,6 +33,9 @@
         <strong>{{ totalMarks }}/{{ TotalQuestions }}</strong>
       </p>
     </div>
+    <div>
+      <b-button><router-link to="/rank">Check Rank</router-link></b-button>
+    </div>
   </div>
 </template>
 
@@ -175,7 +178,6 @@ export default {
   width: 70%;
   /* margin-left: 15%; */
   margin: 0 auto;
-  overflow: scroll;
   @media (max-width: 550px) {
     width: 95%;
   }
