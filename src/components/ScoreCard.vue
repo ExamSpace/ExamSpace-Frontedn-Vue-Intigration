@@ -109,10 +109,22 @@ export default {
         item.Percentage
       }
       item.HighestMarks = 25
-      if (item.Percentage < 60) {
-        item.Status = 'Need Improvement!'
+
+
+      if (item.Percentage < 90 && item.Percentage > 85) {
+        item.Status = 'Great'
+      } else if (item.Percentage < 85 && item.Percentage > 75) {
+        item.Status = 'Good'
+      } else if (item.Percentage < 75 && item.Percentage > 65) {
+        item.Status = 'Average'
+      } else if (item.Percentage < 65 && item.Percentage > 55) {
+        item.Status = 'Below Average'
+      } else if (item.Percentage < 55 && item.Percentage > 50) {
+        item.Status = 'Need Imporvement'
+      } else if (item.Percentage < 50) {
+        item.Status = 'Fail'
       } else {
-        item.Status = 'Perfect!'
+        item.Status = 'Excellent'
       }
       this.items.push(item)
     })
