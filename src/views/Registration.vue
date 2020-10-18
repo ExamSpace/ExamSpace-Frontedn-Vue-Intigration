@@ -18,9 +18,6 @@
                   @submit.prevent="registerUser"
                 >
                   <span class="login-form-title p-b-55">Welcome</span>
-                  <p v-if="incorrectReg" class="text-danger">
-                    Signup Failed!
-                  </p>
                   <div
                     class="wrap-input validate-input m-b-16"
                     data-validate="Username is required"
@@ -115,8 +112,7 @@ export default {
       username: '',
       password: '',
       email: '',
-      repeat: '',
-      incorrectReg: false
+      repeat: ''
     }
   },
   methods: {
@@ -129,12 +125,12 @@ export default {
           repeat: this.repeat
         })
         .then(() => {
-          //this.$store.commit('login', this.username)
+          this.$alert('Success!')
           this.$router.push('/login')
         })
         .catch(err => {
           console.log(err)
-          this.incorrectReg = true
+          this.$alert('Try Again!')
         })
     }
   }

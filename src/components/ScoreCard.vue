@@ -33,7 +33,7 @@
         <strong>{{ totalMarks }}/{{ TotalQuestions }}</strong>
       </p>
     </div>
-    <b-button v-if="emptyMark" @click="saveMarks">Save</b-button>
+    <b-button v-if="emptyMark" @click="saveMarks">Save Marks</b-button>
     <b-button v-else @click="updateMarks">Update Marks</b-button>
     <div>
       <b-button @click="showRank(examIdx)" class="mt-2">Check Rank</b-button>
@@ -95,14 +95,21 @@ export default {
 
       item.MarksLost = item.Wrong * 0.25
       item.Total = item.Correct - item.MarksLost
+      if (item.Total < 0) {
+        item.Total = 0
+      } else {
+        item.Total
+      }
       item.Percentage = Math.round(
         ((item.Correct - item.MarksLost) / item.TotalQuestions) * 100
       )
-      item.HighestMarks = Math.max(
-        item.Total,
-        Math.floor(Math.random() * item.TotalQuestions)
-      )
-      if (item.Percentage < 70) {
+      if (item.Percentage < 0) {
+        item.Percentage = 0
+      } else {
+        item.Percentage
+      }
+      item.HighestMarks = 25
+      if (item.Percentage < 60) {
         item.Status = 'Need Improvement!'
       } else {
         item.Status = 'Perfect!'

@@ -20,9 +20,6 @@
                   v-on:submit.prevent="login"
                 >
                   <span class="login-form-title p-b-55">Welcome</span>
-                  <p v-if="incorrectAuth" class="text-danger">
-                    Incorrect username or password entered
-                  </p>
                   <div
                     class="wrap-input validate-input m-b-16"
                     data-validate="Mobile or Username is required"
@@ -112,8 +109,7 @@ export default {
   data() {
     return {
       username: '',
-      password: '',
-      incorrectAuth: false
+      password: ''
     }
   },
   methods: {
@@ -129,7 +125,7 @@ export default {
         })
         .catch(err => {
           console.log(err)
-          this.incorrectAuth = true
+          this.$alert('Try Again!')
         })
     }
   }
