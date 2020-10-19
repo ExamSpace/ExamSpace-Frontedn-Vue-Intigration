@@ -92,8 +92,8 @@ export default {
   props: ['examIdx', 'subjects', 'exam'],
   data: function() {
     return {
-      slugs: ['A', 'B', 'C', 'D'],
-      options: ['option1', 'option2', 'option3', 'option4'],
+      slugs: ['A', 'B', 'C', 'D', 'E'],
+      options: ['option1', 'option2', 'option3', 'option4', 'option5'],
       remainingTime: 0,
       interval: ''
 
