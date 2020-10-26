@@ -88,7 +88,16 @@ export default {
         })
         .then(response => {
           this.subjects = response.data
-          console.log.subjects
+          console.log(this.subjects)
+          this.subjects.forEach(e => {
+            for (var i = e.questions.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1))
+              ;[e.questions[i], e.questions[j]] = [
+                e.questions[j],
+                e.questions[i]
+              ]
+            }
+          })
         })
         .catch(err => {
           console.log(err)

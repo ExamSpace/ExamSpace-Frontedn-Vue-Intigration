@@ -9,31 +9,39 @@
       style="text-shadow: 1px 1px 2px #333;"
     >
       <!-- Text slides with image -->
-      <b-carousel-slide>
+      <b-carousel-slide v-for="(image, index) in images" :key="index">
         <template v-slot:img>
-          <img
-            class="d-block img-fluid w-100"
-            src="../assets/BannerSlider/img/img1.png"
-            alt
-          />
+          <img class="d-block img-fluid w-100" :src="image.images" alt />
         </template>
       </b-carousel-slide>
-      <b-carousel-slide>
+      <!-- <b-carousel-slide>
         <template v-slot:img>
-          <img
-            class="d-block img-fluid w-100"
-            src="../assets/BannerSlider/img/img1.png"
-            alt
-          />
+          <img class="d-block img-fluid w-100" :src="images[0].images" alt />
         </template>
-      </b-carousel-slide>
+      </b-carousel-slide> -->
     </b-carousel>
   </div>
 </template>
 
 <script>
+import { getAPI } from '../axios-api'
 export default {
-  name: 'Banner'
+  name: 'Banner',
+  data() {
+    return {
+      images: []
+    }
+  },
+  mounted() {
+    getAPI
+      .get('api/img/banner-slider/')
+      .then(response => {
+        this.images = response.data
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 }
 </script>
 
