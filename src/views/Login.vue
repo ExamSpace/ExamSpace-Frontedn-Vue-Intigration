@@ -120,7 +120,6 @@ export default {
           password: this.password
         })
         .then(() => {
-          //this.$store.commit('login', this.username)
           this.$router.push('/')
         })
         .catch(err => {

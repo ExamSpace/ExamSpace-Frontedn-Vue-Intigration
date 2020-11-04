@@ -1,5 +1,5 @@
 <template>
-  <div class="contained d-flex">
+  <div class="contained d-flex position-fixed">
     <div class="dashboard">
       <h3>My Dashboard</h3>
       <div class="dashboard-navi d-flex">
@@ -10,11 +10,6 @@
         <button type="button" name="button">Promotions</button>
         <button type="button" name="button">Transaction History</button>
       </div>
-    </div>
-    <div class="profile">
-      <h4>Profile Photo</h4>
-      <img src="../assets/Profile/zunaid-examspace.png" alt="profile-picture" />
-      <button type="button" name="button">Upload Profile Photo</button>
     </div>
   </div>
 </template>
@@ -59,34 +54,5 @@ $dark-blue: #020266;
 .dashboard-navi button:hover {
   background-color: $dark-blue;
   color: #ffffff;
-}
-.profile {
-  margin-top: 30px;
-  margin-left: 20px;
-}
-.profile img {
-  width: 140px;
-  margin-left: 10px;
-}
-.profile button {
-  display: block;
-  border: none;
-  font-family: Arial;
-  font-weight: 600;
-  background-color: #cccccc;
-  cursor: pointer;
-  height: 30px;
-  margin-top: 10px;
-  margin-left: 10px;
-  font-size: 12px;
-  width: 140px;
-}
-.profile button:hover {
-  background-color: #b3b3b3;
-}
-.profile h4 {
-  font-family: Arial;
-  font-size: 27px;
-  margin-bottom: 3px;
 }
 </style>

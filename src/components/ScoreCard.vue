@@ -110,7 +110,6 @@ export default {
       }
       item.HighestMarks = 25
 
-
       if (item.Percentage < 90 && item.Percentage > 85) {
         item.Status = 'Great'
       } else if (item.Percentage < 85 && item.Percentage > 75) {
@@ -194,6 +193,59 @@ export default {
           })
       })
       this.emptyMark = false
+      this.saveAnswers()
+    },
+    saveAnswers() {
+      this.subjects.forEach(subject => {
+        subject.questions.forEach(q => {
+          getAPI
+            .post(
+              'api/exam/' +
+                this.$route.params.idx +
+                '/question/' +
+                q.id +
+                '/selected_option=' +
+                q.selectedOptionIdx,
+              {
+                headers: {
+                  Authorization: `Bearer ${this.$store.state.accessToken}`
+                }
+              }
+            )
+            .then(response => {
+              console.log(response)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+        })
+      })
+    },
+    updateAnswers() {
+      this.subjects.forEach(subject => {
+        subject.questions.forEach(q => {
+          getAPI
+            .put(
+              'api/exam/' +
+                this.$route.params.idx +
+                '/question/' +
+                q.id +
+                '/selected_option=' +
+                q.selectedOptionIdx,
+              {
+                headers: {
+                  Authorization: `Bearer ${this.$store.state.accessToken}`
+                }
+              }
+            )
+            .then(response => {
+              console.log(response)
+            })
+            .catch(err => {
+              console.log(err)
+            })
+        })
+      })
     },
     updateMarks() {
       this.marks.forEach(e => {
@@ -223,6 +275,7 @@ export default {
             console.log(err)
           })
       })
+      this.updateAnswers()
     },
     showRank(idx) {
       this.$router.push({ name: 'Rank', params: { idx: idx } })

@@ -1,44 +1,56 @@
 <template>
   <div class="contained">
-    <h4>JAHIRUL ISLAM</h4>
-    <form action="#">
-      <label for="fname">Full Name</label>
-      <input
-        type="text"
-        id="fname"
-        name="firstname"
-        placeholder="Jahirul Islam"
-      />
+    <div class="profile mb-3 ml-5">
+      <h4>Profile Photo</h4>
+      <img src="../assets/Profile/zunaid-examspace.png" alt="profile-picture" />
+      <button type="button" name="button">Upload Profile Photo</button>
+    </div>
+    <div class="form">
+      <h4>Address</h4>
+      <form action="#">
+        <label for="fname">Full Name</label>
+        <input
+          type="text"
+          id="fname"
+          name="firstname"
+          placeholder="Jahirul Islam"
+        />
 
-      <label for="fname">Gender</label>
-      <div id="radioGroup">
-        <div class="wrap">
-          <label for="markStudent">Male</label>
-          <input type="radio" name="radio" id="markMale" value="Male" />
+        <label for="fname">Gender</label>
+        <div id="radioGroup">
+          <div class="wrap">
+            <label for="markStudent">Male</label>
+            <input type="radio" name="radio" id="markMale" value="Male" />
+          </div>
+
+          <div class="wrap">
+            <label for="markAdmin">Female</label>
+            <input type="radio" name="radio" id="markFemale" value="Female" />
+          </div>
         </div>
 
-        <div class="wrap">
-          <label for="markAdmin">Female</label>
-          <input type="radio" name="radio" id="markFemale" value="Female" />
-        </div>
-      </div>
+        <label for="dob">Date Of Birth</label>
+        <input type="date" id="dob" name="dateofbirth" />
 
-      <label for="dob">Date Of Birth</label>
-      <input type="date" id="dob" name="dateofbirth" />
+        <label for="mob">Mobile</label>
+        <input
+          type="text"
+          id="mob"
+          name="mobile"
+          placeholder="+8801XXXXXXXXX"
+        />
 
-      <label for="mob">Mobile</label>
-      <input type="text" id="mob" name="mobile" placeholder="+8801XXXXXXXXX" />
-
-      <label for="email">Email</label>
-      <input
-        type="text"
-        id="email"
-        name="lastname"
-        placeholder="info@examsspace.com"
-      />
-      <p class="alerts">SMS Alert Activation.</p>
-      <input type="submit" value="Update" />
-    </form>
+        <label for="email">Email</label>
+        <input
+          type="text"
+          id="email"
+          name="lastname"
+          placeholder="info@examsspace.com"
+        />
+        <p class="alerts">SMS Alert Activation.</p>
+        <input type="submit" value="Update" />
+      </form>
+    </div>
   </div>
 </template>
 
@@ -54,6 +66,8 @@ export default {
   h4 {
     color: #020266;
   }
+  display: flex;
+  align-items: center;
 }
 
 input[type='text'],
@@ -145,5 +159,36 @@ input[type='submit']:hover {
 #email {
   border-radius: 15px;
   height: 20px;
+}
+.profile {
+  margin-top: 30px;
+}
+.profile img {
+  width: 140px;
+  margin-left: 10px;
+}
+.profile button {
+  display: block;
+  border: none;
+  font-family: Arial;
+  font-weight: 600;
+  background-color: #cccccc;
+  cursor: pointer;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 12px;
+  width: 140px;
+}
+.profile button:hover {
+  background-color: #b3b3b3;
+}
+.profile h4 {
+  font-family: Arial;
+  font-size: 27px;
+  margin-bottom: 3px;
+}
+.form{
+  margin: 0 0 0 350px;
 }
 </style>
