@@ -8,7 +8,6 @@
     </div>
     <div>
       <Address></Address>
-      <Blood></Blood>
       <Configuration class="d-none"></Configuration>
       <Contact></Contact>
       <br />
@@ -20,7 +19,6 @@
 import ProfileCards from '@/components/ProfileCards.vue'
 import ProfileDashboard from '@/components/ProfileDashboard.vue'
 import Address from '@/components/AddressInfo.vue'
-import Blood from '@/components/BloodGroup.vue'
 import Configuration from '@/components/Configurations.vue'
 import Contact from '@/components/Contacts.vue'
 export default {
@@ -29,7 +27,6 @@ export default {
     ProfileCards,
     ProfileDashboard,
     Address,
-    Blood,
     Configuration,
     Contact
   }

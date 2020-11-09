@@ -1,13 +1,23 @@
 <template>
   <div id="register">
-    <form @submit.prevent="putAddress" v-if="update">
-      <p class="h4 text-center mb-4">Address</p>
+    <form @submit.prevent="putProfile" v-if="update">
+      <p class="h4 text-center mb-4">Profile</p>
       <label for="defaultFormRegisterEmailEx" class="grey-text"
         >Full Name</label
       >
       <input
         type="text"
-        v-model="address_info.full_name"
+        v-model="profile_info.full_name"
+        id="defaultFormRegisterEmailEx"
+        class="form-control"
+      />
+      <br />
+      <label for="defaultFormRegisterEmailEx" class="grey-text"
+        >Blood Group</label
+      >
+      <input
+        type="text"
+        v-model="profile_info.blood_group"
         id="defaultFormRegisterEmailEx"
         class="form-control"
       />
@@ -17,7 +27,7 @@
       >
       <input
         type="text"
-        v-model="address_info.address"
+        v-model="profile_info.address"
         id="defaultFormRegisterPasswordEx"
         class="form-control"
       />
@@ -27,7 +37,7 @@
       >
       <input
         type="text"
-        v-model="address_info.address_2"
+        v-model="profile_info.address_2"
         id="defaultFormRegisterPasswordEx2"
         class="form-control"
       />
@@ -35,7 +45,7 @@
       <label for="zip" class="grey-text">Zip Code</label>
       <input
         type="text"
-        v-model="address_info.zip_code"
+        v-model="profile_info.zip_code"
         id="zip"
         class="form-control"
       />
@@ -43,7 +53,7 @@
       <label for="lat" class="grey-text">Latitude</label>
       <input
         type="text"
-        v-model="address_info.lat"
+        v-model="profile_info.lat"
         id="lat"
         class="form-control"
       />
@@ -51,13 +61,13 @@
       <label for="long" class="grey-text">Longitude</label>
       <input
         type="text"
-        v-model="address_info.long"
+        v-model="profile_info.long"
         id="long"
         class="form-control"
       />
       <br />
       <b-form-select
-        v-model="address_info.city"
+        v-model="profile_info.city"
         :options="options"
       ></b-form-select>
       <div class="text-center mt-4">
@@ -65,13 +75,14 @@
       </div>
     </form>
     <div v-else>
-      <p>Name: {{ address_info.full_name }}</p>
-      <p>Address: {{ address_info.address }}</p>
-      <p>Address 2: {{ address_info.address_2 }}</p>
-      <p>Zipe code: {{ address_info.zip_code }}</p>
-      <p>Lat: {{ address_info.lat }}</p>
-      <p>Long: {{ address_info.long }}</p>
-      <p>City: {{ options[address_info.city].text }}</p>
+      <p>Name: {{ profile_info.full_name }}</p>
+      <p>Blood Group: {{ profile_info.blood_group }}</p>
+      <p>Address: {{ profile_info.address }}</p>
+      <p>Address 2: {{ profile_info.address_2 }}</p>
+      <p>Zipe code: {{ profile_info.zip_code }}</p>
+      <p>Lat: {{ profile_info.lat }}</p>
+      <p>Long: {{ profile_info.long }}</p>
+      <p>City: {{ options[profile_info.city].text }}</p>
       <div>
         <b-button @click="edit">Edit</b-button>
       </div>
@@ -85,9 +96,10 @@ export default {
   name: 'Address',
   data() {
     return {
+      isProfileEmpty: true,
       cities: [],
       update: false,
-      address_info: {},
+      profile_info: {},
       fname: '',
       address: '',
       address2: '',
@@ -99,42 +111,70 @@ export default {
     }
   },
   methods: {
-    putAddress() {
-      getAPI
-        .post(
-          'api/userInfo/address/new',
-          {
-            city: this.selected,
-            full_name: this.fname,
-            address: this.address,
-            address_2: this.address2,
-            zip_code: this.zip,
-            lat: this.lat,
-            long: this.long
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${this.$store.state.accessToken}`
+    putProfile() {
+      if (this.isProfileEmpty) {
+        getAPI
+          .post(
+            'api/userInfo/profile/new',
+            {
+              city: this.selected,
+              full_name: this.profile_info.full_name,
+              blood_group: this.profile_info.blood_group,
+              address: this.profile_info.address,
+              address_2: this.profile_info.address_2,
+              zip_code: this.profile_info.zip_code,
+              lat: this.profile_info.lat,
+              long: this.profile_info.long
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${this.$store.state.accessToken}`
+              }
             }
-          }
-        )
-        .then(response => {
-          this.getAddress()
-        })
-        .catch(err => {
-          console.log(err)
-        })
+          )
+          .then(response => {
+            this.getProfile()
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      } else {
+        getAPI
+          .put(
+            'api/userInfo/profile/new',
+            {
+              city: this.selected,
+              full_name: this.fname,
+              address: this.address,
+              address_2: this.address2,
+              zip_code: this.zip,
+              lat: this.lat,
+              long: this.long
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${this.$store.state.accessToken}`
+              }
+            }
+          )
+          .then(response => {
+            this.getProfile()
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
       this.update = false
     },
-    getAddress() {
+    getProfile() {
       getAPI
-        .get('api/userInfo/address', {
+        .get('api/userInfo/profile', {
           headers: {
             Authorization: `Bearer ${this.$store.state.accessToken}`
           }
         })
         .then(response => {
-          this.address_info = response.data
+          this.profile_info = response.data
         })
         .catch(err => {
           console.log(err)
@@ -162,7 +202,12 @@ export default {
     }
   },
   beforeMount() {
-    this.getAddress(), this.getCity()
+    this.getProfile(), this.getCity()
+    if (Object.entries(this.profile_info).length === 0) {
+      this.update = true
+    } else {
+      this.isProfileEmpty = false
+    }
   }
 }
 </script>
