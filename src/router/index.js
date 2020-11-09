@@ -71,6 +71,16 @@ const routes = [
     path: '/rank',
     name: 'Rank',
     component: () => import('../components/Rank.vue')
+  },
+  {
+    path: '/email_verify',
+    name: 'EmailVerification',
+    component: () => import('../components/EmailVerification.vue')
+  },
+  {
+    path: '/forget_password',
+    name: 'ForgetPassword',
+    component: () => import('../components/ForgetPassword.vue')
   }
 ]
 

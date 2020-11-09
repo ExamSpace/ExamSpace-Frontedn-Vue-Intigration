@@ -1,6 +1,6 @@
 <template>
   <div id="register">
-    <form @submit.prevent="putContact" v-if="update">
+    <form @submit.prevent="postContact" v-if="update">
       <p class="h4 text-center mb-4">Contacts</p>
       <label for="name" class="grey-text">Name</label>
       <input
@@ -36,6 +36,7 @@
       <p>Email: {{ contact_info.email }}</p>
       <p>Message: {{ contact_info.message }}</p>
       <div>
+        <b-button class="mr-3" @click="putContact">Save</b-button>
         <b-button @click="edit">Edit</b-button>
       </div>
     </div>
@@ -56,14 +57,14 @@ export default {
     }
   },
   methods: {
-    putContact() {
+    postContact() {
       getAPI
         .post(
           'api/userInfo/contact/new',
           {
-            name: this.contact_info.name,
-            email: this.contact_info.email,
-            message: this.contact_info.message
+            name: this.name,
+            email: this.email,
+            message: this.message
           },
           {
             headers: {
@@ -78,6 +79,30 @@ export default {
           console.log(err)
         })
       this.update = false
+    },
+    putContact() {
+      getAPI
+        .put(
+          'api/userInfo/contact/new',
+          {
+            name: this.contact_info.name,
+            email: this.contact_info.email,
+            message: this.contact_info.message
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${this.$store.state.accessToken}`
+            }
+          }
+        )
+        .then(response => {
+          this.$alert('Saved!')
+          this.getContact()
+        })
+        .catch(err => {
+          this.$alert('Error!')
+          console.log(err)
+        })
     },
     getContact() {
       getAPI

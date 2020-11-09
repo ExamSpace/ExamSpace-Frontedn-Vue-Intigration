@@ -67,7 +67,9 @@
                         >
                       </div>
                       <div class="col s5 offset-s1 left-align">
-                        <a href=" ">Forgot Password?</a>
+                        <router-link to="/forget_password"
+                          >Forget Password?</router-link
+                        >
                       </div>
                     </div>
                   </div>

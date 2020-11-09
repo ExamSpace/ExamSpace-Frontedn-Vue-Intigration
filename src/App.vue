@@ -16,7 +16,9 @@ export default {
       if (
         this.$route.path == '/staffLogin' ||
         this.$route.path == '/login' ||
-        this.$route.path == '/register'
+        this.$route.path == '/register' ||
+        this.$route.path == '/email_verify' ||
+        this.$route.path == '/forget_password'
       ) {
         return false
       }

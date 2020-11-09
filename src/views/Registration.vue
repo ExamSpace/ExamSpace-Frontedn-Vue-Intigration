@@ -88,14 +88,8 @@
                     class="wrap-input validate-input m-b-16"
                     data-validate="Mobile Is Required"
                   ></div>
-
                   <div class="container-login-form-btn m-t-2">
-                    <b-spinner
-                      variant="primary"
-                      label="Spinning"
-                      v-if="loading"
-                    ></b-spinner>
-                    <button class="login-form-btn1" type="submit" v-else>
+                    <button class="login-form-btn1" type="submit">
                       Signup
                     </button>
                   </div>
@@ -117,13 +111,11 @@ export default {
       username: '',
       password: '',
       email: '',
-      repeat: '',
-      loading: false
+      repeat: ''
     }
   },
   methods: {
     registerUser() {
-      this.loading = true
       this.$store
         .dispatch('registerUser', {
           username: this.username,
@@ -139,7 +131,6 @@ export default {
           console.log(err)
           this.$alert('Try Again!')
         })
-      this.loading = false
     }
   }
 }

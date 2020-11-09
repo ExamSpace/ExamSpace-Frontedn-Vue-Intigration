@@ -3,9 +3,6 @@
     <ProfileDashboard></ProfileDashboard>
     <div class="container d-flex flex-wrap">
       <div>
-        <ProfileInfo></ProfileInfo>
-      </div>
-      <div>
         <ProfileCards class="d-none"></ProfileCards>
       </div>
     </div>
@@ -22,7 +19,6 @@
 <script>
 import ProfileCards from '@/components/ProfileCards.vue'
 import ProfileDashboard from '@/components/ProfileDashboard.vue'
-import ProfileInfo from '@/components/ProfileInfo.vue'
 import Address from '@/components/AddressInfo.vue'
 import Blood from '@/components/BloodGroup.vue'
 import Configuration from '@/components/Configurations.vue'
@@ -32,7 +28,6 @@ export default {
   components: {
     ProfileCards,
     ProfileDashboard,
-    ProfileInfo,
     Address,
     Blood,
     Configuration,
@@ -45,7 +40,6 @@ export default {
 .container {
   margin-top: 50px;
   padding-bottom: 50px;
-  background-color: #fbfbfb;
   border-radius: 20px;
   margin-bottom: -80px;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="contained d-flex position-fixed">
+  <div class="contained d-flex position-fixed float-left">
     <div class="dashboard">
       <h3>My Dashboard</h3>
       <div class="dashboard-navi d-flex">
@@ -22,9 +22,6 @@ export default {
 
 <style lang="scss" scoped>
 $dark-blue: #020266;
-.contained {
-  margin: 50px 20px;
-}
 .dashboard-navi {
   flex-direction: column;
 }
