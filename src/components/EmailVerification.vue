@@ -16,8 +16,9 @@
             <div class="limiter m-t-200">
               <div class="container-login">
                 <div class="wrap-login p-l-50 p-r-50 p-t-77 p-b-30">
-                  <h1>Welcome to ExamSpace!!</h1>
-                  <span>Go to</span><router-link to="/">HomePage</router-link>
+                  <h1>Email Acticated!</h1>
+                  <h3>Welcome to ExamSpace!!</h3>
+                  <span>Go to</span><router-link to="/login">Login</router-link>
                 </div>
               </div>
             </div>

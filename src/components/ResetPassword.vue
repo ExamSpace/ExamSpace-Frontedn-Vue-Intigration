@@ -16,30 +16,44 @@
                 <span class="login-form-title p-b-55">Welcome</span>
                 <div
                   class="wrap-input validate-input m-b-16"
-                  data-validate="Email is required"
+                  data-validate="Password is required"
                 >
                   <input
                     class="input mb-3"
-                    type="email"
+                    type="password"
                     name="user"
-                    placeholder="Email"
-                    v-model="email"
+                    placeholder="Password"
+                    v-model="password"
                   />
-                  <div class="container mb-2">
-                    <router-link to="/login">Go back</router-link>
-                  </div>
+                  <input
+                    class="input mb-3"
+                    type="password"
+                    name="user"
+                    placeholder="Confirm Password"
+                    v-model="re_password"
+                  />
                   <div class="container-login-form-btn m-t-2">
                     <button
                       class="login-form-btn1"
                       type="submit"
-                      @click="sendEmail"
+                      @click="resetPassword"
                     >
-                      Send
+                      Update Password
                     </button>
                   </div>
                   <div>
                     <p class="mt-3 text-danger font-weight-bold">
-                      *Link will be sent to your Email
+                      *Never Share your Password with anyone
+                    </p>
+                  </div>
+                  <div>
+                    <p class="mt-1 text-danger font-weight-bold">
+                      *Password must have 8 characters
+                    </p>
+                  </div>
+                  <div>
+                    <p class="mt-1 text-danger font-weight-bold">
+                      *Password must consist of both uppercase and lowercase
                     </p>
                   </div>
                 </div>
@@ -55,25 +69,32 @@
 <script>
 import { getAPI } from '../axios-api'
 export default {
-  name: 'ForgetPassword',
+  name: 'ResetPassword',
   data() {
     return {
-      email: ''
+      token: '',
+      password: '',
+      re_password: ''
     }
   },
   methods: {
-    sendEmail() {
-      getAPI
-        .post('api/auth/password_reset/', {
-          email: this.email
-        })
-        .then(response => {
-          this.$alert('Check Email')
-        })
-        .catch(err => {
-          this.$alert('Incorrect Email!')
-          console.log(err)
-        })
+    resetPassword() {
+      if (this.password == this.re_password) {
+        getAPI
+          .post('api/auth/password_reset/confirm/', {
+            password: this.password,
+            token: this.$route.query.token
+          })
+          .then(response => {
+            this.$alert('Password successfully changed!')
+          })
+          .catch(err => {
+            this.$alert('Try again!')
+            console.log(err)
+          })
+      } else {
+        this.$alert('Password does not match!')
+      }
     }
   }
 }

@@ -2,7 +2,7 @@ import axios from 'axios'
 
 const getAPI = axios.create({
   // baseURL: 'http://localhost:8000/', //localhost
-  baseURL: 'http://localhost:8000/', //Site
+  baseURL: 'http://examspace.ddns.net/', //Site
   timeout: 10000
 })
 

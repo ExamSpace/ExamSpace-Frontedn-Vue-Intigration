@@ -93,6 +93,21 @@
                       Signup
                     </button>
                   </div>
+                  <div>
+                    <p class="mt-3 text-danger font-weight-bold">
+                      *Never Share your Password with anyone
+                    </p>
+                  </div>
+                  <div>
+                    <p class="mt-1 text-danger font-weight-bold">
+                      *Password must have 8 characters
+                    </p>
+                  </div>
+                  <div>
+                    <p class="mt-1 text-danger font-weight-bold">
+                      *Password must consist of both uppercase and lowercase
+                    </p>
+                  </div>
                 </form>
               </div>
             </div>

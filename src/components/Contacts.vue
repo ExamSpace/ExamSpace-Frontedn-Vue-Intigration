@@ -62,9 +62,9 @@ export default {
         .post(
           'api/userInfo/contact/new',
           {
-            name: this.name,
-            email: this.email,
-            message: this.message
+            name: this.contact_info.name,
+            email: this.contact_info.email,
+            message: this.contact_info.message
           },
           {
             headers: {
@@ -85,9 +85,9 @@ export default {
         .put(
           'api/userInfo/contact/new',
           {
-            name: this.contact_info.name,
-            email: this.contact_info.email,
-            message: this.contact_info.message
+            name: this.name,
+            email: this.email,
+            message: this.message
           },
           {
             headers: {
