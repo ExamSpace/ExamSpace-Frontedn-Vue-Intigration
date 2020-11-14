@@ -36,7 +36,6 @@
       <p>Email: {{ this.contact_info.email }}</p>
       <p>Message: {{ this.contact_info.message }}</p>
       <div>
-        <b-button class="mr-3" @click="putContact">Save</b-button>
         <b-button @click="edit">Edit</b-button>
       </div>
     </div>
@@ -49,6 +48,7 @@ export default {
   name: 'Contact',
   data() {
     return {
+      isProfileEmpty: true,
       name: '',
       email: '',
       message: '',
@@ -58,51 +58,50 @@ export default {
   },
   methods: {
     postContact() {
-      getAPI
-        .post(
-          'api/userInfo/contact/new',
-          {
-            name: this.name,
-            email: this.email,
-            message: this.message
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${this.$store.state.accessToken}`
+      if (this.isProfileEmpty) {
+        getAPI
+          .post(
+            'api/userInfo/contact/new',
+            {
+              name: this.contact_info.name,
+              email: this.contact_info.email,
+              message: this.contact_info.message
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${this.$store.state.accessToken}`
+              }
             }
-          }
-        )
-        .then(response => {
-          this.getContact()
-        })
-        .catch(err => {
-          console.log(err)
-        })
+          )
+          .then(response => {
+            this.getContact()
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      } else {
+        getAPI
+          .put(
+            'api/userInfo/contact/new',
+            {
+              name: this.contact_info.name,
+              email: this.contact_info.email,
+              message: this.contact_info.message
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${this.$store.state.accessToken}`
+              }
+            }
+          )
+          .then(response => {
+            this.getContact()
+          })
+          .catch(err => {
+            console.log(err)
+          })
+      }
       this.update = false
-    },
-    putContact() {
-      getAPI
-        .put(
-          'api/userInfo/contact/new',
-          {
-            name: this.contact_info.name,
-            email: this.contact_info.email,
-            message: this.contact_info.message
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${this.$store.state.accessToken}`
-            }
-          }
-        )
-        .then(response => {
-          this.$alert('Saved!')
-          this.getContact()
-        })
-        .catch(err => {
-          this.$alert('Error!')
-          console.log(err)
-        })
     },
     getContact() {
       getAPI
@@ -113,6 +112,11 @@ export default {
         })
         .then(response => {
           this.contact_info = response.data
+          if (Object.entries(this.contact_info).length === 0) {
+            this.update = true
+          } else {
+            this.isProfileEmpty = false
+          }
         })
         .catch(err => {
           console.log(err)
@@ -122,7 +126,7 @@ export default {
       this.update = !this.update
     }
   },
-  mounted() {
+  beforeMount() {
     this.getContact()
   }
 }
