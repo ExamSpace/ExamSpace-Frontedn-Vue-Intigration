@@ -32,9 +32,9 @@
     </form>
     <div v-else>
       <p class="h4 text-center mb-4">Contacts</p>
-      <p>Name: {{ contact_info.name }}</p>
-      <p>Email: {{ contact_info.email }}</p>
-      <p>Message: {{ contact_info.message }}</p>
+      <p>Name: {{ this.contact_info.name }}</p>
+      <p>Email: {{ this.contact_info.email }}</p>
+      <p>Message: {{ this.contact_info.message }}</p>
       <div>
         <b-button class="mr-3" @click="putContact">Save</b-button>
         <b-button @click="edit">Edit</b-button>
@@ -62,9 +62,9 @@ export default {
         .post(
           'api/userInfo/contact/new',
           {
-            name: this.contact_info.name,
-            email: this.contact_info.email,
-            message: this.contact_info.message
+            name: this.name,
+            email: this.email,
+            message: this.message
           },
           {
             headers: {
@@ -85,9 +85,9 @@ export default {
         .put(
           'api/userInfo/contact/new',
           {
-            name: this.name,
-            email: this.email,
-            message: this.message
+            name: this.contact_info.name,
+            email: this.contact_info.email,
+            message: this.contact_info.message
           },
           {
             headers: {

@@ -8,7 +8,7 @@
     </div>
     <div>
       <Address></Address>
-      <Configuration class="d-none"></Configuration>
+      <!-- <Configuration class="d-none"></Configuration> -->
       <Contact></Contact>
       <br />
     </div>
@@ -19,7 +19,7 @@
 import ProfileCards from '@/components/ProfileCards.vue'
 import ProfileDashboard from '@/components/ProfileDashboard.vue'
 import Address from '@/components/AddressInfo.vue'
-import Configuration from '@/components/Configurations.vue'
+// import Configuration from '@/components/Configurations.vue'
 import Contact from '@/components/Contacts.vue'
 export default {
   name: 'Profile',
@@ -27,7 +27,7 @@ export default {
     ProfileCards,
     ProfileDashboard,
     Address,
-    Configuration,
+    // Configuration,
     Contact
   }
 }

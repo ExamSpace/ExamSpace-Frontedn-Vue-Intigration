@@ -1,6 +1,6 @@
 <template>
   <div id="register">
-    <form @submit.prevent="putProfile" v-if="update">
+    <form @submit.prevent="postProfile" v-if="update">
       <p class="h4 text-center mb-4">Profile</p>
       <label for="defaultFormRegisterEmailEx" class="grey-text"
         >Full Name</label
@@ -66,6 +66,7 @@
         class="form-control"
       />
       <br />
+      <label for="long" class="grey-text">City</label>
       <b-form-select v-model="selected" :options="options"></b-form-select>
       <div class="text-center mt-4">
         <b-button class="btn" type="submit">Update</b-button>
@@ -79,8 +80,9 @@
       <p>Zipe code: {{ profile_info.zip_code }}</p>
       <p>Lat: {{ profile_info.lat }}</p>
       <p>Long: {{ profile_info.long }}</p>
-      <p>City: {{ options[profile_info.city] }}</p>
+      <p>City: {{ options[selected] }}</p>
       <div>
+        <b-button class="mr-3" @click="putProfile">Save</b-button>
         <b-button @click="edit">Edit</b-button>
       </div>
     </div>
@@ -97,66 +99,73 @@ export default {
       cities: [],
       update: false,
       profile_info: {},
+      fname: '',
+      address: '',
+      address2: '',
+      zip: '',
+      lat: '',
+      long: '',
+      bloodgroup: '',
       selected: null,
       options: [{ value: null, text: 'Please select an option' }]
     }
   },
   methods: {
-    putProfile() {
-      if (this.isProfileEmpty) {
-        getAPI
-          .post(
-            'api/userInfo/profile/new',
-            {
-              city: this.selected,
-              full_name: this.profile_info.full_name,
-              blood_group: this.profile_info.blood_group,
-              address: this.profile_info.address,
-              address_2: this.profile_info.address_2,
-              zip_code: this.profile_info.zip_code,
-              lat: this.profile_info.lat,
-              long: this.profile_info.long
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${this.$store.state.accessToken}`
-              }
+    postProfile() {
+      getAPI
+        .post(
+          'api/userInfo/profile/new',
+          {
+            full_name: this.profile_info.full_name,
+            blood_group: this.profile_info.blood_group,
+            address: this.profile_info.address,
+            address_2: this.profile_info.address_2,
+            zip_code: this.profile_info.zip_code,
+            lat: this.profile_info.lat,
+            long: this.profile_info.long,
+            city: this.selected
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${this.$store.state.accessToken}`
             }
-          )
-          .then(response => {
-            this.getProfile()
-          })
-          .catch(err => {
-            console.log(err)
-          })
-      } else {
-        getAPI
-          .put(
-            'api/userInfo/profile/new',
-            {
-              city: this.selected,
-              full_name: this.profile_info.full_name,
-              blood_group: this.profile_info.blood_group,
-              address: this.profile_info.address,
-              address_2: this.profile_info.address_2,
-              zip_code: this.profile_info.zip_code,
-              lat: this.profile_info.lat,
-              long: this.profile_info.long
-            },
-            {
-              headers: {
-                Authorization: `Bearer ${this.$store.state.accessToken}`
-              }
-            }
-          )
-          .then(response => {
-            this.getProfile()
-          })
-          .catch(err => {
-            console.log(err)
-          })
-      }
+          }
+        )
+        .then(response => {
+          this.getProfile()
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
       this.update = false
+    },
+    putProfile() {
+      getAPI
+        .put(
+          'api/userInfo/profile/new',
+          {
+            full_name: this.profile_info.full_name,
+            blood_group: this.profile_info.blood_group,
+            address: this.profile_info.address,
+            address_2: this.profile_info.address_2,
+            zip_code: this.profile_info.zip_code,
+            lat: this.profile_info.lat,
+            long: this.profile_info.long,
+            city: this.selected
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${this.$store.state.accessToken}`
+            }
+          }
+        )
+        .then(response => {
+          this.getProfile()
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     getProfile() {
       getAPI
@@ -167,11 +176,6 @@ export default {
         })
         .then(response => {
           this.profile_info = response.data
-          if (Object.entries(this.profile_info).length === 0) {
-            this.update = true
-          } else {
-            this.isProfileEmpty = false
-          }
         })
         .catch(err => {
           console.log(err)
@@ -213,15 +217,3 @@ export default {
   transition-duration: 0.5s;
 }
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
